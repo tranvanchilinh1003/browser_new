@@ -1233,6 +1233,11 @@ body:has(.jmodal:not(.hidden)) header.sticky,
 
 /* Text color utilities (ported from initial CSS) */
 
+.text-primary {
+  --tw-text-opacity: 1;
+  color: rgb(15 23 42 / var(--tw-text-opacity, 1));
+}
+
 .text-secondary {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity, 1));
@@ -1750,12 +1755,20 @@ body:has(.jmodal:not(.hidden)) header.header {
   display: flex;
 }
 
+.inline-flex {
+  display: inline-flex;
+}
+
 .grid {
   display: grid;
 }
 
 .hidden {
   display: none;
+}
+
+.aspect-\[562\/391\] {
+  aspect-ratio: 562/391;
 }
 
 .aspect-\[649\/415\] {
@@ -1867,6 +1880,10 @@ body:has(.jmodal:not(.hidden)) header.header {
   width: 100%;
 }
 
+.w-px {
+  width: 1px;
+}
+
 .max-w-3xl {
   max-width: 48rem;
 }
@@ -1951,6 +1968,10 @@ body:has(.jmodal:not(.hidden)) header.header {
 
 .gap-1\.5 {
   gap: 0.375rem;
+}
+
+.gap-10 {
+  gap: 2.5rem;
 }
 
 .gap-2 {
@@ -2075,6 +2096,10 @@ body:has(.jmodal:not(.hidden)) header.header {
   border-radius: 6px;
 }
 
+.rounded-\[8px\] {
+  border-radius: 8px;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -2153,6 +2178,10 @@ body:has(.jmodal:not(.hidden)) header.header {
   background-color: rgb(211 211 211 / var(--tw-bg-opacity, 1));
 }
 
+.bg-\[rgba\(0\2c 193\2c 232\2c 0\.10\)\] {
+  background-color: rgba(0,193,232,0.10);
+}
+
 .bg-blue-200 {
   --tw-bg-opacity: 1;
   background-color: rgb(191 219 254 / var(--tw-bg-opacity, 1));
@@ -2177,6 +2206,10 @@ body:has(.jmodal:not(.hidden)) header.header {
   background-color: rgb(254 242 242 / var(--tw-bg-opacity, 1));
 }
 
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
@@ -2196,6 +2229,10 @@ body:has(.jmodal:not(.hidden)) header.header {
 
 .bg-\[url\(\'\/assets\/images\/dashboard_banner\.png\'\)\] {
   background-image: url('/assets/images/dashboard_banner.png');
+}
+
+.bg-\[url\(\'\/assets\/images\/dashboard_banner2\.png\'\)\] {
+  background-image: url('/assets/images/dashboard_banner2.png');
 }
 
 .bg-\[url\(\'\/assets\/images\/footer\.png\'\)\] {
@@ -2282,6 +2319,11 @@ body:has(.jmodal:not(.hidden)) header.header {
   padding: 1rem;
 }
 
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -2320,6 +2362,11 @@ body:has(.jmodal:not(.hidden)) header.header {
 .px-\[28\.8px\] {
   padding-left: 28.8px;
   padding-right: 28.8px;
+}
+
+.py-1\.5 {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
 }
 
 .py-12 {
@@ -2394,12 +2441,20 @@ body:has(.jmodal:not(.hidden)) header.header {
   padding-bottom: 0.5rem;
 }
 
+.pb-8 {
+  padding-bottom: 2rem;
+}
+
 .pb-\[48px\] {
   padding-bottom: 48px;
 }
 
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pt-5 {
+  padding-top: 1.25rem;
 }
 
 .pt-6 {
@@ -2412,6 +2467,16 @@ body:has(.jmodal:not(.hidden)) header.header {
 
 .text-center {
   text-align: center;
+}
+
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
 }
 
 .text-\[12px\] {
@@ -2477,6 +2542,10 @@ body:has(.jmodal:not(.hidden)) header.header {
   text-transform: uppercase;
 }
 
+.leading-5 {
+  line-height: 1.25rem;
+}
+
 .leading-\[18px\] {
   line-height: 18px;
 }
@@ -2493,8 +2562,20 @@ body:has(.jmodal:not(.hidden)) header.header {
   line-height: 27px;
 }
 
+.leading-none {
+  line-height: 1;
+}
+
+.leading-normal {
+  line-height: 1.5;
+}
+
 .leading-relaxed {
   line-height: 1.625;
+}
+
+.leading-snug {
+  line-height: 1.375;
 }
 
 .leading-tight {
@@ -2503,6 +2584,10 @@ body:has(.jmodal:not(.hidden)) header.header {
 
 .tracking-\[-0\.5px\] {
   letter-spacing: -0.5px;
+}
+
+.tracking-\[-0\.6px\] {
+  letter-spacing: -0.6px;
 }
 
 .tracking-\[-1px\] {
@@ -2557,6 +2642,10 @@ body:has(.jmodal:not(.hidden)) header.header {
 .text-gray-900 {
   --tw-text-opacity: 1;
   color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+}
+
+.text-primary {
+  color: var(--primary);
 }
 
 .text-red-500 {
@@ -3668,6 +3757,10 @@ button.swiper-pagination-bullet{
     gap: 0.75rem;
   }
 
+  .sm\:gap-8 {
+    gap: 2rem;
+  }
+
   .sm\:space-y-8 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-y-reverse: 0;
     margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
@@ -3687,12 +3780,21 @@ button.swiper-pagination-bullet{
     padding-bottom: 1rem;
   }
 
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .sm\:text-\[14px\] {
     font-size: 14px;
   }
 
   .sm\:text-\[16px\] {
     font-size: 16px;
+  }
+
+  .sm\:text-\[30px\] {
+    font-size: 30px;
   }
 
   .sm\:text-\[40px\] {
@@ -3703,9 +3805,18 @@ button.swiper-pagination-bullet{
     font-size: 48px;
   }
 
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
   .sm\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .sm\:leading-6 {
+    line-height: 1.5rem;
   }
 
   .sm\:leading-\[20px\] {
@@ -3718,6 +3829,10 @@ button.swiper-pagination-bullet{
 
   .sm\:leading-snug {
     line-height: 1.375;
+  }
+
+  .sm\:leading-tight {
+    line-height: 1.25;
   }
 
   .sm\:tracking-\[-0\.5px\] {
@@ -3767,6 +3882,27 @@ button.swiper-pagination-bullet{
   .md\:py-24 {
     padding-top: 6rem;
     padding-bottom: 6rem;
+  }
+
+  .md\:pb-24 {
+    padding-bottom: 6rem;
+  }
+
+  .md\:pt-5 {
+    padding-top: 1.25rem;
+  }
+
+  .md\:text-\[50px\] {
+    font-size: 50px;
+  }
+
+  .md\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .md\:leading-normal {
+    line-height: 1.5;
   }
 }
 

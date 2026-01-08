@@ -1940,6 +1940,10 @@ body:has(.jmodal:not(.hidden)) header.header {
   border-radius: 6px;
 }
 
+.rounded-\[8px\] {
+  border-radius: 8px;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -2095,6 +2099,11 @@ body:has(.jmodal:not(.hidden)) header.header {
 
 .p-4 {
   padding: 1rem;
+}
+
+.px-1 {
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
 }
 
 .px-2 {

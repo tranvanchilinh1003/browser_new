@@ -4,9 +4,9 @@
     activeLink: '',
     navItems: [
       { href: '/', label: 'Home', key: 'index.html' },
-      { href: '/features.html', label: 'Features', key: 'features.html' },
-      { href: '/pricing.html', label: 'Pricing', key: 'pricing.html' },
-      { href: '/user-guide.html', label: 'User Guide', key: 'user-guide.html' }
+      { href: '/#features', label: 'Features', key: 'features.html' },
+      { href: '/#pricing', label: 'Pricing', key: 'pricing.html' },
+      { href: '/#user-guide', label: 'User Guide', key: 'user-guide.html' }
     ],
     init() {
       const currentPath = window.location.pathname;
@@ -32,9 +32,9 @@
   <div x-data="{ open: false, lang: 'EN' }" @click.outside="open = false" class="relative font-semibold text-secondary">
     <!-- Trigger Button -->
     <!-- Nút trigger với border gradient -->
-    <div class="relative rounded-[6px] px-[1px] py-[1px] bg-primary-gradient inline-block">
+    <div class="relative rounded-[8px] px-[1px] py-[1px] bg-primary-gradient inline-block">
       <button @click="open = !open"
-        class="flex items-center gap-2 px-4 py-5 h-9 bg-white rounded-[4px] hover:bg-gray-100 transition-colors">
+        class="flex items-center gap-2 px-4 py-5 h-9 bg-white rounded-[6px] hover:bg-gray-100 transition-colors">
         <!-- Globe Icon -->
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"
           class="flex-shrink-0">
@@ -93,14 +93,37 @@
   <!-- Action Buttons -->
 
   <a href="#"
-    class="relative flex justify-center items-center gap-2.5  self-stretch h-[42px] px-[1px] py-[1px] rounded-[6px] bg-primary-gradient ">
+    class="hidden relative flex justify-center items-center gap-2.5  self-stretch h-[42px] px-[1px] py-[1px] rounded-[8px] bg-primary-gradient ">
     <div
       class="flex justify-center items-center text-secondary hover:bg-gray-100 font-semibold bg-white rounded-[4px] w-full h-full py-[10px] px-6">
       Login
     </div>
   </a>
+  <a href="#"
+    class="relative flex justify-center  items-center gap-2.5  self-stretch h-[42px] px-[1px] py-[1px] rounded-[8px] bg-primary-gradient ">
+    <div
+      class="flex justify-center items-center gap-3 px-1 text-secondary hover:bg-gray-100 font-semibold bg-white rounded-[6px] w-full h-full py-[10px] px-4">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="12" fill="url(#paint0_linear_247_2705)" />
+        <defs>
+          <linearGradient id="paint0_linear_247_2705" x1="0" y1="12" x2="24" y2="12" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2465EA" />
+            <stop offset="0.504808" stop-color="#158DDF" />
+            <stop offset="1" stop-color="#18C8E7" />
+          </linearGradient>
+        </defs>
+      </svg>
+      Name
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M4.14645 6.14645C4.34171 5.95118 4.65829 5.95118 4.85355 6.14645L8 9.29289L11.1464 6.14645C11.3417 5.95118 11.6583 5.95118 11.8536 6.14645C12.0488 6.34171 12.0488 6.65829 11.8536 6.85355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L4.14645 6.85355C3.95118 6.65829 3.95118 6.34171 4.14645 6.14645Z"
+          fill="#64748B" />
+      </svg>
 
-  <a href="/signup.html"
+    </div>
+  </a>
+
+  <a href="#"
     class="flex items-center justify-center gap-2.5 px-6 py-2.5 h-[40px]  
            rounded-[12px] border border-[#08F] 
            bg-primary text-white font-bold shadow-[0_50.4px_128.4px_rgba(87,177,255,0.34),_0_12.321px_16.078px_rgba(87,177,255,0.22)]">

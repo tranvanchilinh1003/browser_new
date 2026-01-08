@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Home - Browser Fingerprint</title>
+	<meta name="description"
+		content="Cửa hàng bán tài khoản premium, key license, VPN và các sản phẩm số chất lượng cao với giá tốt nhất.">
+	<script type="text/javascript">
+		const API_URL = "https://panel.dongnai.net/api/v2/";
+	</script>
+	<!-- Add Inline Hidden Class for Fix CLS -->
+	<style>
+		.hidden {
+			display: none;
+		}
+	</style>
+	<!-- all css -->
+	<link rel="stylesheet" href="assets/css/index_styles.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+		rel="stylesheet">
+
+
+	<!-- 1. CAC THU VIEN CAN SU DUNG -->
+	<!-- Notification Library -->
+	<script src="assets/js/libs/notification.js" defer></script>
+	<!-- Initialize FastNotice -->
+	<script>
+		// Khởi tạo FastNotice với cấu hình tùy chỉnh sau khi DOM sẵn sàng
+		document.addEventListener('DOMContentLoaded', function () {
+			window.fastNotice = new FastNotice({
+				position: 'top-center',    // Vị trí mặc định
+				duration: 3000,              // Thời gian hiển thị (ms)
+				maxNotifications: 3          // Số notification tối đa
+			});
+		});
+	</script>
+	<!-- Lucide Icons - Custom Build -->
+	<script src="assets/js/lucide-custom.min.js" defer></script>
+	<!-- jModal manager -->
+	<script src="assets/js/libs/jmodal.1.1.0.js" defer></script>
+	<!-- Load BlazeSlider Library -->
+	<script src="assets/js/libs/blaze-slider.js" defer></script>
+	<!-- Libs Tabs JS Thuần -->
+	<script src="assets/js/libs/tabs.js" defer></script>
+	<!-- Image Fallback Utility -->
+	<script src="assets/js/libs/image-fallback.js" defer></script>
+
+
+	<!-- 2. CAC CODE JS TU VIET. -->
+
+	<!-- Header Component JS. Vi no goi Cart nen nam sau Cart -->
+	<script src="assets/js/header.js" defer></script>
+	<!-- Homepage Component JS -->
+	<!-- <script src="assets/js/home.js" defer></script> -->
+	<!-- Run BlazeSlider -->
+	<script src="assets/js/sliders.js" defer></script>
+
+	<!-- Alpine.js CDN. Nam duoi cung vi chay Defer va vi no AutoRun nen can load sau cung truoc -->
+	<script src="assets/js/libs/alpinejs.3.15.0.js" defer></script>
+
+
+</head>
+
+<body class="min-h-screen bg-white p-0">
+	<!-- header -->
+	<header class="bg-[linear-gradient(115deg,rgba(176,197,229,0.25)_0%,rgba(255,255,255,0.25)_100%)] backdrop-blur-md border-b border-gray-200 shadow-sm sticky top-0 z-50" x-data="headerComponent()">
+  <!-- Top Bar -->
+  <!-- <div class="bg-gradient-to-r from-emerald-500 to-green-600 text-white py-2">
+    <div class="container">
+      <div class="flex-between text-sm">
+        <div class="flex items-center space-x-6">
+          <div class="flex items-center space-x-2">
+            <i data-lucide="shield-check" class="size-4"></i>
+            <span>Bảo hành 12 tháng</span>
+          </div>
+          <div class="hidden md:flex items-center space-x-2">
+            <i data-lucide="truck" class="size-4"></i>
+            <span>Giao hàng tức thì</span>
+          </div>
+          <div class="hidden lg:flex items-center space-x-2">
+            <i data-lucide="headphones" class="size-4"></i>
+            <span>Hỗ trợ 24/7</span>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="hidden sm:flex items-center space-x-2">
+            <i data-lucide="flame" class="size-4"></i>
+            <span>Flash Sale - Giảm đến 70%</span>
+          </div>
+          <a href="/support" class="hover:text-emerald-200 transition-colors">Liên hệ</a>
+        </div>
+      </div>
+    </div>
+</div> -->
+  <script src="/assets/js/swiper-bundle.min.js"></script>
+  <!-- Main Header -->
+  <div class="container">
+    <div class="flex items-center justify-between h-20">
+      <!-- Mobile Hamburger Menu Button -->
+      <button 
+        @click="openMobileMenu()"
+        class="lg:hidden p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+        aria-label="Open menu"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <!-- Logo -->
+      <div class="flex-1 flex justify-center lg:justify-start lg:flex-none">
+        <a href="/index.html">
+ <img src="/assets/images/logo_header.png" alt="">
+        
+    </a>
+      </div>
+      
+      <!-- Mobile Language Selector -->
+      <div x-data="{ open: false, lang: 'EN' }" 
+           @click.outside="open = false"
+           class="lg:hidden relative">
+           <div
+           class="relative rounded-[6px] px-[1px] py-[1px] bg-gradient-to-r from-[#2465EA] via-[#158DDF] to-[#18C8E7] inline-block">
+           <button @click="open = !open"
+             class="flex items-center gap-2 p-2 h-9 bg-gray-100 rounded-[4px] hover:bg-gray-200 transition-colors">
+             <!-- Globe Icon -->
+             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+               class="flex-shrink-0">
+               <path
+                 d="M8.4538 7.43751H5.54641C5.57884 8.96143 5.77913 10.3179 6.07833 11.3076C6.24293 11.852 6.43017 12.2607 6.61808 12.5236C6.81215 12.7952 6.94672 12.8328 6.99885 12.8333L7.00004 12.8333C7.05124 12.8333 7.18648 12.7973 7.38212 12.5236C7.57004 12.2607 7.75728 11.852 7.92188 11.3075C8.22107 10.3179 8.42137 8.96143 8.4538 7.43751Z"
+                 fill="currentColor" class="text-gray-600" />
+               <path
+                 d="M5.54641 6.56251H8.4538C8.42137 5.03859 8.22107 3.68211 7.92188 2.69246C7.75728 2.14801 7.57004 1.73927 7.38212 1.47637C7.18648 1.20267 7.05131 1.16667 7.0001 1.16667C6.9489 1.16667 6.81372 1.20267 6.61808 1.47638C6.43017 1.73928 6.24293 2.14801 6.07833 2.69247C5.77913 3.68211 5.57884 5.03859 5.54641 6.56251Z"
+                 fill="currentColor" class="text-gray-600" />
+               <path
+                 d="M9.32899 7.43751C9.29652 9.02812 9.08815 10.4735 8.75944 11.5608C8.63133 11.9845 8.48118 12.3666 8.30836 12.686C10.7625 12.1237 12.6262 10.0134 12.8172 7.43751L9.32899 7.43751Z"
+                 fill="currentColor" class="text-gray-600" />
+               <path
+                 d="M12.8172 6.56251L9.32899 6.56251C9.29652 4.97189 9.08815 3.52654 8.75944 2.43925C8.63133 2.01552 8.48118 1.63338 8.30836 1.31396C10.7625 1.87633 12.6262 3.98664 12.8172 6.56251Z"
+                 fill="currentColor" class="text-gray-600" />
+               <path
+                 d="M4.67122 6.56251L1.18286 6.56251C1.37386 3.98658 3.23767 1.87624 5.69186 1.31393C5.51904 1.63335 5.36888 2.0155 5.24077 2.43925C4.91205 3.52654 4.70368 4.9719 4.67122 6.56251Z"
+                 fill="currentColor" class="text-gray-600" />
+               <path
+                 d="M4.67122 7.43751L1.18286 7.43751C1.37386 10.0134 3.23767 12.1238 5.69186 12.6861C5.51904 12.3667 5.36887 11.9845 5.24077 11.5608C4.91205 10.4735 4.70368 9.02812 4.67122 7.43751Z"
+                 fill="currentColor" class="text-gray-600" />
+             </svg>
+     
+             <!-- Selected Language -->
+             <span class="text-sm font-medium text-gray-700" x-text="lang"></span>
+     
+             <!-- Arrow Icon -->
+             <svg width="10" height="6" viewBox="0 0 10 6" class="flex-shrink-0">
+               <path d="M1 1L5 5L9 1" stroke="currentColor" class="text-gray-400" stroke-width="1.5" stroke-linecap="round"
+                 stroke-linejoin="round" />
+             </svg>
+           </button>
+         </div>
+        <div x-show="open" x-transition:enter="transition ease-out duration-100"
+        x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-95"
+        class="absolute right-0 mt-2 rounded-[6px]  z-50 px-[1px] py-[1px] bg-gradient-to-r from-[#2465EA] via-[#158DDF] to-[#18C8E7]">
+  
+        <div class="bg-white rounded-[4px] overflow-hidden shadow-md">
+          <button @click="lang = 'EN'; open = false"
+            class="w-full text-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+            EN
+          </button>
+          <button @click="lang = 'VN'; open = false"
+            class="w-full text-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+            VN
+          </button>
+        </div>
+  
+      </div>
+      </div>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex space-x-6 ml-6">
+  <!-- Navigation Links -->
+  <nav x-data="{
+    activeLink: '',
+    navItems: [
+      { href: '/', label: 'Home', key: 'index.html' },
+      { href: '/features.html', label: 'Features', key: 'features.html' },
+      { href: '/pricing.html', label: 'Pricing', key: 'pricing.html' },
+      { href: '/user-guide.html', label: 'User Guide', key: 'user-guide.html' }
+    ],
+    init() {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.split('/').pop() || 'index.html';
+      this.activeLink = currentPage;
+    },
+    isActive(key) {
+      return this.activeLink === key;
+    }
+  }" class="flex items-center xl:space-x-8 lg:space-x-2">
+    <!-- Dynamic Navigation Items -->
+    <template x-for="item in navItems" :key="item.key">
+      <a :href="item.href" :class="[
+           'cursor-pointer transition-colors duration-200 rounded-lg py-2 px-3  text-base lg:text-sm font-medium',
+           isActive(item.key) 
+             ? 'bg-[#E9F3FD] text-[#2B8CEE]' 
+             : 'text-[#334155] hover:text-[#2B8CEE] hover:bg-[#E9F3FD]'
+         ]" x-text="item.label">
+      </a>
+    </template>
+  </nav>
+  <!-- Language Dropdown -->
+  <div x-data="{ open: false, lang: 'EN' }" @click.outside="open = false" class="relative font-semibold text-secondary">
+    <!-- Trigger Button -->
+    <!-- Nút trigger với border gradient -->
+    <div class="relative rounded-[6px] px-[1px] py-[1px] bg-primary-gradient inline-block">
+      <button @click="open = !open"
+        class="flex items-center gap-2 px-4 py-5 h-9 bg-white rounded-[4px] hover:bg-gray-100 transition-colors">
+        <!-- Globe Icon -->
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+          class="flex-shrink-0">
+          <path
+            d="M8.4538 7.43751H5.54641C5.57884 8.96143 5.77913 10.3179 6.07833 11.3076C6.24293 11.852 6.43017 12.2607 6.61808 12.5236C6.81215 12.7952 6.94672 12.8328 6.99885 12.8333L7.00004 12.8333C7.05124 12.8333 7.18648 12.7973 7.38212 12.5236C7.57004 12.2607 7.75728 11.852 7.92188 11.3075C8.22107 10.3179 8.42137 8.96143 8.4538 7.43751Z"
+            fill="currentColor" class="text-gray-600" />
+          <path
+            d="M5.54641 6.56251H8.4538C8.42137 5.03859 8.22107 3.68211 7.92188 2.69246C7.75728 2.14801 7.57004 1.73927 7.38212 1.47637C7.18648 1.20267 7.05131 1.16667 7.0001 1.16667C6.9489 1.16667 6.81372 1.20267 6.61808 1.47638C6.43017 1.73928 6.24293 2.14801 6.07833 2.69247C5.77913 3.68211 5.57884 5.03859 5.54641 6.56251Z"
+            fill="currentColor" class="text-gray-600" />
+          <path
+            d="M9.32899 7.43751C9.29652 9.02812 9.08815 10.4735 8.75944 11.5608C8.63133 11.9845 8.48118 12.3666 8.30836 12.686C10.7625 12.1237 12.6262 10.0134 12.8172 7.43751L9.32899 7.43751Z"
+            fill="currentColor" class="text-gray-600" />
+          <path
+            d="M12.8172 6.56251L9.32899 6.56251C9.29652 4.97189 9.08815 3.52654 8.75944 2.43925C8.63133 2.01552 8.48118 1.63338 8.30836 1.31396C10.7625 1.87633 12.6262 3.98664 12.8172 6.56251Z"
+            fill="currentColor" class="text-gray-600" />
+          <path
+            d="M4.67122 6.56251L1.18286 6.56251C1.37386 3.98658 3.23767 1.87624 5.69186 1.31393C5.51904 1.63335 5.36888 2.0155 5.24077 2.43925C4.91205 3.52654 4.70368 4.9719 4.67122 6.56251Z"
+            fill="currentColor" class="text-gray-600" />
+          <path
+            d="M4.67122 7.43751L1.18286 7.43751C1.37386 10.0134 3.23767 12.1238 5.69186 12.6861C5.51904 12.3667 5.36887 11.9845 5.24077 11.5608C4.91205 10.4735 4.70368 9.02812 4.67122 7.43751Z"
+            fill="currentColor" class="text-gray-600" />
+        </svg>
+
+        <!-- Selected Language -->
+        <span class="text-sm font-semibold text-secondary " x-text="lang"></span>
+
+        <!-- Arrow Icon -->
+        <svg width="10" height="6" viewBox="0 0 10 6" class="flex-shrink-0">
+          <path d="M1 1L5 5L9 1" stroke="currentColor" class="text-gray-400" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+
+
+    <div x-show="open" x-transition:enter="transition ease-out duration-100"
+      x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-95" class="absolute right-0 mt-2 z-50 px-[1px] py-[1px] rounded-[6px] 
+           bg-primary-gradient">
+      <div class="bg-white rounded-[4px] overflow-hidden shadow-md">
+        <button @click="lang = 'EN'; open = false"
+          class="w-full text-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+          EN
+        </button>
+        <button @click="lang = 'VN'; open = false"
+          class="w-full text-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+          VN
+        </button>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Action Buttons -->
+
+  <a href="#"
+    class="relative flex justify-center items-center gap-2.5  self-stretch h-[42px] px-[1px] py-[1px] rounded-[6px] bg-primary-gradient ">
+    <div
+      class="flex justify-center items-center text-secondary hover:bg-gray-100 font-semibold bg-white rounded-[4px] w-full h-full py-[10px] px-6">
+      Login
+    </div>
+  </a>
+
+  <a href="/signup.html"
+    class="flex items-center justify-center gap-2.5 px-6 py-2.5 h-[40px]  
+           rounded-[12px] border border-[#08F] 
+           bg-primary text-white font-bold shadow-[0_50.4px_128.4px_rgba(87,177,255,0.34),_0_12.321px_16.078px_rgba(87,177,255,0.22)]">
+    Get Started
+  </a>
+
+
+</div>
+    </div>
+  </div>
+  <!-- Mobile Menu Overlay - Using jModal -->
+<div id="mobileMenuModal" class="jmodal hidden lg:hidden flex">
+  <div class="jmodal-slide-left flex flex-col h-full container w-full">
+    <!-- Mobile Menu Header -->
+    <div class="from-emerald-500 to-green-600 pt-6 pb-2 text-white flex-shrink-0">
+      <div class="flex items-center justify-between mb-4">
+        <button data-jmodal-close class="text-white hover:text-gray-200 transition-colors p-1">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 8L8 24M8 8L24 24" stroke="black" stroke-width="2.66667" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+
+        </button>
+        <!-- Mobile Search -->
+        <form action="" method="GET" class="flex-1 mx-4">
+          <div class="relative">
+            <svg class="absolute right-3 top-1/2 transform -translate-y-1/2 text-emerald-700 w-[24px] h-[24px]"
+              viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_dddd_190_20412)">
+                <path
+                  d="M23 21L18.66 16.66M21 11C21 15.4183 17.4183 19 13 19C8.58172 19 5 15.4183 5 11C5 6.58172 8.58172 3 13 3C17.4183 3 21 6.58172 21 11Z"
+                  stroke="url(#paint0_linear_190_20412)" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+              <defs>
+                <filter id="filter0_dddd_190_20412" x="-2" y="0" width="32" height="39" filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="1" />
+                  <feGaussianBlur stdDeviation="0.5" />
+                  <feColorMatrix type="matrix"
+                    values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.1 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_20412" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="3" />
+                  <feGaussianBlur stdDeviation="1.5" />
+                  <feColorMatrix type="matrix"
+                    values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.09 0" />
+                  <feBlend mode="normal" in2="effect1_dropShadow_190_20412" result="effect2_dropShadow_190_20412" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="6" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feColorMatrix type="matrix"
+                    values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.05 0" />
+                  <feBlend mode="normal" in2="effect2_dropShadow_190_20412" result="effect3_dropShadow_190_20412" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="11" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feColorMatrix type="matrix"
+                    values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.01 0" />
+                  <feBlend mode="normal" in2="effect3_dropShadow_190_20412" result="effect4_dropShadow_190_20412" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_190_20412" result="shape" />
+                </filter>
+                <linearGradient id="paint0_linear_190_20412" x1="5.57692" y1="18" x2="23.0833" y2="17.7463"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#05DF85" />
+                  <stop offset="0.576923" stop-color="#2B8CEE" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <input type="text" name="q" id="mobileSearchInput" placeholder="Search..."
+              class="input w-full py-4 px-6 h-full rounded-xl bg-white/90 focus:border-white text-gray-900">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Items - Scrollable -->
+    <div class="flex-1 overflow-y-auto custom-scrollbar bg-white">
+      <nav x-data="{
+        activeLink: '',
+        init() {
+          const currentPath = window.location.pathname;
+          const currentHash = window.location.hash;
+          
+          // Check hash links first
+          if (currentHash) {
+            const hashLinks = ['#index', '#pricing', '#contact'];
+            if (hashLinks.includes(currentHash)) {
+              this.activeLink = currentHash;
+              return;
+            }
+          }
+          
+          // Check page links
+          const currentPage = currentPath.split('/').pop() || 'index.html';
+          
+          if (currentPath.includes('usage-guide')) {
+            this.activeLink = 'usage-guide.html';
+          } else if (currentPage === 'features.html') {
+            this.activeLink = 'features.html';
+          } else if (currentPage === 'blog.html') {
+            this.activeLink = 'blog.html';
+          }
+        },
+        isUsageGuideActive() {
+          return this.activeLink === 'usage-guide.html';
+        }
+      }" class="py-4 space-y-2">
+        <a href="/index.html"
+          :class="activeLink === '#index' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+          class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Home
+        </a>
+        <a href="/features.html"
+          :class="activeLink === 'features.html' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+          class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Features
+        </a>
+
+
+        <a href="/pricing.html"
+          :class="activeLink === '#pricing' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+          class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Pricing
+        </a>
+        <a href="/usage-guide.html"
+          :class="isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+          class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Usage Guide
+        </a>
+      </nav>
+      <div class="flex items-center justify-center space-x-4 mb-4 mt-4">
+        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.526316" y="0.526316" width="38.9474" height="38.9474" rx="19.4737" stroke="#F3F4F6"
+              stroke-width="1.05263" />
+            <circle cx="20" cy="20" r="19.4737" fill="white" stroke="#F3F4F6" stroke-width="1.05263" />
+            <path
+              d="M21.4898 15.1933V17.6606H24.3743L23.9175 20.9841H21.4898V28.6413C21.0031 28.7128 20.5051 28.7501 19.9996 28.7501C19.4161 28.7501 18.8432 28.7009 18.2852 28.6056V20.9841H15.625V17.6606H18.2852V14.6418C18.2852 12.769 19.7199 11.2501 21.4906 11.2501V11.2516C21.4958 11.2516 21.5003 11.2501 21.5056 11.2501H24.375V14.1244H22.5001C21.9428 14.1244 21.4906 14.6029 21.4906 15.1926L21.4898 15.1933Z"
+              fill="#595959" />
+          </svg>
+
+        </a>
+        <a href="#" class="text-gray-600 hover:text-pink-600 transition-colors">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.526316" y="0.526316" width="38.9474" height="38.9474" rx="19.4737" stroke="#F3F4F6"
+              stroke-width="1.05263" />
+            <circle cx="20" cy="20" r="19.4737" fill="white" stroke="#F3F4F6" stroke-width="1.05263" />
+            <path
+              d="M24.5636 11.2501H15.4369C12.9155 11.2501 10.8643 13.3019 10.8643 15.824V24.1761C10.8643 26.6982 12.9155 28.7501 15.4369 28.7501H24.5636C27.085 28.7501 29.1362 26.6982 29.1362 24.1761V15.824C29.1362 13.3019 27.085 11.2501 24.5636 11.2501ZM12.4773 15.824C12.4773 14.1919 13.8052 12.8636 15.4369 12.8636H24.5636C26.1953 12.8636 27.5231 14.1919 27.5231 15.824V24.1761C27.5231 25.8082 26.1953 27.1365 24.5636 27.1365H15.4369C13.8052 27.1365 12.4773 25.8082 12.4773 24.1761V15.824Z"
+              fill="#595959" />
+            <path
+              d="M20.0004 24.253C22.3451 24.253 24.2537 22.3449 24.2537 19.9985C24.2537 17.652 22.3461 15.7439 20.0004 15.7439C17.6547 15.7439 15.7471 17.652 15.7471 19.9985C15.7471 22.3449 17.6547 24.253 20.0004 24.253ZM20.0004 17.3585C21.4564 17.3585 22.6407 18.5431 22.6407 19.9995C22.6407 21.4559 21.4564 22.6405 20.0004 22.6405C18.5444 22.6405 17.3602 21.4559 17.3602 19.9995C17.3602 18.5431 18.5444 17.3585 20.0004 17.3585Z"
+              fill="#595959" />
+            <path
+              d="M24.647 16.4294C25.2784 16.4294 25.793 15.9157 25.793 15.2831C25.793 14.6505 25.2794 14.1367 24.647 14.1367C24.0146 14.1367 23.501 14.6505 23.501 15.2831C23.501 15.9157 24.0146 16.4294 24.647 16.4294Z"
+              fill="#595959" />
+          </svg>
+
+        </a>
+        <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.526316" y="0.526316" width="38.9474" height="38.9474" rx="19.4737" stroke="#F3F4F6"
+              stroke-width="1.05263" />
+            <circle cx="20" cy="20" r="19.4737" fill="white" stroke="#F3F4F6" stroke-width="1.05263" />
+            <path
+              d="M10.6983 11.2501L17.9155 20.9022L10.6533 28.7501H12.2882L18.6469 21.8795L23.784 28.7501H29.3466L21.7237 18.555L28.4837 11.2501H26.8488L20.9934 17.5777L16.262 11.2501H10.6994H10.6983ZM13.1018 12.4544H15.6567L26.9409 27.5457H24.386L13.1018 12.4544Z"
+              fill="#595959" />
+          </svg>
+
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Footer - Fixed at bottom -->
+    <div class="px-6 py-6  border-gray-200 bg-white flex-shrink-0">
+
+
+      <!-- Download Button -->
+      <a href="">
+        <button
+          class="w-full bg-primary text-[18px] font-medium leading-[27px] text-white py-3 px-5 rounded-lg font-medium hover:bg-[#2178d4] transition mb-6 flex items-center gap-2 justify-center">
+          Get Started
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9.21967 17.7803C8.92678 17.4874 8.92678 17.0126 9.21967 16.7197L13.9393 12L9.21967 7.28033C8.92678 6.98744 8.92678 6.51256 9.21967 6.21967C9.51256 5.92678 9.98744 5.92678 10.2803 6.21967L15.5303 11.4697C15.8232 11.7626 15.8232 12.2374 15.5303 12.5303L10.2803 17.7803C9.98744 18.0732 9.51256 18.0732 9.21967 17.7803Z"
+              fill="white" />
+          </svg>
+
+        </button>
+      </a>
+
+      <a href="#"
+        class="relative flex justify-center items-center gap-2.5 self-stretch px-[1.2px] py-[1.2px] rounded-[6px] bg-gradient-to-r from-[#2465EA] via-[#158DDF] to-[#18C8E7]">
+        <button class="flex justify-center items-center bg-white text-secondary rounded-[4px] w-full h-full py-[10px] px-6">
+          Login
+        </button>
+      </a>
+      <!-- Copyright -->
+      <p class="text-xs text-[#595959] text-center mt-[48px]">
+        ©2025 Laragon. All rights reserved.
+      </p>
+    </div>
+  </div>
+</div>
+  
+  <!-- Auth Modal - Using jModal -->
+  <div id="authModal" class="jmodal hidden">
+    <div class="jmodal-content w-full max-w-md max-h-[90vh] overflow-y-auto rounded-xl">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between p-4 sm:p-6 !pb-0">
+        <h3 class="text-responsive-lg font-bold text-gray-900">
+          <span x-show="authTab === 'login'">Đăng Nhập</span>
+          <span x-show="authTab === 'register'">Tạo Tài Khoản</span>
+        </h3>
+        <button data-jmodal-close class="text-gray-400 hover:text-gray-600 transition-colors p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-4 py-2 sm:p-6 sm:py-4 border-b border-gray-100">
+        <!-- Tab Buttons -->
+        <div class="tabs">
+          <div class="tabs-menus">
+            <button class="tab-menu active" data-tab="login">
+            Đăng Nhập 
+            </button>
+            <button class="tab-menu" data-tab="register">
+            Đăng Ký
+            </button>
+          </div>
+             <!-- Login Form -->
+            <div class="tab-content active p-4 sm:p-6 !pt-0" data-tab-content="login">
+                <form @submit.prevent="handleLogin()" class="space-y-4">
+                <div>
+                    <label for="login-email" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Tên đăng
+                    nhập</label>
+                    <div class="input-icon">
+                    <input type="text" id="login-email" x-model="loginForm.email"
+                        class="input input-lg rounded-lg"
+                        :class="errors.email ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập tên đăng nhập">
+                    <i data-lucide="user" class="icon"></i>
+                    </div>
+                    <p x-show="errors.email" x-text="errors.email"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="login-password" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Mật
+                    khẩu</label>
+                    <div class="input-icon">
+                    <input type="password" id="login-password" x-model="loginForm.password"
+                        class="input input-lg rounded-lg"
+                        :class="errors.password ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập mật khẩu">
+                    <i data-lucide="lock" class="icon"></i>
+                    </div>
+                    <p x-show="errors.password" x-text="errors.password"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center">
+                    <input type="checkbox" x-model="loginForm.remember" class="checkbox">
+                    <span class="ml-2 text-sm text-gray-600">Ghi nhớ đăng nhập</span>
+                    </label>
+                    <a href="#" class="text-sm link-primary">Quên mật khẩu?</a>
+                </div>
+                <!-- General Error Message -->
+                <div x-show="errors.general"
+                    class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    <i data-lucide="alert-circle" class="w-4 h-4 inline mr-2"></i>
+                    <span x-text="errors.general"></span>
+                </div>
+                <button type="submit" :disabled="isLoading" class="w-full btn btn-primary btn-lg rounded-lg">
+                    <span x-show="!isLoading">Đăng Nhập</span>
+                    <span x-show="isLoading" class="flex items-center">
+                    <div class="loading loading-sm mr-2"></div>
+                    Đang xử lý...
+                    </span>
+                </button>
+                </form>
+                <!-- Social Login Buttons - Login -->
+                <div class="space-y-3 mt-4 pb-2">
+                <!-- Divider -->
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-200"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white text-gray-500">Hoặc đăng nhập với</span>
+                    </div>
+                </div>
+                <!-- Social Buttons Row -->
+                <div class="grid grid-cols-2 gap-3">
+                    <button type="button" @click="handleFacebookLogin()" :disabled="isLoading"
+                    class="btn btn-outline flex-center space-x-2 py-3 hover:bg-blue-50 hover:border-blue-500 hover:text-blue-600 transition-colors">
+                    <svg class="size-4" viewBox="0 0 24 24" fill="#1877F2">
+                        <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                    <span class="font-medium text-sm">Facebook</span>
+                    </button>
+                    <button type="button" @click="handleGoogleLogin()" :disabled="isLoading"
+                    class="btn btn-outline flex-center space-x-2 py-3 hover:bg-red-50 hover:border-red-500 hover:text-red-600 transition-colors">
+                    <svg class="size-4" viewBox="0 0 24 24">
+                        <path
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                        fill="#4285F4" />
+                        <path
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                        fill="#34A853" />
+                        <path
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                        fill="#FBBC05" />
+                        <path
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                        fill="#EA4335" />
+                    </svg>
+                    <span class="font-medium text-sm">Google</span>
+                    </button>
+                </div>
+                </div>
+            </div>
+            <!-- Register Form -->
+            <div class="tab-content p-4 sm:p-6 !pt-0" data-tab-content="register">
+                <form @submit.prevent="handleRegister()" class="space-y-4 pb-2">
+                <div>
+                    <label for="register-fullname" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Họ và
+                    tên</label>
+                    <div class="input-icon">
+                    <input type="text" id="register-fullname" x-model="registerForm.fullname"
+                        class="input input-lg rounded-lg"
+                        :class="errors.fullname ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập họ và tên">
+                    <i data-lucide="user" class="icon"></i>
+                    </div>
+                    <p x-show="errors.fullname" x-text="errors.fullname"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-username" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Tên
+                    đăng nhập</label>
+                    <div class="input-icon">
+                    <input type="text" id="register-username" x-model="registerForm.username"
+                        class="input input-lg rounded-lg"
+                        :class="errors.username ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập tên đăng nhập">
+                    <i data-lucide="user-check" class="icon"></i>
+                    </div>
+                    <p x-show="errors.username" x-text="errors.username"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-email"
+                    class="block text-responsive-sm font-semibold text-gray-700 mb-2">Email</label>
+                    <div class="input-icon">
+                    <input type="email" id="register-email" x-model="registerForm.email"
+                        class="input input-lg rounded-lg"
+                        :class="errors.email ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập email của bạn">
+                    <i data-lucide="mail" class="icon"></i>
+                    </div>
+                    <p x-show="errors.email" x-text="errors.email"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-phone" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Số điện
+                    thoại</label>
+                    <div class="input-icon">
+                    <input type="tel" id="register-phone" x-model="registerForm.phone"
+                        class="input input-lg rounded-lg"
+                        :class="errors.phone ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập số điện thoại">
+                    <i data-lucide="phone" class="icon"></i>
+                    </div>
+                    <p x-show="errors.phone" x-text="errors.phone"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-password" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Mật
+                    khẩu</label>
+                    <div class="input-icon">
+                    <input type="password" id="register-password" x-model="registerForm.password"
+                        class="input input-lg rounded-lg"
+                        :class="errors.password ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập mật khẩu (ít nhất 6 ký tự)">
+                    <i data-lucide="lock" class="icon"></i>
+                    </div>
+                    <p x-show="errors.password" x-text="errors.password"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-confirm-password"
+                    class="block text-responsive-sm font-semibold text-gray-700 mb-2">Xác nhận mật khẩu</label>
+                    <div class="input-icon">
+                    <input type="password" id="register-confirm-password"
+                        x-model="registerForm.confirmPassword" class="input input-lg rounded-lg"
+                        :class="errors.confirmPassword ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập lại mật khẩu">
+                    <i data-lucide="shield-check" class="icon"></i>
+                    </div>
+                    <p x-show="errors.confirmPassword" x-text="errors.confirmPassword"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label class="flex items-start">
+                    <input type="checkbox" x-model="registerForm.agree" class="checkbox mt-0.5">
+                    <span class="ml-2 text-sm text-gray-600">
+                    Tôi đồng ý với 
+                    <a href="#" class="link-primary">Điều khoản sử dụng</a>
+                    và 
+                    <a href="#" class="link-primary">Chính sách bảo mật</a>
+                    </span>
+                    </label>
+                    <p x-show="errors.agree" x-text="errors.agree"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <!-- General Error Message -->
+                <div x-show="errors.general"
+                    class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    <i data-lucide="alert-circle" class="w-4 h-4 inline mr-2"></i>
+                    <span x-text="errors.general"></span>
+                </div>
+                <button type="submit" :disabled="isLoading" class="w-full btn btn-primary btn-lg rounded-lg">
+                    <span x-show="!isLoading">Tạo Tài Khoản</span>
+                    <span x-show="isLoading" class="flex items-center">
+                    <div class="loading loading-sm mr-2"></div>
+                    Đang xử lý...
+                    </span>
+                </button>
+                </form>
+            </div>
+        </div>
+            
+      </div>
+    </div>
+  </div>
+</header>
+
+	<!-- Main Content Area -->
+	<main class="min-h-screen bg-white w-full ">
+		<section class="relative w-full bg-white overflow-hidden -mt-[80px]">
+  <div
+    class="absolute inset-0 bg-[url('/assets/images/banner_home.png')] bg-cover bg-no-repeat bg-center bg-[#d3d3d3] bg-blend-overlay h-[900px]">
+  </div>
+
+  <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-100/50 to-transparent pointer-events-none">
+  </div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-blue-200 rounded-full blur-3xl opacity-30 pointer-events-none">
+  </div>
+
+  <!-- CONTENT -->
+  <div class="relative container mx-auto z-10">
+    <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-[900px] py-24 lg:py-32">
+
+      <!-- LEFT -->
+      <div class="space-y-6 sm:space-y-8 text-center lg:text-left">
+
+        <h1
+          class="font-ibm font-semibold text-[40px] leading-tight sm:text-[48px] lg:text-[72px] tracking-[-1px] sm:tracking-[-2px] lg:tracking-[-3.6px] text-text-primary">
+          Manage your<br>
+          digital identity<br>
+          with
+          <span class="bg-gradient-to-r from-[#2465EA] via-[#158DDF] to-[#18C8E7] bg-clip-text text-transparent">
+            precision</span>.
+        </h1>
+
+        <!-- Buttons -->
+        <div class="flex flex-col sm:flex-row gap-6 md:justify-center lg:justify-start sm:justify-center">
+          <button
+            class="flex justify-center items-center  px-[28.8px] py-[12px] gap-[4px] rounded-[14.4px]  border-[1.2px] border-[#08F] bg-primary shadow-[0_50.4px_128.4px_rgba(87,177,255,0.34),_0_12.321px_16.078px_rgba(87,177,255,0.22)] text-white font-medium">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M12 3C12.4142 3 12.75 3.33579 12.75 3.75V15.1893L16.7197 11.2197C17.0126 10.9268 17.4874 10.9268 17.7803 11.2197C18.0732 11.5126 18.0732 11.9874 17.7803 12.2803L12.5303 17.5303C12.2374 17.8232 11.7626 17.8232 11.4697 17.5303L6.21967 12.2803C5.92678 11.9874 5.92678 11.5126 6.21967 11.2197C6.51256 10.9268 6.98744 10.9268 7.28033 11.2197L11.25 15.1893V3.75C11.25 3.33579 11.5858 3 12 3Z"
+                fill="white" />
+              <path
+                d="M3.75 19.5C3.33579 19.5 3 19.8358 3 20.25C3 20.6642 3.33579 21 3.75 21H20.25C20.6642 21 21 20.6642 21 20.25C21 19.8358 20.6642 19.5 20.25 19.5H3.75Z"
+                fill="white" />
+            </svg>
+            Download Now
+          </button>
+
+          <div
+            class="relative flex justify-center items-center gap-2.5  self-stretch px-[1.2px] py-[1px] rounded-[14px] bg-primary-gradient ">
+            <button
+              class="flex justify-center items-center text-text-primary hover:bg-gray-100 font-semibold bg-white rounded-xl w-full h-full px-[28.8px] py-[12px] justify-center items-center gap-[8px]">
+              <svg width="24" height="24" class="text-text-body" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M13.9697 17.7803C13.6768 17.4874 13.6768 17.0126 13.9697 16.7197L18.6893 12L13.9697 7.28033C13.6768 6.98744 13.6768 6.51256 13.9697 6.21967C14.2626 5.92678 14.7374 5.92678 15.0303 6.21967L20.2803 11.4697C20.5732 11.7626 20.5732 12.2374 20.2803 12.5303L15.0303 17.7803C14.7374 18.0732 14.2626 18.0732 13.9697 17.7803Z"
+                  fill="#0F172A" />
+                <path
+                  d="M9.53033 6.21967C9.82322 6.51256 9.82322 6.98744 9.53033 7.28033L4.81066 12L9.53033 16.7197C9.82322 17.0126 9.82322 17.4874 9.53033 17.7803C9.23744 18.0732 8.76256 18.0732 8.46967 17.7803L3.21967 12.5303C2.92678 12.2374 2.92678 11.7626 3.21967 11.4697L8.46967 6.21967C8.76256 5.92678 9.23744 5.92678 9.53033 6.21967Z"
+                  fill="#0F172A" />
+              </svg>
+              View API Docs
+            </button>
+          </div>
+        </div>
+
+        <!-- Badges -->
+        <div class="flex items-center gap-4 pt-4 justify-center lg:justify-start">
+          <div class="flex  gap-1.5 text-sm text-gray-600">
+            <svg width="29" height="37" viewBox="0 0 29 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_32_753)" filter="url(#filter0_dddd_32_753)">
+                <path
+                  d="M22.3322 8.50282C22.7128 10.3706 22.4416 12.3123 21.5638 14.0043C20.686 15.6963 19.2546 17.0362 17.5085 17.8006C15.7623 18.565 13.8069 18.7076 11.9683 18.2048C10.1297 17.7019 8.51904 16.584 7.40495 15.0373C6.29085 13.4907 5.74065 11.6089 5.8461 9.70564C5.95156 7.80243 6.70628 5.99289 7.98443 4.5788C9.26257 3.1647 10.9869 2.23151 12.8698 1.93486C14.7527 1.63822 16.6804 1.99604 18.3314 2.94865M11.6647 9.33615L14.1647 11.8362L22.4981 3.50282"
+                  stroke="#31C969" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <defs>
+                <filter id="filter0_dddd_32_753" x="-0.835266" y="-0.830505" width="30" height="38"
+                  filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="1" />
+                  <feGaussianBlur stdDeviation="1" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.478431 0 0 0 0 1 0 0 0 0 0.662745 0 0 0 0.2 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_32_753" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="3" />
+                  <feGaussianBlur stdDeviation="1.5" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.478431 0 0 0 0 1 0 0 0 0 0.662745 0 0 0 0.17 0" />
+                  <feBlend mode="normal" in2="effect1_dropShadow_32_753" result="effect2_dropShadow_32_753" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="7" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.478431 0 0 0 0 1 0 0 0 0 0.662745 0 0 0 0.1 0" />
+                  <feBlend mode="normal" in2="effect2_dropShadow_32_753" result="effect3_dropShadow_32_753" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="12" />
+                  <feGaussianBlur stdDeviation="2.5" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.478431 0 0 0 0 1 0 0 0 0 0.662745 0 0 0 0.03 0" />
+                  <feBlend mode="normal" in2="effect3_dropShadow_32_753" result="effect4_dropShadow_32_753" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_32_753" result="shape" />
+                </filter>
+                <clipPath id="clip0_32_753">
+                  <rect width="20" height="20" fill="white" transform="translate(4.16473 0.169495)" />
+                </clipPath>
+              </defs>
+            </svg>
+
+            <span class="font-medium text-[13px]">Windows, macOS, Linux</span>
+          </div>
+
+          <div class="flex gap-1.5 text-sm text-gray-600">
+            <svg width="29" height="37" viewBox="0 0 29 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_32_757)" filter="url(#filter0_dddd_32_757)">
+                <path
+                  d="M22.3322 8.50282C22.7128 10.3706 22.4416 12.3123 21.5638 14.0043C20.686 15.6963 19.2546 17.0362 17.5085 17.8006C15.7623 18.565 13.8069 18.7076 11.9683 18.2048C10.1297 17.7019 8.51905 16.584 7.40496 15.0373C6.29086 13.4907 5.74066 11.6089 5.84611 9.70564C5.95156 7.80243 6.70629 5.99289 7.98443 4.5788C9.26258 3.1647 10.9869 2.23151 12.8698 1.93486C14.7527 1.63822 16.6804 1.99604 18.3314 2.94865M11.6647 9.33615L14.1647 11.8362L22.4981 3.50282"
+                  stroke="#31C969" stroke-width="1.66667" stroke-linecap="round" stroke-linejoin="round" />
+              </g>
+              <defs>
+                <filter id="filter0_dddd_32_757" x="-0.835266" y="-0.830505" width="30" height="38"
+                  filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="1" />
+                  <feGaussianBlur stdDeviation="1" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.478431 0 0 0 0 1 0 0 0 0 0.662745 0 0 0 0.2 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_32_757" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="3" />
+                  <feGaussianBlur stdDeviation="1.5" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.478431 0 0 0 0 1 0 0 0 0 0.662745 0 0 0 0.17 0" />
+                  <feBlend mode="normal" in2="effect1_dropShadow_32_757" result="effect2_dropShadow_32_757" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="7" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.478431 0 0 0 0 1 0 0 0 0 0.662745 0 0 0 0.1 0" />
+                  <feBlend mode="normal" in2="effect2_dropShadow_32_757" result="effect3_dropShadow_32_757" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="12" />
+                  <feGaussianBlur stdDeviation="2.5" />
+                  <feColorMatrix type="matrix" values="0 0 0 0 0.478431 0 0 0 0 1 0 0 0 0 0.662745 0 0 0 0.03 0" />
+                  <feBlend mode="normal" in2="effect3_dropShadow_32_757" result="effect4_dropShadow_32_757" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_32_757" result="shape" />
+                </filter>
+                <clipPath id="clip0_32_757">
+                  <rect width="20" height="20" fill="white" transform="translate(4.16473 0.169495)" />
+                </clipPath>
+              </defs>
+            </svg>
+
+            <span class="font-medium text-[13px]">Chromium Based</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT MOCKUP -->
+      <div class="flex justify-center lg:justify-end">
+        <div
+          class="w-[85%] sm:w-[75%] md:w-[65%] lg:w-[649px] aspect-[649/415] rounded-2xl bg-[url('/assets/images/dashboard_banner.png')] bg-cover bg-no-repeat bg-center rotate-0 lg:rotate-[-4deg] shadow-lg">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section>
+<section class="py-12 bg-[#F8FAFC]">
+  <div class="container mx-auto ">
+    <div class="text-center mb-10">
+      <p class="text-center text-text-body font-manrope text-[16px] font-medium leading-[24px]">TRUSTED BY 10,000 TEAMS
+        IN AUTOMATION & SECURITY</p>
+    </div>
+
+    <div class="grid grid-cols-5 items-center justify-items-center
+    gap-6 sm:gap-10 md:gap-[80px] lg:gap-[120px]
+    opacity-70 grayscale transition-all duration-300 hover:grayscale-0 xl:px-[300px]">
+
+      <!-- Logo 1: CODE FACE COMPANY -->
+      <div class="w-[40px] sm:w-[50px] md:w-[60px] lg:w-[70px]">
+        <svg width="54" height="59" viewBox="0 0 54 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M3.42202 45.2167C2.81443 45.2167 2.28135 45.1078 1.82279 44.89C1.36422 44.6665 1.0117 44.3541 0.765226 43.9528C0.518749 43.5516 0.39551 43.0902 0.39551 42.5685C0.39551 41.8807 0.553141 41.2616 0.868402 40.7114C1.1894 40.1611 1.63649 39.7312 2.2097 39.4217C2.7829 39.1121 3.43635 38.9574 4.17005 38.9574C4.72606 38.9574 5.21901 39.0577 5.64891 39.2583C6.07882 39.4532 6.39981 39.7312 6.6119 40.0923L5.38238 41.0725C5.09004 40.6025 4.64868 40.3675 4.05828 40.3675C3.67423 40.3675 3.33604 40.4592 3.04371 40.6426C2.75137 40.8203 2.52209 41.0696 2.35586 41.3906C2.19537 41.7059 2.11512 42.0613 2.11512 42.4568C2.11512 42.8637 2.24696 43.1905 2.51063 43.437C2.7743 43.6834 3.13255 43.8067 3.58538 43.8067C4.15859 43.8067 4.64868 43.5745 5.05565 43.1102L6.06162 44.099C5.7349 44.4945 5.35372 44.7811 4.91808 44.9588C4.48245 45.1308 3.98376 45.2167 3.42202 45.2167ZM9.60946 45.2167C9.00186 45.2167 8.47165 45.105 8.01882 44.8814C7.57172 44.6579 7.22493 44.3455 6.97845 43.9442C6.73771 43.543 6.61734 43.0844 6.61734 42.5685C6.61734 41.8807 6.77497 41.2616 7.09023 40.7114C7.41122 40.1611 7.85545 39.7312 8.42293 39.4217C8.99613 39.1121 9.64671 38.9574 10.3747 38.9574C10.9823 38.9574 11.5096 39.0691 11.9567 39.2927C12.4096 39.5162 12.7563 39.8286 12.9971 40.2299C13.2436 40.6311 13.3668 41.0897 13.3668 41.6056C13.3668 42.2934 13.2063 42.9125 12.8853 43.4627C12.57 44.013 12.1258 44.4429 11.5526 44.7525C10.9851 45.062 10.3374 45.2167 9.60946 45.2167ZM9.75562 43.8067C10.1339 43.8067 10.4664 43.7121 10.753 43.5229C11.0396 43.3338 11.2603 43.0816 11.415 42.7663C11.5698 42.4453 11.6472 42.0928 11.6472 41.7087C11.6472 41.3018 11.5211 40.9779 11.2689 40.7372C11.0224 40.4907 10.6756 40.3675 10.2285 40.3675C9.8502 40.3675 9.51774 40.462 9.23114 40.6512C8.94454 40.8403 8.72386 41.0954 8.56909 41.4164C8.41433 41.7317 8.33695 42.0813 8.33695 42.4654C8.33695 42.8723 8.46018 43.1991 8.70666 43.4456C8.95887 43.6863 9.30852 43.8067 9.75562 43.8067ZM14.8345 39.0777H17.4483C18.0674 39.0777 18.6033 39.1809 19.0562 39.3873C19.509 39.5879 19.8558 39.8802 20.0965 40.2643C20.343 40.6426 20.4662 41.0897 20.4662 41.6056C20.4662 42.3049 20.3057 42.9182 19.9847 43.4456C19.6695 43.9729 19.2281 44.3799 18.6606 44.6665C18.0932 44.9531 17.4426 45.0964 16.7089 45.0964H13.6308L14.8345 39.0777ZM16.7605 43.7379C17.1732 43.7379 17.5286 43.6519 17.8266 43.4799C18.1304 43.3022 18.3597 43.0615 18.5145 42.7577C18.6692 42.4482 18.7466 42.0985 18.7466 41.7087C18.7466 41.3018 18.6205 40.9894 18.3683 40.7716C18.1161 40.548 17.7464 40.4362 17.2592 40.4362H16.2618L15.6083 43.7379H16.7605ZM23.3481 40.3932L23.1503 41.4078H25.8243L25.5749 42.6803H22.8924L22.6774 43.7809H25.8329L25.5578 45.0964H20.7342L21.938 39.0777H26.6497L26.3832 40.3932H23.3481ZM31.6528 40.3932L31.3863 41.7173H34.0431L33.7765 43.0328H31.1283L30.7156 45.0964H29.0132L30.217 39.0777H34.9287L34.6621 40.3932H31.6528ZM38.6281 43.927H36.0658L35.3694 45.0964H33.5724L37.4329 39.0777H39.1095L40.5626 45.0964H38.8688L38.6281 43.927ZM38.3701 42.6717L37.966 40.72L36.8139 42.6717H38.3701ZM44.2543 45.2167C43.6467 45.2167 43.1137 45.1078 42.6551 44.89C42.1965 44.6665 41.844 44.3541 41.5975 43.9528C41.3511 43.5516 41.2278 43.0902 41.2278 42.5685C41.2278 41.8807 41.3855 41.2616 41.7007 40.7114C42.0217 40.1611 42.4688 39.7312 43.042 39.4217C43.6152 39.1121 44.2687 38.9574 45.0024 38.9574C45.5584 38.9574 46.0513 39.0577 46.4812 39.2583C46.9111 39.4532 47.2321 39.7312 47.4442 40.0923L46.2147 41.0725C45.9224 40.6025 45.481 40.3675 44.8906 40.3675C44.5065 40.3675 44.1684 40.4592 43.876 40.6426C43.5837 40.8203 43.3544 41.0696 43.1882 41.3906C43.0277 41.7059 42.9474 42.0613 42.9474 42.4568C42.9474 42.8637 43.0793 43.1905 43.3429 43.437C43.6066 43.6834 43.9649 43.8067 44.4177 43.8067C44.9909 43.8067 45.481 43.5745 45.888 43.1102L46.8939 44.099C46.5672 44.4945 46.186 44.7811 45.7504 44.9588C45.3148 45.1308 44.8161 45.2167 44.2543 45.2167ZM49.9315 40.3932L49.7337 41.4078H52.4077L52.1584 42.6803H49.4758L49.2608 43.7809H52.4163L52.1412 45.0964H47.3177L48.5214 39.0777H53.2331L52.9666 40.3932H49.9315Z"
+            fill="#64748B" />
+          <path
+            d="M6.71422 56.9701C6.10663 56.9701 5.55635 56.8382 5.0634 56.5746C4.57617 56.3052 4.19213 55.9354 3.91126 55.4654C3.63612 54.9954 3.49855 54.4652 3.49855 53.8748C3.49855 53.2844 3.63899 52.7542 3.91986 52.2841C4.20073 51.8141 4.58477 51.4473 5.072 51.1836C5.56495 50.9142 6.11522 50.7795 6.72282 50.7795C7.21577 50.7795 7.66574 50.8655 8.07271 51.0374C8.47969 51.2094 8.82361 51.4587 9.10448 51.7855L8.38224 52.4647C7.94661 51.9947 7.41066 51.7597 6.77441 51.7597C6.3617 51.7597 5.99199 51.8514 5.66526 52.0348C5.33853 52.2125 5.08346 52.4618 4.90003 52.7828C4.71661 53.1038 4.6249 53.4678 4.6249 53.8748C4.6249 54.2818 4.71661 54.6457 4.90003 54.9667C5.08346 55.2877 5.33853 55.5399 5.66526 55.7234C5.99199 55.9011 6.3617 55.9899 6.77441 55.9899C7.41066 55.9899 7.94661 55.752 8.38224 55.2763L9.10448 55.9641C8.82361 56.2908 8.47682 56.5402 8.06411 56.7121C7.65714 56.8841 7.20718 56.9701 6.71422 56.9701ZM12.8611 56.9701C12.2478 56.9701 11.6946 56.8382 11.2017 56.5746C10.7087 56.3052 10.3218 55.9354 10.0409 55.4654C9.76006 54.9897 9.61962 54.4594 9.61962 53.8748C9.61962 53.2901 9.76006 52.7628 10.0409 52.2927C10.3218 51.817 10.7087 51.4473 11.2017 51.1836C11.6946 50.9142 12.2478 50.7795 12.8611 50.7795C13.4744 50.7795 14.0276 50.9142 14.5205 51.1836C15.0135 51.4473 15.4004 51.8141 15.6812 52.2841C15.9621 52.7542 16.1025 53.2844 16.1025 53.8748C16.1025 54.4652 15.9621 54.9954 15.6812 55.4654C15.4004 55.9354 15.0135 56.3052 14.5205 56.5746C14.0276 56.8382 13.4744 56.9701 12.8611 56.9701ZM12.8611 55.9899C13.2623 55.9899 13.6234 55.9011 13.9444 55.7234C14.2654 55.5399 14.5176 55.2877 14.7011 54.9667C14.8845 54.64 14.9762 54.276 14.9762 53.8748C14.9762 53.4735 14.8845 53.1124 14.7011 52.7914C14.5176 52.4647 14.2654 52.2125 13.9444 52.0348C13.6234 51.8514 13.2623 51.7597 12.8611 51.7597C12.4598 51.7597 12.0987 51.8514 11.7777 52.0348C11.4567 52.2125 11.2045 52.4647 11.0211 52.7914C10.8377 53.1124 10.746 53.4735 10.746 53.8748C10.746 54.276 10.8377 54.64 11.0211 54.9667C11.2045 55.2877 11.4567 55.5399 11.7777 55.7234C12.0987 55.9011 12.4598 55.9899 12.8611 55.9899ZM22.8159 56.8841L22.8073 52.8946L20.8297 56.1963H20.331L18.3535 52.9462V56.8841H17.2873V50.8655H18.2073L20.5976 54.855L22.9448 50.8655H23.8648L23.8734 56.8841H22.8159ZM27.9754 50.8655C28.497 50.8655 28.9498 50.9514 29.3339 51.1234C29.7236 51.2954 30.0217 51.5418 30.2281 51.8628C30.4344 52.1838 30.5376 52.565 30.5376 53.0064C30.5376 53.442 30.4344 53.8232 30.2281 54.1499C30.0217 54.4709 29.7236 54.7174 29.3339 54.8893C28.9498 55.0613 28.497 55.1473 27.9754 55.1473H26.6169V56.8841H25.4991V50.8655H27.9754ZM27.9238 54.2015C28.411 54.2015 28.7807 54.0983 29.0329 53.892C29.2851 53.6856 29.4112 53.3904 29.4112 53.0064C29.4112 52.6223 29.2851 52.3271 29.0329 52.1208C28.7807 51.9144 28.411 51.8112 27.9238 51.8112H26.6169V54.2015H27.9238ZM35.255 55.4912H32.2457L31.6524 56.8841H30.5003L33.2087 50.8655H34.3092L37.0262 56.8841H35.8569L35.255 55.4912ZM34.8853 54.6142L33.7504 51.9832L32.624 54.6142H34.8853ZM43.1396 50.8655V56.8841H42.2196L38.9008 52.8086V56.8841H37.7916V50.8655H38.7116L42.0305 54.9409V50.8655H43.1396ZM47.349 54.7604V56.8841H46.2312V54.7776L43.8668 50.8655H45.0619L46.8245 53.7974L48.6043 50.8655H49.7048L47.349 54.7604Z"
+            fill="#64748B" />
+          <path
+            d="M10.217 5.79394V13.1206C10.217 14.2942 9.61358 14.8273 8.61769 14.8273H7.44409V18.4555H8.61769C9.61358 18.4555 10.217 18.9886 10.217 20.1622V27.4851C10.217 31.2539 12.2421 33.2828 16.2627 33.2828H18.0398V29.7286H17.2919C15.5149 29.7286 14.6597 28.7328 14.6597 27.026V20.2695C14.6597 18.0667 13.9859 17.1042 12.5605 16.6414C13.9822 16.1786 14.6597 15.2197 14.6597 13.0132V6.25671C14.6597 4.55 15.5112 3.55411 17.2919 3.55411H18.0398V0H16.2627C12.2458 0 10.217 2.0251 10.217 5.79394Z"
+            fill="#64748B" />
+          <path
+            d="M44.7733 14.8273C43.7775 14.8273 43.174 14.2942 43.174 13.1206V5.79394C43.174 2.0251 41.1489 0 37.1283 0H35.3513V3.55411H36.0991C37.8762 3.55411 38.7314 4.55 38.7314 6.25671V13.0132C38.7314 15.216 39.4052 16.1786 40.8305 16.6414C39.4089 17.1042 38.7314 18.063 38.7314 20.2695V27.026C38.7314 28.7328 37.8799 29.7286 36.0991 29.7286H35.3513V33.2828H37.1283C41.1452 33.2828 43.174 31.2576 43.174 27.4851V20.1622C43.174 18.9886 43.7775 18.4555 44.7733 18.4555H45.9469V14.8273H44.7733Z"
+            fill="#64748B" />
+          <path
+            d="M20.2685 13.8092C19.1393 13.8092 18.2249 14.7236 18.2249 15.8528C18.2249 16.982 19.1393 17.8964 20.2685 17.8964C21.3976 17.8964 22.3121 16.982 22.3121 15.8528C22.3121 14.7236 21.3976 13.8092 20.2685 13.8092Z"
+            fill="#64748B" />
+          <path
+            d="M33.9111 17.7388C34.9515 17.3014 35.4404 16.1034 35.0031 15.0629C34.5657 14.0225 33.3677 13.5336 32.3272 13.9709C31.2867 14.4083 30.7978 15.6063 31.2352 16.6468C31.6726 17.6873 32.8706 18.1762 33.9111 17.7388Z"
+            fill="#64748B" />
+          <path
+            d="M27.1434 24.3272C29.0242 24.3272 30.6161 23.1092 31.1862 21.421H23.1043C23.6745 23.1092 25.2664 24.3272 27.1471 24.3272H27.1434Z"
+            fill="#64748B" />
+        </svg>
+
+      </div>
+
+      <!-- Logo 2: MATRIX COMPANY -->
+      <div class="w-[40px] sm:w-[50px] md:w-[60px] lg:w-[70px]">
+        <svg width="47" height="59" viewBox="0 0 47 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.87 39.0777L12.6835 45.0964H11.1101L11.7291 41.9237L9.72577 44.5031H8.97774L7.88579 41.9237L7.24953 45.0964H5.68469L6.88841 39.0777H8.2727L9.68278 42.56L12.417 39.0777H13.87ZM18.2215 43.927H15.6593L14.9628 45.0964H13.1659L17.0264 39.0777H18.703L20.1561 45.0964H18.4623L18.2215 43.927ZM17.9636 42.6717L17.5595 40.72L16.4073 42.6717H17.9636ZM22.5547 40.4276H20.7061L20.9813 39.0777H26.3723L26.0971 40.4276H24.2571L23.3199 45.0964H21.6175L22.5547 40.4276ZM32.002 40.9951C32.002 41.5454 31.8558 42.0211 31.5635 42.4224C31.2711 42.8179 30.8613 43.1074 30.3339 43.2908L31.3571 45.0964H29.5773L28.6831 43.4971H27.8233L27.5052 45.0964H25.8028L27.0065 39.0777H29.5773C30.3454 39.0777 30.9415 39.2468 31.3657 39.585C31.7899 39.9232 32.002 40.3932 32.002 40.9951ZM30.2823 41.1585C30.2823 40.912 30.1992 40.7286 30.033 40.6082C29.8668 40.4821 29.6346 40.419 29.3366 40.419H28.4424L28.0812 42.1816H29.0958C29.4741 42.1816 29.7665 42.0928 29.9728 41.9151C30.1792 41.7374 30.2823 41.4852 30.2823 41.1585ZM33.3711 39.0777H35.0735L33.8697 45.0964H32.1673L33.3711 39.0777ZM39.1822 42.0785L40.8158 45.0964H38.9758L38.0644 43.2908L36.491 45.0964H34.4533L37.3164 41.9839L35.7774 39.0777H37.5916L38.4686 40.806L39.999 39.0777H41.925L39.1822 42.0785Z"
+            fill="#64748B" />
+          <path
+            d="M3.59398 56.9701C2.98639 56.9701 2.43611 56.8382 1.94316 56.5746C1.45594 56.3052 1.07189 55.9354 0.79102 55.4654C0.515883 54.9954 0.378314 54.4652 0.378314 53.8748C0.378314 53.2844 0.518749 52.7542 0.799618 52.2841C1.08049 51.8141 1.46453 51.4473 1.95176 51.1836C2.44471 50.9142 2.99499 50.7795 3.60258 50.7795C4.09553 50.7795 4.5455 50.8655 4.95247 51.0374C5.35945 51.2094 5.70337 51.4587 5.98424 51.7855L5.262 52.4647C4.82637 51.9947 4.29042 51.7597 3.65417 51.7597C3.24146 51.7597 2.87175 51.8514 2.54502 52.0348C2.2183 52.2125 1.96322 52.4618 1.7798 52.7828C1.59637 53.1038 1.50466 53.4678 1.50466 53.8748C1.50466 54.2818 1.59637 54.6457 1.7798 54.9667C1.96322 55.2877 2.2183 55.5399 2.54502 55.7234C2.87175 55.9011 3.24146 55.9899 3.65417 55.9899C4.29042 55.9899 4.82637 55.752 5.262 55.2763L5.98424 55.9641C5.70337 56.2908 5.35658 56.5402 4.94388 56.7121C4.5369 56.8841 4.08694 56.9701 3.59398 56.9701ZM9.74084 56.9701C9.12752 56.9701 8.57438 56.8382 8.08142 56.5746C7.58847 56.3052 7.20156 55.9354 6.92069 55.4654C6.63982 54.9897 6.49938 54.4594 6.49938 53.8748C6.49938 53.2901 6.63982 52.7628 6.92069 52.2927C7.20156 51.817 7.58847 51.4473 8.08142 51.1836C8.57438 50.9142 9.12752 50.7795 9.74084 50.7795C10.3542 50.7795 10.9073 50.9142 11.4003 51.1836C11.8932 51.4473 12.2801 51.8141 12.561 52.2841C12.8419 52.7542 12.9823 53.2844 12.9823 53.8748C12.9823 54.4652 12.8419 54.9954 12.561 55.4654C12.2801 55.9354 11.8932 56.3052 11.4003 56.5746C10.9073 56.8382 10.3542 56.9701 9.74084 56.9701ZM9.74084 55.9899C10.1421 55.9899 10.5032 55.9011 10.8242 55.7234C11.1452 55.5399 11.3974 55.2877 11.5808 54.9667C11.7643 54.64 11.856 54.276 11.856 53.8748C11.856 53.4735 11.7643 53.1124 11.5808 52.7914C11.3974 52.4647 11.1452 52.2125 10.8242 52.0348C10.5032 51.8514 10.1421 51.7597 9.74084 51.7597C9.3396 51.7597 8.97848 51.8514 8.65749 52.0348C8.3365 52.2125 8.08429 52.4647 7.90086 52.7914C7.71744 53.1124 7.62573 53.4735 7.62573 53.8748C7.62573 54.276 7.71744 54.64 7.90086 54.9667C8.08429 55.2877 8.3365 55.5399 8.65749 55.7234C8.97848 55.9011 9.3396 55.9899 9.74084 55.9899ZM19.6956 56.8841L19.687 52.8946L17.7095 56.1963H17.2108L15.2332 52.9462V56.8841H14.1671V50.8655H15.0871L17.4773 54.855L19.8246 50.8655H20.7446L20.7532 56.8841H19.6956ZM24.8551 50.8655C25.3767 50.8655 25.8296 50.9514 26.2136 51.1234C26.6034 51.2954 26.9015 51.5418 27.1078 51.8628C27.3142 52.1838 27.4173 52.565 27.4173 53.0064C27.4173 53.442 27.3142 53.8232 27.1078 54.1499C26.9015 54.4709 26.6034 54.7174 26.2136 54.8893C25.8296 55.0613 25.3767 55.1473 24.8551 55.1473H23.4966V56.8841H22.3789V50.8655H24.8551ZM24.8035 54.2015C25.2908 54.2015 25.6605 54.0983 25.9127 53.892C26.1649 53.6856 26.291 53.3904 26.291 53.0064C26.291 52.6223 26.1649 52.3271 25.9127 52.1208C25.6605 51.9144 25.2908 51.8112 24.8035 51.8112H23.4966V54.2015H24.8035ZM32.1348 55.4912H29.1255L28.5322 56.8841H27.3801L30.0885 50.8655H31.189L33.906 56.8841H32.7366L32.1348 55.4912ZM31.7651 54.6142L30.6301 51.9832L29.5038 54.6142H31.7651ZM40.0194 50.8655V56.8841H39.0994L35.7806 52.8086V56.8841H34.6714V50.8655H35.5914L38.9102 54.9409V50.8655H40.0194ZM44.2287 54.7604V56.8841H43.111V54.7776L40.7465 50.8655H41.9417L43.7043 53.7974L45.4841 50.8655H46.5846L44.2287 54.7604Z"
+            fill="#64748B" />
+          <path
+            d="M23.3846 0L8.97357 8.32069V24.9621L23.3846 33.2828L37.7955 24.9621V8.32069L23.3846 0ZM33.3891 22.416L23.388 28.1905L13.3868 22.416V10.8668L23.388 5.09222L33.3891 10.8668V22.416Z"
+            fill="#64748B" />
+          <path
+            d="M23.6169 9.38507L17.3348 13.0115V20.2678L23.6169 23.8943L29.899 20.2678V13.0115L23.6169 9.38507ZM27.9783 19.1584L23.6169 21.6754L19.2555 19.1584V14.1244L23.6169 11.6074L27.9783 14.1244V19.1584Z"
+            fill="#64748B" />
+        </svg>
+
+      </div>
+
+      <!-- Logo 3: HOME CODES -->
+      <div class="w-[40px] sm:w-[50px] md:w-[60px] lg:w-[70px]">
+        <svg width="36" height="59" viewBox="0 0 36 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M11.1566 39.0777L9.95291 45.0964H8.2505L8.71479 42.7577H6.40192L5.93762 45.0964H4.23521L5.43893 39.0777H7.14135L6.69425 41.3304H9.00712L9.45422 39.0777H11.1566ZM14.4124 45.2167C13.8048 45.2167 13.2746 45.105 12.8218 44.8814C12.3747 44.6579 12.0279 44.3455 11.7814 43.9442C11.5407 43.543 11.4203 43.0844 11.4203 42.5685C11.4203 41.8807 11.5779 41.2616 11.8932 40.7114C12.2142 40.1611 12.6584 39.7312 13.2259 39.4217C13.7991 39.1121 14.4497 38.9574 15.1776 38.9574C15.7852 38.9574 16.3126 39.0691 16.7597 39.2927C17.2125 39.5162 17.5593 39.8286 17.8 40.2299C18.0465 40.6311 18.1697 41.0897 18.1697 41.6056C18.1697 42.2934 18.0093 42.9125 17.6883 43.4627C17.373 44.013 16.9288 44.4429 16.3556 44.7525C15.7881 45.062 15.1404 45.2167 14.4124 45.2167ZM14.5586 43.8067C14.9369 43.8067 15.2693 43.7121 15.5559 43.5229C15.8425 43.3338 16.0632 43.0816 16.218 42.7663C16.3728 42.4453 16.4501 42.0928 16.4501 41.7087C16.4501 41.3018 16.324 40.9779 16.0718 40.7372C15.8253 40.4907 15.4786 40.3675 15.0315 40.3675C14.6531 40.3675 14.3207 40.462 14.0341 40.6512C13.7475 40.8403 13.5268 41.0954 13.372 41.4164C13.2173 41.7317 13.1399 42.0813 13.1399 42.4654C13.1399 42.8723 13.2631 43.1991 13.5096 43.4456C13.7618 43.6863 14.1115 43.8067 14.5586 43.8067ZM26.6191 39.0777L25.4325 45.0964H23.8591L24.4782 41.9237L22.4748 44.5031H21.7268L20.6348 41.9237L19.9986 45.0964H18.4337L19.6375 39.0777H21.0217L22.4318 42.56L25.166 39.0777H26.6191ZM29.2509 40.3932L29.0532 41.4078H31.7272L31.4778 42.6803H28.7953L28.5803 43.7809H31.7358L31.4606 45.0964H26.6371L27.8409 39.0777H32.5526L32.2861 40.3932H29.2509Z"
+            fill="#64748B" />
+          <path
+            d="M5.73268 56.9701C5.12508 56.9701 4.57481 56.8382 4.08185 56.5746C3.59463 56.3052 3.21058 55.9354 2.92971 55.4654C2.65458 54.9954 2.51701 54.4652 2.51701 53.8748C2.51701 53.2844 2.65744 52.7542 2.93831 52.2841C3.21918 51.8141 3.60323 51.4473 4.09045 51.1836C4.5834 50.9142 5.13368 50.7795 5.74127 50.7795C6.23423 50.7795 6.68419 50.8655 7.09117 51.0374C7.49814 51.2094 7.84206 51.4587 8.12293 51.7855L7.4007 52.4647C6.96506 51.9947 6.42912 51.7597 5.79286 51.7597C5.38016 51.7597 5.01044 51.8514 4.68371 52.0348C4.35699 52.2125 4.10191 52.4618 3.91849 52.7828C3.73506 53.1038 3.64335 53.4678 3.64335 53.8748C3.64335 54.2818 3.73506 54.6457 3.91849 54.9667C4.10191 55.2877 4.35699 55.5399 4.68371 55.7234C5.01044 55.9011 5.38016 55.9899 5.79286 55.9899C6.42912 55.9899 6.96506 55.752 7.4007 55.2763L8.12293 55.9641C7.84206 56.2908 7.49528 56.5402 7.08257 56.7121C6.67559 56.8841 6.22563 56.9701 5.73268 56.9701ZM11.8795 56.9701C11.2662 56.9701 10.7131 56.8382 10.2201 56.5746C9.72716 56.3052 9.34025 55.9354 9.05938 55.4654C8.77851 54.9897 8.63808 54.4594 8.63808 53.8748C8.63808 53.2901 8.77851 52.7628 9.05938 52.2927C9.34025 51.817 9.72716 51.4473 10.2201 51.1836C10.7131 50.9142 11.2662 50.7795 11.8795 50.7795C12.4929 50.7795 13.046 50.9142 13.539 51.1836C14.0319 51.4473 14.4188 51.8141 14.6997 52.2841C14.9806 52.7542 15.121 53.2844 15.121 53.8748C15.121 54.4652 14.9806 54.9954 14.6997 55.4654C14.4188 55.9354 14.0319 56.3052 13.539 56.5746C13.046 56.8382 12.4929 56.9701 11.8795 56.9701ZM11.8795 55.9899C12.2808 55.9899 12.6419 55.9011 12.9629 55.7234C13.2839 55.5399 13.5361 55.2877 13.7195 54.9667C13.9029 54.64 13.9947 54.276 13.9947 53.8748C13.9947 53.4735 13.9029 53.1124 13.7195 52.7914C13.5361 52.4647 13.2839 52.2125 12.9629 52.0348C12.6419 51.8514 12.2808 51.7597 11.8795 51.7597C11.4783 51.7597 11.1172 51.8514 10.7962 52.0348C10.4752 52.2125 10.223 52.4647 10.0396 52.7914C9.85613 53.1124 9.76442 53.4735 9.76442 53.8748C9.76442 54.276 9.85613 54.64 10.0396 54.9667C10.223 55.2877 10.4752 55.5399 10.7962 55.7234C11.1172 55.9011 11.4783 55.9899 11.8795 55.9899ZM16.3058 50.8655H18.9368C19.5788 50.8655 20.1491 50.9916 20.6478 51.2438C21.1465 51.4903 21.5334 51.8428 21.8085 52.3013C22.0837 52.7542 22.2212 53.2786 22.2212 53.8748C22.2212 54.4709 22.0837 54.9983 21.8085 55.4568C21.5334 55.9096 21.1465 56.2622 20.6478 56.5144C20.1491 56.7609 19.5788 56.8841 18.9368 56.8841H16.3058V50.8655ZM18.8852 55.9383C19.3266 55.9383 19.7135 55.8552 20.0459 55.689C20.3841 55.517 20.6421 55.2763 20.8198 54.9667C21.0032 54.6515 21.0949 54.2875 21.0949 53.8748C21.0949 53.4621 21.0032 53.101 20.8198 52.7914C20.6421 52.4762 20.3841 52.2354 20.0459 52.0692C19.7135 51.8972 19.3266 51.8112 18.8852 51.8112H17.4235V55.9383H18.8852ZM27.9232 55.9469V56.8841H23.4092V50.8655H27.8028V51.8027H24.527V53.3675H27.4331V54.2875H24.527V55.9469H27.9232ZM31.035 56.9701C30.5707 56.9701 30.1208 56.9042 29.6851 56.7723C29.2552 56.6405 28.9142 56.4657 28.662 56.2478L29.0489 55.3794C29.2954 55.5743 29.5963 55.7348 29.9517 55.8609C30.3128 55.9813 30.6739 56.0415 31.035 56.0415C31.4821 56.0415 31.8146 55.9698 32.0324 55.8265C32.256 55.6832 32.3677 55.4941 32.3677 55.2591C32.3677 55.0871 32.3047 54.9467 32.1786 54.8378C32.0582 54.7231 31.9034 54.6343 31.7143 54.5712C31.5251 54.5082 31.2672 54.4365 30.9405 54.3563C30.4819 54.2474 30.1093 54.1385 29.8227 54.0295C29.5418 53.9206 29.2982 53.7515 29.0919 53.5223C28.8913 53.2872 28.7909 52.972 28.7909 52.5765C28.7909 52.244 28.8798 51.9431 29.0575 51.6737C29.2409 51.3985 29.5132 51.1807 29.8743 51.0202C30.2412 50.8597 30.6882 50.7795 31.2156 50.7795C31.5824 50.7795 31.9436 50.8253 32.299 50.9171C32.6543 51.0088 32.961 51.1406 33.2189 51.3126L32.8664 52.181C32.6027 52.0262 32.3276 51.9087 32.041 51.8284C31.7544 51.7482 31.4764 51.7081 31.207 51.7081C30.7656 51.7081 30.436 51.7826 30.2182 51.9316C30.0061 52.0807 29.9001 52.2784 29.9001 52.5249C29.9001 52.6968 29.9603 52.8373 30.0807 52.9462C30.2068 53.0551 30.3644 53.1411 30.5535 53.2041C30.7427 53.2672 31.0006 53.3388 31.3274 53.4191C31.7745 53.5223 32.1413 53.6312 32.4279 53.7458C32.7145 53.8547 32.9581 54.0238 33.1588 54.2531C33.3651 54.4824 33.4683 54.7919 33.4683 55.1817C33.4683 55.5141 33.3766 55.8151 33.1931 56.0845C33.0155 56.3539 32.7432 56.5688 32.3763 56.7293C32.0095 56.8898 31.5624 56.9701 31.035 56.9701Z"
+            fill="#64748B" />
+          <path
+            d="M24.666 33.2828L17.8773 13.5087L11.092 33.2828H0L12.0731 6.10352e-05H23.6883L35.7614 33.2828H24.6694H24.666Z"
+            fill="#64748B" />
+        </svg>
+
+      </div>
+
+      <!-- Logo 4: MORNING CODE COMPANY -->
+      <div class="w-[40px] sm:w-[50px] md:w-[60px] lg:w-[70px]">
+        <svg width="76" height="59" viewBox="0 0 76 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M23.2307 39.0777L22.0442 45.0964H20.4708L21.0898 41.9237L19.0865 44.5031H18.3385L17.2465 41.9237L16.6102 45.0964H15.0454L16.2491 39.0777H17.6334L19.0435 42.56L21.7777 39.0777H23.2307ZM26.4989 45.2167C25.8913 45.2167 25.3611 45.105 24.9082 44.8814C24.4611 44.6579 24.1143 44.3455 23.8679 43.9442C23.6271 43.543 23.5068 43.0844 23.5068 42.5685C23.5068 41.8807 23.6644 41.2616 23.9796 40.7114C24.3006 40.1611 24.7449 39.7312 25.3123 39.4217C25.8855 39.1121 26.5361 38.9574 27.2641 38.9574C27.8717 38.9574 28.399 39.0691 28.8461 39.2927C29.299 39.5162 29.6458 39.8286 29.8865 40.2299C30.133 40.6311 30.2562 41.0897 30.2562 41.6056C30.2562 42.2934 30.0957 42.9125 29.7747 43.4627C29.4595 44.013 29.0152 44.4429 28.442 44.7525C27.8746 45.062 27.2268 45.2167 26.4989 45.2167ZM26.645 43.8067C27.0234 43.8067 27.3558 43.7121 27.6424 43.5229C27.929 43.3338 28.1497 43.0816 28.3045 42.7663C28.4592 42.4453 28.5366 42.0928 28.5366 41.7087C28.5366 41.3018 28.4105 40.9779 28.1583 40.7372C27.9118 40.4907 27.565 40.3675 27.1179 40.3675C26.7396 40.3675 26.4072 40.462 26.1206 40.6512C25.834 40.8403 25.6133 41.0954 25.4585 41.4164C25.3037 41.7317 25.2264 42.0813 25.2264 42.4654C25.2264 42.8723 25.3496 43.1991 25.5961 43.4456C25.8483 43.6863 26.1979 43.8067 26.645 43.8067ZM36.7194 40.9951C36.7194 41.5454 36.5732 42.0211 36.2809 42.4224C35.9886 42.8179 35.5787 43.1074 35.0514 43.2908L36.0745 45.0964H34.2947L33.4005 43.4971H32.5407L32.2226 45.0964H30.5202L31.7239 39.0777H34.2947C35.0628 39.0777 35.659 39.2468 36.0831 39.585C36.5073 39.9232 36.7194 40.3932 36.7194 40.9951ZM34.9998 41.1585C34.9998 40.912 34.9167 40.7286 34.7504 40.6082C34.5842 40.4821 34.3521 40.419 34.054 40.419H33.1598L32.7987 42.1816H33.8133C34.1916 42.1816 34.4839 42.0928 34.6903 41.9151C34.8966 41.7374 34.9998 41.4852 34.9998 41.1585ZM43.8062 39.0777L42.6025 45.0964H41.201L39.2148 41.7947L38.5528 45.0964H36.8848L38.0885 39.0777H39.49L41.4847 42.3708L42.1382 39.0777H43.8062ZM45.0156 39.0777H46.718L45.5143 45.0964H43.8119L45.0156 39.0777ZM53.6469 39.0777L52.4432 45.0964H51.0417L49.0556 41.7947L48.3935 45.0964H46.7255L47.9292 39.0777H49.3307L51.3255 42.3708L51.9789 39.0777H53.6469ZM58.3128 41.9581H59.8174L59.3101 44.4945C59.0006 44.7295 58.6395 44.9101 58.2268 45.0362C57.8198 45.1566 57.3899 45.2167 56.9371 45.2167C56.3295 45.2167 55.7964 45.1078 55.3379 44.89C54.885 44.6665 54.5325 44.3541 54.2803 43.9528C54.0338 43.5516 53.9106 43.0902 53.9106 42.5685C53.9106 41.875 54.0711 41.2559 54.3921 40.7114C54.7131 40.1611 55.163 39.7312 55.742 39.4217C56.3209 39.1121 56.9858 38.9574 57.7367 38.9574C58.929 38.9574 59.8031 39.3271 60.3591 40.0665L59.1382 41.0295C58.9433 40.7888 58.7283 40.6197 58.4933 40.5222C58.2583 40.419 57.9803 40.3675 57.6593 40.3675C57.2524 40.3675 56.8941 40.4592 56.5846 40.6426C56.2808 40.8203 56.0458 41.0668 55.8795 41.382C55.7133 41.6973 55.6302 42.0555 55.6302 42.4568C55.6302 42.8695 55.7649 43.1991 56.0343 43.4456C56.3037 43.6863 56.682 43.8067 57.1692 43.8067C57.4616 43.8067 57.7281 43.7579 57.9689 43.6605L58.3128 41.9581Z"
+            fill="#64748B" />
+          <path
+            d="M3.59398 56.9701C2.98639 56.9701 2.43611 56.8382 1.94316 56.5746C1.45594 56.3052 1.07189 55.9354 0.79102 55.4654C0.515883 54.9954 0.378314 54.4652 0.378314 53.8748C0.378314 53.2844 0.518749 52.7542 0.799618 52.2841C1.08049 51.8141 1.46453 51.4473 1.95176 51.1836C2.44471 50.9142 2.99499 50.7795 3.60258 50.7795C4.09553 50.7795 4.5455 50.8655 4.95247 51.0374C5.35945 51.2094 5.70337 51.4587 5.98424 51.7855L5.262 52.4647C4.82637 51.9947 4.29042 51.7597 3.65417 51.7597C3.24146 51.7597 2.87175 51.8514 2.54502 52.0348C2.2183 52.2125 1.96322 52.4618 1.7798 52.7828C1.59637 53.1038 1.50466 53.4678 1.50466 53.8748C1.50466 54.2818 1.59637 54.6457 1.7798 54.9667C1.96322 55.2877 2.2183 55.5399 2.54502 55.7234C2.87175 55.9011 3.24146 55.9899 3.65417 55.9899C4.29042 55.9899 4.82637 55.752 5.262 55.2763L5.98424 55.9641C5.70337 56.2908 5.35658 56.5402 4.94388 56.7121C4.5369 56.8841 4.08694 56.9701 3.59398 56.9701ZM9.74084 56.9701C9.12752 56.9701 8.57438 56.8382 8.08142 56.5746C7.58847 56.3052 7.20156 55.9354 6.92069 55.4654C6.63982 54.9897 6.49938 54.4594 6.49938 53.8748C6.49938 53.2901 6.63982 52.7628 6.92069 52.2927C7.20156 51.817 7.58847 51.4473 8.08142 51.1836C8.57438 50.9142 9.12752 50.7795 9.74084 50.7795C10.3542 50.7795 10.9073 50.9142 11.4003 51.1836C11.8932 51.4473 12.2801 51.8141 12.561 52.2841C12.8419 52.7542 12.9823 53.2844 12.9823 53.8748C12.9823 54.4652 12.8419 54.9954 12.561 55.4654C12.2801 55.9354 11.8932 56.3052 11.4003 56.5746C10.9073 56.8382 10.3542 56.9701 9.74084 56.9701ZM9.74084 55.9899C10.1421 55.9899 10.5032 55.9011 10.8242 55.7234C11.1452 55.5399 11.3974 55.2877 11.5808 54.9667C11.7643 54.64 11.856 54.276 11.856 53.8748C11.856 53.4735 11.7643 53.1124 11.5808 52.7914C11.3974 52.4647 11.1452 52.2125 10.8242 52.0348C10.5032 51.8514 10.1421 51.7597 9.74084 51.7597C9.3396 51.7597 8.97848 51.8514 8.65749 52.0348C8.3365 52.2125 8.08429 52.4647 7.90086 52.7914C7.71744 53.1124 7.62573 53.4735 7.62573 53.8748C7.62573 54.276 7.71744 54.64 7.90086 54.9667C8.08429 55.2877 8.3365 55.5399 8.65749 55.7234C8.97848 55.9011 9.3396 55.9899 9.74084 55.9899ZM14.1671 50.8655H16.7981C17.4401 50.8655 18.0104 50.9916 18.5091 51.2438C19.0078 51.4903 19.3947 51.8428 19.6698 52.3013C19.945 52.7542 20.0825 53.2786 20.0825 53.8748C20.0825 54.4709 19.945 54.9983 19.6698 55.4568C19.3947 55.9096 19.0078 56.2622 18.5091 56.5144C18.0104 56.7609 17.4401 56.8841 16.7981 56.8841H14.1671V50.8655ZM16.7465 55.9383C17.1879 55.9383 17.5748 55.8552 17.9072 55.689C18.2454 55.517 18.5034 55.2763 18.6811 54.9667C18.8645 54.6515 18.9562 54.2875 18.9562 53.8748C18.9562 53.4621 18.8645 53.101 18.6811 52.7914C18.5034 52.4762 18.2454 52.2354 17.9072 52.0692C17.5748 51.8972 17.1879 51.8112 16.7465 51.8112H15.2848V55.9383H16.7465ZM25.7845 55.9469V56.8841H21.2706V50.8655H25.6642V51.8027H22.3883V53.3675H25.2944V54.2875H22.3883V55.9469H25.7845ZM32.1926 56.9701C31.585 56.9701 31.0347 56.8382 30.5417 56.5746C30.0545 56.3052 29.6705 55.9354 29.3896 55.4654C29.1145 54.9954 28.9769 54.4652 28.9769 53.8748C28.9769 53.2844 29.1173 52.7542 29.3982 52.2841C29.6791 51.8141 30.0631 51.4473 30.5503 51.1836C31.0433 50.9142 31.5936 50.7795 32.2012 50.7795C32.6941 50.7795 33.1441 50.8655 33.551 51.0374C33.958 51.2094 34.3019 51.4587 34.5828 51.7855L33.8606 52.4647C33.4249 51.9947 32.889 51.7597 32.2527 51.7597C31.84 51.7597 31.4703 51.8514 31.1436 52.0348C30.8169 52.2125 30.5618 52.4618 30.3784 52.7828C30.1949 53.1038 30.1032 53.4678 30.1032 53.8748C30.1032 54.2818 30.1949 54.6457 30.3784 54.9667C30.5618 55.2877 30.8169 55.5399 31.1436 55.7234C31.4703 55.9011 31.84 55.9899 32.2527 55.9899C32.889 55.9899 33.4249 55.752 33.8606 55.2763L34.5828 55.9641C34.3019 56.2908 33.9552 56.5402 33.5424 56.7121C33.1355 56.8841 32.6855 56.9701 32.1926 56.9701ZM38.3394 56.9701C37.7261 56.9701 37.1729 56.8382 36.68 56.5746C36.187 56.3052 35.8001 55.9354 35.5193 55.4654C35.2384 54.9897 35.098 54.4594 35.098 53.8748C35.098 53.2901 35.2384 52.7628 35.5193 52.2927C35.8001 51.817 36.187 51.4473 36.68 51.1836C37.1729 50.9142 37.7261 50.7795 38.3394 50.7795C38.9527 50.7795 39.5059 50.9142 39.9988 51.1836C40.4918 51.4473 40.8787 51.8141 41.1596 52.2841C41.4404 52.7542 41.5809 53.2844 41.5809 53.8748C41.5809 54.4652 41.4404 54.9954 41.1596 55.4654C40.8787 55.9354 40.4918 56.3052 39.9988 56.5746C39.5059 56.8382 38.9527 56.9701 38.3394 56.9701ZM38.3394 55.9899C38.7407 55.9899 39.1018 55.9011 39.4228 55.7234C39.7438 55.5399 39.996 55.2877 40.1794 54.9667C40.3628 54.64 40.4545 54.276 40.4545 53.8748C40.4545 53.4735 40.3628 53.1124 40.1794 52.7914C39.996 52.4647 39.7438 52.2125 39.4228 52.0348C39.1018 51.8514 38.7407 51.7597 38.3394 51.7597C37.9382 51.7597 37.5771 51.8514 37.2561 52.0348C36.9351 52.2125 36.6829 52.4647 36.4994 52.7914C36.316 53.1124 36.2243 53.4735 36.2243 53.8748C36.2243 54.276 36.316 54.64 36.4994 54.9667C36.6829 55.2877 36.9351 55.5399 37.2561 55.7234C37.5771 55.9011 37.9382 55.9899 38.3394 55.9899ZM48.2942 56.8841L48.2856 52.8946L46.3081 56.1963H45.8094L43.8318 52.9462V56.8841H42.7657V50.8655H43.6857L46.0759 54.855L48.4232 50.8655H49.3432L49.3518 56.8841H48.2942ZM53.4537 50.8655C53.9753 50.8655 54.4281 50.9514 54.8122 51.1234C55.202 51.2954 55.5 51.5418 55.7064 51.8628C55.9127 52.1838 56.0159 52.565 56.0159 53.0064C56.0159 53.442 55.9127 53.8232 55.7064 54.1499C55.5 54.4709 55.202 54.7174 54.8122 54.8893C54.4281 55.0613 53.9753 55.1473 53.4537 55.1473H52.0952V56.8841H50.9775V50.8655H53.4537ZM53.4021 54.2015C53.8893 54.2015 54.259 54.0983 54.5113 53.892C54.7635 53.6856 54.8896 53.3904 54.8896 53.0064C54.8896 52.6223 54.7635 52.3271 54.5113 52.1208C54.259 51.9144 53.8893 51.8112 53.4021 51.8112H52.0952V54.2015H53.4021ZM60.7334 55.4912H57.724L57.1308 56.8841H55.9786L58.687 50.8655H59.7876L62.5046 56.8841H61.3352L60.7334 55.4912ZM60.3636 54.6142L59.2287 51.9832L58.1024 54.6142H60.3636ZM68.618 50.8655V56.8841H67.698L64.3791 52.8086V56.8841H63.27V50.8655H64.19L67.5088 54.9409V50.8655H68.618ZM72.8273 54.7604V56.8841H71.7096V54.7776L69.3451 50.8655H70.5402L72.3028 53.7974L74.0826 50.8655H75.1832L72.8273 54.7604Z"
+            fill="#64748B" />
+          <path
+            d="M19.6494 8.92443V14.1195C19.6494 14.9521 19.2194 15.3305 18.5141 15.3305C18.0531 15.3305 17.6815 15.7021 17.6815 16.1631V17.0714C17.6815 17.5324 18.0531 17.904 18.5141 17.904C19.2194 17.904 19.6494 18.2824 19.6494 19.115V24.31C19.6494 26.9833 21.0875 28.4214 23.9362 28.4214H28.6015V25.8995H24.6656C23.403 25.8995 22.8009 25.1942 22.8009 23.9832V19.1907C22.8009 17.6287 22.3227 16.9475 21.3146 16.6172C22.3227 16.2904 22.8009 15.6092 22.8009 14.0438V9.25127C22.8009 8.04024 23.4064 7.33495 24.6656 7.33495H28.6015V4.81311H23.9362C21.0875 4.81311 19.6494 6.25121 19.6494 8.92443Z"
+            fill="#64748B" />
+          <path
+            d="M55.4643 0H32.9466C31.77 0 30.817 0.953 30.817 2.12963V31.1531C30.817 32.3298 31.77 33.2828 32.9466 33.2828H55.4643C56.6409 33.2828 57.5939 32.3298 57.5939 31.1531V2.12963C57.5939 0.953 56.6409 0 55.4643 0Z"
+            fill="#64748B" />
+        </svg>
+
+      </div>
+
+      <!-- Logo 5: MATRIX COMPANY (Repeated as in image) -->
+      <div class="w-[40px] sm:w-[50px] md:w-[60px] lg:w-[70px]">
+        <svg width="47" height="59" viewBox="0 0 47 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.87 39.0777L12.6835 45.0964H11.1101L11.7291 41.9237L9.72577 44.5031H8.97774L7.88579 41.9237L7.24953 45.0964H5.68469L6.88841 39.0777H8.2727L9.68278 42.56L12.417 39.0777H13.87ZM18.2215 43.927H15.6593L14.9628 45.0964H13.1659L17.0264 39.0777H18.703L20.1561 45.0964H18.4623L18.2215 43.927ZM17.9636 42.6717L17.5595 40.72L16.4073 42.6717H17.9636ZM22.5547 40.4276H20.7061L20.9813 39.0777H26.3723L26.0971 40.4276H24.2571L23.3199 45.0964H21.6175L22.5547 40.4276ZM32.002 40.9951C32.002 41.5454 31.8558 42.0211 31.5635 42.4224C31.2711 42.8179 30.8613 43.1074 30.3339 43.2908L31.3571 45.0964H29.5773L28.6831 43.4971H27.8233L27.5052 45.0964H25.8028L27.0065 39.0777H29.5773C30.3454 39.0777 30.9415 39.2468 31.3657 39.585C31.7899 39.9232 32.002 40.3932 32.002 40.9951ZM30.2823 41.1585C30.2823 40.912 30.1992 40.7286 30.033 40.6082C29.8668 40.4821 29.6346 40.419 29.3366 40.419H28.4424L28.0812 42.1816H29.0958C29.4741 42.1816 29.7665 42.0928 29.9728 41.9151C30.1792 41.7374 30.2823 41.4852 30.2823 41.1585ZM33.3711 39.0777H35.0735L33.8697 45.0964H32.1673L33.3711 39.0777ZM39.1822 42.0785L40.8158 45.0964H38.9758L38.0644 43.2908L36.491 45.0964H34.4533L37.3164 41.9839L35.7774 39.0777H37.5916L38.4686 40.806L39.999 39.0777H41.925L39.1822 42.0785Z"
+            fill="#64748B" />
+          <path
+            d="M3.59398 56.9701C2.98639 56.9701 2.43611 56.8382 1.94316 56.5746C1.45594 56.3052 1.07189 55.9354 0.79102 55.4654C0.515883 54.9954 0.378314 54.4652 0.378314 53.8748C0.378314 53.2844 0.518749 52.7542 0.799618 52.2841C1.08049 51.8141 1.46453 51.4473 1.95176 51.1836C2.44471 50.9142 2.99499 50.7795 3.60258 50.7795C4.09553 50.7795 4.5455 50.8655 4.95247 51.0374C5.35945 51.2094 5.70337 51.4587 5.98424 51.7855L5.262 52.4647C4.82637 51.9947 4.29042 51.7597 3.65417 51.7597C3.24146 51.7597 2.87175 51.8514 2.54502 52.0348C2.2183 52.2125 1.96322 52.4618 1.7798 52.7828C1.59637 53.1038 1.50466 53.4678 1.50466 53.8748C1.50466 54.2818 1.59637 54.6457 1.7798 54.9667C1.96322 55.2877 2.2183 55.5399 2.54502 55.7234C2.87175 55.9011 3.24146 55.9899 3.65417 55.9899C4.29042 55.9899 4.82637 55.752 5.262 55.2763L5.98424 55.9641C5.70337 56.2908 5.35658 56.5402 4.94388 56.7121C4.5369 56.8841 4.08694 56.9701 3.59398 56.9701ZM9.74084 56.9701C9.12752 56.9701 8.57438 56.8382 8.08142 56.5746C7.58847 56.3052 7.20156 55.9354 6.92069 55.4654C6.63982 54.9897 6.49938 54.4594 6.49938 53.8748C6.49938 53.2901 6.63982 52.7628 6.92069 52.2927C7.20156 51.817 7.58847 51.4473 8.08142 51.1836C8.57438 50.9142 9.12752 50.7795 9.74084 50.7795C10.3542 50.7795 10.9073 50.9142 11.4003 51.1836C11.8932 51.4473 12.2801 51.8141 12.561 52.2841C12.8419 52.7542 12.9823 53.2844 12.9823 53.8748C12.9823 54.4652 12.8419 54.9954 12.561 55.4654C12.2801 55.9354 11.8932 56.3052 11.4003 56.5746C10.9073 56.8382 10.3542 56.9701 9.74084 56.9701ZM9.74084 55.9899C10.1421 55.9899 10.5032 55.9011 10.8242 55.7234C11.1452 55.5399 11.3974 55.2877 11.5808 54.9667C11.7643 54.64 11.856 54.276 11.856 53.8748C11.856 53.4735 11.7643 53.1124 11.5808 52.7914C11.3974 52.4647 11.1452 52.2125 10.8242 52.0348C10.5032 51.8514 10.1421 51.7597 9.74084 51.7597C9.3396 51.7597 8.97848 51.8514 8.65749 52.0348C8.3365 52.2125 8.08429 52.4647 7.90086 52.7914C7.71744 53.1124 7.62573 53.4735 7.62573 53.8748C7.62573 54.276 7.71744 54.64 7.90086 54.9667C8.08429 55.2877 8.3365 55.5399 8.65749 55.7234C8.97848 55.9011 9.3396 55.9899 9.74084 55.9899ZM19.6956 56.8841L19.687 52.8946L17.7095 56.1963H17.2108L15.2332 52.9462V56.8841H14.1671V50.8655H15.0871L17.4773 54.855L19.8246 50.8655H20.7446L20.7532 56.8841H19.6956ZM24.8551 50.8655C25.3767 50.8655 25.8296 50.9514 26.2136 51.1234C26.6034 51.2954 26.9015 51.5418 27.1078 51.8628C27.3142 52.1838 27.4173 52.565 27.4173 53.0064C27.4173 53.442 27.3142 53.8232 27.1078 54.1499C26.9015 54.4709 26.6034 54.7174 26.2136 54.8893C25.8296 55.0613 25.3767 55.1473 24.8551 55.1473H23.4966V56.8841H22.3789V50.8655H24.8551ZM24.8035 54.2015C25.2908 54.2015 25.6605 54.0983 25.9127 53.892C26.1649 53.6856 26.291 53.3904 26.291 53.0064C26.291 52.6223 26.1649 52.3271 25.9127 52.1208C25.6605 51.9144 25.2908 51.8112 24.8035 51.8112H23.4966V54.2015H24.8035ZM32.1348 55.4912H29.1255L28.5322 56.8841H27.3801L30.0885 50.8655H31.189L33.906 56.8841H32.7366L32.1348 55.4912ZM31.7651 54.6142L30.6301 51.9832L29.5038 54.6142H31.7651ZM40.0194 50.8655V56.8841H39.0994L35.7806 52.8086V56.8841H34.6714V50.8655H35.5914L38.9102 54.9409V50.8655H40.0194ZM44.2287 54.7604V56.8841H43.111V54.7776L40.7465 50.8655H41.9417L43.7043 53.7974L45.4841 50.8655H46.5846L44.2287 54.7604Z"
+            fill="#64748B" />
+          <path
+            d="M23.3845 0L8.97351 8.32069V24.9621L23.3845 33.2828L37.7955 24.9621V8.32069L23.3845 0ZM33.389 22.416L23.3879 28.1905L13.3868 22.416V10.8668L23.3879 5.09222L33.389 10.8668V22.416Z"
+            fill="#64748B" />
+          <path
+            d="M23.617 9.38507L17.3348 13.0115V20.2678L23.617 23.8943L29.8991 20.2678V13.0115L23.617 9.38507ZM27.9784 19.1584L23.617 21.6754L19.2555 19.1584V14.1244L23.617 11.6074L27.9784 14.1244V19.1584Z"
+            fill="#64748B" />
+        </svg>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+		<section class="py-12 md:py-24 lg:py-24">
+    <div class="container mx-auto">
+        <!-- Heading -->
+        <h2 class="text-center font-ibm-plex text-[30px] sm:text-[40px] lg:text-[50px]
+         font-semibold leading-tight sm:leading-snug lg:leading-none
+         tracking-[-0.5px] sm:tracking-[-0.5px] lg:tracking-[-1px]
+         text-text-primary">
+            Your Digital Fingerprint is Being Tracked
+        </h2>
+
+        <p class="max-w-3xl mx-auto mt-3 sm:mt-4 text-center
+         text-[14px] sm:text-[16px] text-[#4B5563] leading-relaxed">
+            Standard browsers leak hundreds of data points. Websites compile these
+            into a unique ID to link your accounts, detect automation, or ban your access.
+        </p>
+
+        <!-- 4 cards -->
+        <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+
+            <!-- Card 1 -->
+            <div class="rounded-[12px] border border-[#F8FAFC] bg-[#F8FAFC] flex flex-col items-center p-4 gap-2   sm:p-4 sm:gap-3 lg:p-6 lg:gap-4">
+                <!-- Icon -->
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16" viewBox="0 0 64 64" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_dddd_247_150)">
+                        <rect x="8" y="2" width="48" height="48" rx="8" fill="white" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M44.2254 38.2254C44.5915 37.8593 44.5915 37.2657 44.2254 36.8996L21.1004 13.7746C20.7343 13.4085 20.1407 13.4085 19.7746 13.7746C19.4085 14.1407 19.4085 14.7343 19.7746 15.1004L24.5215 19.8474C22.2404 21.5306 20.665 23.637 19.8457 24.8975C19.4058 25.5742 19.4058 26.4258 19.8457 27.1025C21.3743 29.4542 25.5344 34.75 32 34.75C34.2353 34.75 36.195 34.117 37.8657 33.1916L42.8996 38.2254C43.2657 38.5915 43.8593 38.5915 44.2254 38.2254ZM36.4755 31.8013L34.8103 30.1361C34.0094 30.6813 33.0419 31 32 31C29.2386 31 27 28.7614 27 26C27 24.9581 27.3187 23.9906 27.8639 23.1897L25.8649 21.1907C23.7565 22.6779 22.2494 24.6399 21.4177 25.9193C21.3957 25.9533 21.3907 25.9804 21.3907 26C21.3907 26.0196 21.3957 26.0467 21.4177 26.0807C22.9109 28.3778 26.5814 32.875 32 32.875C33.66 32.875 35.156 32.4529 36.4755 31.8013ZM29.2287 24.5545C29.0027 24.9868 28.875 25.4785 28.875 26C28.875 27.7259 30.2741 29.125 32 29.125C32.5215 29.125 33.0132 28.9972 33.4455 28.7713L29.2287 24.5545Z"
+                            fill="#2563EB" />
+                        <path
+                            d="M44.1543 27.1025C43.5215 28.0761 42.4377 29.5542 40.926 30.9522L39.5995 29.6257C40.9533 28.3857 41.958 27.041 42.5822 26.0807C42.6043 26.0467 42.6092 26.0196 42.6092 26C42.6092 25.9804 42.6043 25.9533 42.5822 25.9193C41.089 23.6222 37.4186 19.125 32 19.125C31.0981 19.125 30.2447 19.2496 29.4417 19.4678L27.9491 17.9752C29.1775 17.5241 30.5291 17.25 32 17.25C38.4655 17.25 42.6256 22.5458 44.1543 24.8975C44.5942 25.5742 44.5942 26.4258 44.1543 27.1025Z"
+                            fill="#2563EB" />
+                        <path
+                            d="M37 26C37 26.3207 36.9698 26.6343 36.9121 26.9382L34.9552 24.9814C34.6428 24.0749 33.9251 23.3572 33.0186 23.0448L31.0617 21.0879C31.3656 21.0302 31.6793 21 32 21C34.7614 21 37 23.2386 37 26Z"
+                            fill="#2563EB" />
+                    </g>
+                    <defs>
+                        <filter id="filter0_dddd_247_150" x="0" y="0" width="64" height="79"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="1" />
+                            <feGaussianBlur stdDeviation="1.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.1 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_247_150" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="5" />
+                            <feGaussianBlur stdDeviation="2.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.09 0" />
+                            <feBlend mode="normal" in2="effect1_dropShadow_247_150"
+                                result="effect2_dropShadow_247_150" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="12" />
+                            <feGaussianBlur stdDeviation="3.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.05 0" />
+                            <feBlend mode="normal" in2="effect2_dropShadow_247_150"
+                                result="effect3_dropShadow_247_150" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="21" />
+                            <feGaussianBlur stdDeviation="4" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.01 0" />
+                            <feBlend mode="normal" in2="effect3_dropShadow_247_150"
+                                result="effect4_dropShadow_247_150" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_247_150" result="shape" />
+                        </filter>
+                    </defs>
+                </svg>
+                <h3
+                    class="text-center font-manrope text-[14px] sm:text-[16px] lg:text-[20px] font-semibold leading-[20px] sm:leading-[24px] lg:leading-[28px] text-text-primary">
+                    Invisible
+                    Tracking</h3>
+                <p class="text-center font-manrope text-[12px] sm:text-[14px] lg:text-[16px] leading-[18px] sm:leading-[20px] lg:leading-[24px] text-text-body">
+                    Even in Incognito mode, your hardware configuration exposes your identity.
+                </p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="rounded-[12px] border border-[#F8FAFC] bg-[#F8FAFC] flex flex-col items-center p-4 gap-2   sm:p-4 sm:gap-3 lg:p-6 lg:gap-4">
+                <!-- Icon -->
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16" viewBox="0 0 64 64" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_dddd_247_193)">
+                        <rect x="8" y="2" width="48" height="48" rx="8" fill="white" />
+                        <path
+                            d="M42.6281 26C42.6281 29.7965 39.5475 32.875 35.7501 32.875H35.4376C34.9198 32.875 34.5001 33.2947 34.5001 33.8125C34.5001 34.3303 34.9198 34.75 35.4376 34.75H35.7501C40.5821 34.75 44.5031 30.833 44.5031 26C44.5031 21.167 40.5821 17.25 35.7501 17.25H35.4376C34.9198 17.25 34.5001 17.6697 34.5001 18.1875C34.5001 18.7053 34.9198 19.125 35.4376 19.125H35.7501C39.5475 19.125 42.6281 22.2035 42.6281 26Z"
+                            fill="#2563EB" />
+                        <path
+                            d="M28.5626 34.75C29.0803 34.75 29.5001 34.3303 29.5001 33.8125C29.5001 33.2947 29.0803 32.875 28.5626 32.875H28.2501C24.4527 32.875 21.3722 29.7965 21.3722 26C21.3722 22.2035 24.4527 19.125 28.2501 19.125H28.5626C29.0803 19.125 29.5001 18.7053 29.5001 18.1875C29.5001 17.6697 29.0803 17.25 28.5626 17.25H28.2501C23.418 17.25 19.4972 21.1671 19.4972 26C19.4972 30.8329 23.418 34.75 28.2501 34.75H28.5626Z"
+                            fill="#2563EB" />
+                        <path
+                            d="M36.0626 26.9375C36.5804 26.9375 37.0001 26.5178 37.0001 26C37.0001 25.4822 36.5804 25.0625 36.0626 25.0625H27.9376C27.4198 25.0625 27.0001 25.4822 27.0001 26C27.0001 26.5178 27.4198 26.9375 27.9376 26.9375H36.0626Z"
+                            fill="#2563EB" />
+                    </g>
+                    <defs>
+                        <filter id="filter0_dddd_247_193" x="0" y="0" width="64" height="79"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="1" />
+                            <feGaussianBlur stdDeviation="1.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.1 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_247_193" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="5" />
+                            <feGaussianBlur stdDeviation="2.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.09 0" />
+                            <feBlend mode="normal" in2="effect1_dropShadow_247_193"
+                                result="effect2_dropShadow_247_193" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="12" />
+                            <feGaussianBlur stdDeviation="3.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.05 0" />
+                            <feBlend mode="normal" in2="effect2_dropShadow_247_193"
+                                result="effect3_dropShadow_247_193" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="21" />
+                            <feGaussianBlur stdDeviation="4" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.01 0" />
+                            <feBlend mode="normal" in2="effect3_dropShadow_247_193"
+                                result="effect4_dropShadow_247_193" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_247_193" result="shape" />
+                        </filter>
+                    </defs>
+                </svg>
+                <h3 class="text-center font-manrope text-[14px] sm:text-[16px] lg:text-[20px] font-semibold leading-[20px] sm:leading-[24px] lg:leading-[28px] text-text-primary">Account
+                    Linking</h3>
+                <p class="text-center font-manrope text-[12px] sm:text-[14px] lg:text-[16px] leading-[18px] sm:leading-[20px] lg:leading-[24px] text-text-body">
+                    Platforms correlate accounts based on matching Canvas, WebGL, and Font hashes.
+                </p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="rounded-[12px] border border-[#F8FAFC] bg-[#F8FAFC]
+         flex flex-col items-center p-4 gap-2   sm:p-4 sm:gap-3 lg:p-6 lg:gap-4">
+                <!-- Icon -->
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16" viewBox="0 0 64 64" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_dddd_247_129)">
+                        <rect x="8" y="2" width="48" height="48" rx="8" fill="white" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M39.5 35.375H40.75C41.0952 35.375 41.375 35.0952 41.375 34.75V17.25C41.375 16.9048 41.0952 16.625 40.75 16.625H39.5C39.1548 16.625 38.875 16.9048 38.875 17.25V34.75C38.875 35.0952 39.1548 35.375 39.5 35.375ZM37.407 36.1177C37.8534 36.7996 38.6241 37.25 39.5 37.25H40.75C42.1307 37.25 43.25 36.1307 43.25 34.75V17.25C43.25 15.8693 42.1307 14.75 40.75 14.75H39.5C38.6241 14.75 37.8534 15.2004 37.407 15.8823C37.1496 16.2753 37 16.7452 37 17.25V34.75C37 35.2548 37.1496 35.7247 37.407 36.1177ZM35.343 36.1177C35.6004 35.7247 35.75 35.2548 35.75 34.75V17.25C35.75 16.7452 35.6004 16.2753 35.343 15.8823C34.8966 15.2004 34.1259 14.75 33.25 14.75H32C30.6193 14.75 29.5 15.8693 29.5 17.25V34.75C29.5 36.1307 30.6193 37.25 32 37.25H33.25C34.1259 37.25 34.8966 36.7996 35.343 36.1177ZM27.625 33.8559C28.2422 33.2938 28.564 32.4353 28.4019 31.5538L25.6895 16.801C25.4398 15.4431 24.1366 14.5446 22.7786 14.7943L21.5492 15.0203C20.1913 15.27 19.2928 16.5732 19.5425 17.9312L22.2549 32.6839C22.5046 34.0419 23.8078 34.9403 25.1658 34.6906L26.3952 34.4646C26.8716 34.377 27.2914 34.1597 27.625 33.8559ZM32 35.375H33.25C33.5952 35.375 33.875 35.0952 33.875 34.75V17.25C33.875 16.9048 33.5952 16.625 33.25 16.625H32C31.6548 16.625 31.375 16.9048 31.375 17.25V34.75C31.375 35.0952 31.6548 35.375 32 35.375ZM24.8267 32.8466L26.0561 32.6205C26.3956 32.5581 26.6202 32.2323 26.5578 31.8928L23.8454 17.1401C23.783 16.8006 23.4572 16.576 23.1177 16.6384L21.8883 16.8644C21.5488 16.9269 21.3242 17.2527 21.3866 17.5921L24.099 32.3449C24.1614 32.6844 24.4872 32.909 24.8267 32.8466Z"
+                            fill="#2563EB" />
+                    </g>
+                    <defs>
+                        <filter id="filter0_dddd_247_129" x="0" y="0" width="64" height="79"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="1" />
+                            <feGaussianBlur stdDeviation="1.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.1 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_247_129" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="5" />
+                            <feGaussianBlur stdDeviation="2.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.09 0" />
+                            <feBlend mode="normal" in2="effect1_dropShadow_247_129"
+                                result="effect2_dropShadow_247_129" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="12" />
+                            <feGaussianBlur stdDeviation="3.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.05 0" />
+                            <feBlend mode="normal" in2="effect2_dropShadow_247_129"
+                                result="effect3_dropShadow_247_129" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="21" />
+                            <feGaussianBlur stdDeviation="4" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.01 0" />
+                            <feBlend mode="normal" in2="effect3_dropShadow_247_129"
+                                result="effect4_dropShadow_247_129" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_247_129" result="shape" />
+                        </filter>
+                    </defs>
+                </svg>
+
+
+
+                <h3 class="text-center font-manrope
+             text-[14px] sm:text-[16px] lg:text-[20px]
+             font-semibold leading-[20px] sm:leading-[24px] lg:leading-[28px]
+             text-text-primary">Proxy Leaks
+                </h3>
+                <p class="text-center font-manrope
+             text-[12px] sm:text-[14px] lg:text-[16px]
+             leading-[18px] sm:leading-[20px] lg:leading-[24px]
+             text-text-body">
+                    Poor configuration leads to WebRTC leaks, revealing your true IP address.
+                </p>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="rounded-[12px] border border-[#F8FAFC] bg-[#F8FAFC]
+         flex flex-col items-center p-4 gap-2   sm:p-4 sm:gap-3 lg:p-6 lg:gap-4">
+                <!-- Icon -->
+                <svg class="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16" viewBox="0 0 64 64" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g filter="url(#filter0_dddd_247_199)">
+                        <rect x="8" y="2" width="48" height="48" rx="8" fill="white" />
+                        <path
+                            d="M32.9034 35.9336C32.4844 35.7669 32.2435 35.3255 32.3299 34.8829C33.3523 29.6447 33.5465 26.6748 33.1241 24.3478C32.9101 23.1693 32.5355 22.1347 31.9922 21.0258C32.0562 23.0536 31.9517 24.7378 31.6751 26.2606C31.225 28.738 30.3301 30.7269 29.0714 33.0145C28.8608 33.3971 28.414 33.5837 27.9939 33.4644C27.5738 33.3451 27.2917 32.9515 27.3137 32.5154C27.4535 29.7399 27.1204 27.3239 26.4504 25.0597C26.2002 27.6723 25.6338 29.845 23.9805 31.9002C23.7454 32.1924 23.3588 32.3164 22.9976 32.2154C22.6364 32.1145 22.3702 31.808 22.3207 31.4362C22.1249 29.9655 21.9616 29.1223 21.6732 28.4776C21.4337 27.9424 21.0848 27.4966 20.4173 26.9375H19.1875C18.6697 26.9375 18.25 26.5178 18.25 26C18.25 25.4823 18.6697 25.0625 19.1875 25.0625H20.75C20.9609 25.0625 21.1656 25.1336 21.3311 25.2643C22.2975 26.0276 22.9491 26.7383 23.3847 27.7118C23.5236 28.0224 23.6371 28.3527 23.7337 28.7092C24.5671 26.7375 24.6612 24.4101 24.8017 20.9356C24.8055 20.8411 24.8094 20.7457 24.8133 20.6495C24.8308 20.2188 25.1397 19.8555 25.562 19.7691C25.9844 19.6826 26.4112 19.8953 26.5965 20.2846C27.8368 22.89 28.7437 25.578 29.0786 28.6433C29.4062 27.769 29.6557 26.8863 29.8303 25.9254C30.2313 23.7182 30.2472 21.0377 29.8179 17.0376C29.7709 16.6002 30.0343 16.1891 30.4512 16.0489C30.8681 15.9087 31.3264 16.0772 31.5532 16.454L31.5703 16.4824C33.2489 19.2712 34.4791 21.3151 34.9689 24.0129C35.3029 25.8527 35.2881 27.9585 34.9171 30.789C35.2116 30.2875 35.4859 29.7679 35.7406 29.1934C36.5761 27.3091 37.1778 24.8438 37.313 20.6573C37.3271 20.2208 37.6406 19.8519 38.0691 19.7676C38.4976 19.6834 38.9275 19.9061 39.1058 20.3048C39.9849 22.2704 40.6238 23.7371 41.0411 25.3585C41.2882 26.3188 41.4547 27.3198 41.5578 28.5012C41.5652 28.4857 41.5726 28.4702 41.5799 28.4547C41.895 27.7825 42.1004 27.0293 42.3289 25.8252C42.4129 25.3828 42.7996 25.0625 43.25 25.0625H44.8125C45.3303 25.0625 45.75 25.4823 45.75 26C45.75 26.5178 45.3303 26.9375 44.8125 26.9375H44.0166C43.8229 27.8246 43.6046 28.553 43.2776 29.2506C42.861 30.1391 42.2922 30.9262 41.4702 31.9126C41.2193 32.2139 40.8073 32.3271 40.4376 32.1964C40.068 32.0658 39.8186 31.7189 39.8126 31.3269C39.7746 28.8473 39.5943 27.2596 39.2253 25.8259C39.1244 25.4338 39.0087 25.0504 38.876 24.6602C38.5752 26.8657 38.0864 28.5285 37.4547 29.9534C36.786 31.4614 35.9429 32.7119 35.0779 33.9949C34.7329 34.5067 34.3843 35.0236 34.042 35.5641C33.8007 35.9451 33.3224 36.1003 32.9034 35.9336Z"
+                            fill="#2563EB" />
+                    </g>
+                    <defs>
+                        <filter id="filter0_dddd_247_199" x="0" y="0" width="64" height="79"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="1" />
+                            <feGaussianBlur stdDeviation="1.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.1 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_247_199" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="5" />
+                            <feGaussianBlur stdDeviation="2.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.09 0" />
+                            <feBlend mode="normal" in2="effect1_dropShadow_247_199"
+                                result="effect2_dropShadow_247_199" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="12" />
+                            <feGaussianBlur stdDeviation="3.5" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.05 0" />
+                            <feBlend mode="normal" in2="effect2_dropShadow_247_199"
+                                result="effect3_dropShadow_247_199" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="21" />
+                            <feGaussianBlur stdDeviation="4" />
+                            <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0.482353 0 0 0 0 1 0 0 0 0.01 0" />
+                            <feBlend mode="normal" in2="effect3_dropShadow_247_199"
+                                result="effect4_dropShadow_247_199" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_247_199" result="shape" />
+                        </filter>
+                    </defs>
+                </svg>
+
+
+
+                <h3 class="text-center font-manrope text-[14px] sm:text-[16px] lg:text-[20px] font-semibold leading-[20px] sm:leading-[24px] lg:leading-[28px] text-text-primary">Bot Detection
+                </h3>
+                <p class="text-center font-manrope text-[12px] sm:text-[14px] lg:text-[16px] leading-[18px] sm:leading-[20px] lg:leading-[24px] text-text-body">
+                    Anti-fraud systems flag mismatched browser parameters immediately.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+	</main>
+
+	<!-- Footer -->
+	<footer class="bg-primary bg-[url('/assets/images/footer.png')] bg-cover bg-center bg-no-repeat border-t border-gray-200 relative">
+  <div class="container mx-auto px-4 pt-[96px] pb-[48px]">
+    <!-- Main Footer Content -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-8">
+      <!-- Left Section: Branding and Description -->
+      <div class="lg:col-span-2 space-y-4">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2 mb-7">
+          <!-- Cloud Icon -->
+          <div class="flex items-center gap-2">
+            <a href="index.html">
+              <img src="/assets/images/logo_footer.png" alt="">
+            </a>
+
+          </div>
+        </div>
+        <!-- Description -->
+        <p class="text-white font-manrope text-[14px] font-normal leading-[20px]">
+          Browser Fingerprint is an anti-detect browser designed to securely manage multiple accounts by creating
+          isolated browser profiles with protected fingerprints, optimized for digital marketing, advertising,
+          e-commerce, and automation.
+        </p>
+        <div class="flex items-center space-x-3 mt-4">
+          <a href="#" class="text-white hover:text-[#2B8CEE] transition-colors hover:text-[#2B8CEE]"
+            aria-label="Facebook">
+            <svg width="32" height="32" viewBox="0 0 32 32 " class="hover:text-[#2B8CEE]" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789" stroke="#F3F4F6"
+                stroke-width="0.842105" />
+              <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6" stroke-width="0.842105" />
+              <path
+                d="M17.1919 12.1546V14.1284H19.4994L19.134 16.7872H17.1919V22.913C16.8025 22.9702 16.4041 23 15.9997 23C15.5329 23 15.0745 22.9606 14.6281 22.8845V16.7872H12.5V14.1284H14.6281V11.7134C14.6281 10.2151 15.7759 9 17.1925 9V9.00127C17.1967 9.00127 17.2003 9 17.2045 9H19.5V11.2995H18C17.5543 11.2995 17.1925 11.6823 17.1925 12.154L17.1919 12.1546Z"
+                fill="#595959" />
+            </svg>
+          </a>
+          <a href="#" class="text-white hover:text-[#2B8CEE] transition-colors ]" aria-label="Instagram">
+            <svg width="32" height="32" viewBox="0 0 32 32" class="hover:text-[#2B8CEE]" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789" stroke="#F3F4F6"
+                stroke-width="0.842105" />
+              <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6" stroke-width="0.842105" />
+              <path
+                d="M19.6506 9H12.3493C10.3321 9 8.69116 10.6415 8.69116 12.6592V19.3408C8.69116 21.3585 10.3321 23 12.3493 23H19.6506C21.6677 23 23.3087 21.3585 23.3087 19.3408V12.6592C23.3087 10.6415 21.6677 9 19.6506 9ZM9.98163 12.6592C9.98163 11.3535 11.0439 10.2908 12.3493 10.2908H19.6506C20.956 10.2908 22.0183 11.3535 22.0183 12.6592V19.3408C22.0183 20.6465 20.956 21.7092 19.6506 21.7092H12.3493C11.0439 21.7092 9.98163 20.6465 9.98163 19.3408V12.6592Z"
+                fill="#595959" />
+              <path
+                d="M16.0003 19.402C17.8761 19.402 19.403 17.8755 19.403 15.9984C19.403 14.1212 17.8769 12.5947 16.0003 12.5947C14.1237 12.5947 12.5977 14.1212 12.5977 15.9984C12.5977 17.8755 14.1237 19.402 16.0003 19.402ZM16.0003 13.8864C17.1651 13.8864 18.1125 14.8341 18.1125 15.9992C18.1125 17.1644 17.1651 18.112 16.0003 18.112C14.8355 18.112 13.8881 17.1644 13.8881 15.9992C13.8881 14.8341 14.8355 13.8864 16.0003 13.8864Z"
+                fill="#595959" />
+              <path
+                d="M19.7171 13.1437C20.2222 13.1437 20.6339 12.7327 20.6339 12.2266C20.6339 11.7206 20.223 11.3096 19.7171 11.3096C19.2112 11.3096 18.8003 11.7206 18.8003 12.2266C18.8003 12.7327 19.2112 13.1437 19.7171 13.1437Z"
+                fill="#595959" />
+            </svg>
+
+          </a>
+          <a href="#" class="text-white hover:text-[#2B8CEE] transition-colors hover:text-[#2B8CEE]"
+            aria-label="Twitter/X">
+            <svg width="32" height="32" viewBox="0 0 32 32" class="hover:text-[#2B8CEE]" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789" stroke="#F3F4F6"
+                stroke-width="0.842105" />
+              <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6" stroke-width="0.842105" />
+              <path
+                d="M8.55867 9L14.3325 16.7217L8.52271 23H9.83063L14.9176 17.5036L19.0273 23H23.4774L17.379 14.8439L22.787 9H21.4791L16.7948 14.0621L13.0096 9H8.55954H8.55867ZM10.4815 9.96348H12.5254L21.5528 22.0365H19.5089L10.4815 9.96348Z"
+                fill="#595959" />
+            </svg>
+
+          </a>
+        </div>
+      </div>
+      <div>
+
+      </div>
+      <!-- Product Column -->
+      <div>
+        <h3 class="text-md font-semibold text-white mb-8">PRODUCT</h3>
+        <ul class="space-y-5">
+          <li><a href="#download" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Download</a></li>
+          <li><a href="#pricing" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Pricing</a></li>
+          <li><a href="#releasenotes" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Release
+              Notes</a></li>
+          <li><a href="#apt" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">APT</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources Column -->
+      <div>
+        <h3 class="text-sm font-semibold text-white mb-8">RESOURCES</h3>
+        <ul class="space-y-5">
+          <li><a href="#documentation"
+              class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Documentation</a></li>
+          <li><a href="#guides" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Blog</a></li>
+          <li><a href="blog.html" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Proxy Checker</a>
+          </li>
+          <li><a href="#faq" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Community</a></li>
+        </ul>
+      </div>
+
+      <!-- Community & Contact Column -->
+      <div>
+        <h3 class="text-md font-semibold text-white mb-8">LEGAL</h3>
+        <ul class="space-y-5">
+          <li><a href="#forum" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Privacy Policy</a></li>
+          <li><a href="#contribute" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Terms of
+              Service</a>
+          </li>
+          <li><a href="#events" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Acceptable Use</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="border-b border-gray-200 pt-6">
+      <!-- Performance Note -->
+
+    </div>
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 mt-4">
+      <p class="text-sm text-white sm:text-sm">© 2025 Browser Fingerprint. All rights reserved.</p>
+      <div class="flex items-center space-x-6">
+        <a href="#terms"
+          class="text-sm font-medium text-white hover:text-[#2B8CEE] transition-colors uppercase">Terms</a>
+        <a href="#privacy"
+          class="text-sm font-medium text-white hover:text-[#2B8CEE] transition-colors uppercase">Privacy</a>
+        <a href="#cookies"
+          class="text-sm font-medium text-white hover:text-[#2B8CEE] transition-colors uppercase">Cookies</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    class="fixed bottom-8 right-8 w-12 h-12 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none z-50"
+    aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 5L5 10L6.25 11.25L10 7.5L13.75 11.25L15 10L10 5Z" fill="currentColor" />
+    </svg>
+  </button>
+
+  <script>
+    // Show/hide scroll to top button
+    window.addEventListener('scroll', function () {
+      const scrollButton = document.getElementById('scrollToTop');
+      if (window.pageYOffset > 300) {
+        scrollButton.classList.remove('opacity-0', 'pointer-events-none');
+        scrollButton.classList.add('opacity-100');
+      } else {
+        scrollButton.classList.add('opacity-0', 'pointer-events-none');
+        scrollButton.classList.remove('opacity-100');
+      }
+    });
+  </script>
+</footer>
+</body>
+
+</html>

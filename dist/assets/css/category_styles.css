@@ -564,6 +564,7 @@ video {
   --card-foreground: #111827;
   --popover: #fff;
   --popover-foreground: #111827;
+  --back2: #F8FAFC;
   /* Primary Colors */
   --primary: #2465EA;
   --primary-foreground: #fff;
@@ -2214,17 +2215,26 @@ body:has(.jmodal:not(.hidden)) header.header {
   text-align: center;
 }
 
-.text-\[14px\] {
-  font-size: 14px;
+.font-manrope {
+  font-family: "Manrope", sans-serif;
 }
 
-.text-\[18px\] {
-  font-size: 18px;
+.font-pjs {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.text-\[14px\] {
+  font-size: 14px;
 }
 
 .text-base {
   font-size: 1rem;
   line-height: 1.5rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .text-sm {
@@ -2257,8 +2267,8 @@ body:has(.jmodal:not(.hidden)) header.header {
   text-transform: uppercase;
 }
 
-.leading-\[20px\] {
-  line-height: 20px;
+.leading-5 {
+  line-height: 1.25rem;
 }
 
 .leading-\[27px\] {

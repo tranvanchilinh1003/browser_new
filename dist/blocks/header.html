@@ -118,7 +118,7 @@
     activeLink: '',
     navItems: [
       { href: '/', label: 'Home', key: 'index.html' },
-      { href: '/#features', label: 'Features', key: 'features.html' },
+      { href: '/features.html', label: 'Features', key: 'features.html' },
       { href: '/#pricing', label: 'Pricing', key: 'pricing.html' },
       { href: '/#user-guide', label: 'User Guide', key: 'user-guide.html' }
     ],
@@ -134,7 +134,7 @@
     <!-- Dynamic Navigation Items -->
     <template x-for="item in navItems" :key="item.key">
       <a :href="item.href" :class="[
-           'cursor-pointer transition-colors duration-200 rounded-lg py-2 px-3  text-base lg:text-sm font-medium',
+           'cursor-pointer transition-colors duration-200 rounded-lg py-2 px-3  text-base lg:text-sm font-medium font-manrope',
            isActive(item.key) 
              ? 'bg-[#E9F3FD] text-[#2B8CEE]' 
              : 'text-[#334155] hover:text-[#2B8CEE] hover:bg-[#E9F3FD]'
@@ -173,7 +173,7 @@
         </svg>
 
         <!-- Selected Language -->
-        <span class="text-sm font-semibold text-secondary " x-text="lang"></span>
+        <span class="text-sm font-semibold text-secondary font-pjs " x-text="lang"></span>
 
         <!-- Arrow Icon -->
         <svg width="10" height="6" viewBox="0 0 10 6" class="flex-shrink-0">
@@ -191,11 +191,11 @@
            bg-primary-gradient">
       <div class="bg-white rounded-[4px] overflow-hidden shadow-md">
         <button @click="lang = 'EN'; open = false"
-          class="w-full text-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+          class="w-full text-center font-pjs px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
           EN
         </button>
         <button @click="lang = 'VN'; open = false"
-          class="w-full text-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+          class="w-full text-center font-pjs px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
           VN
         </button>
       </div>
@@ -207,16 +207,16 @@
   <!-- Action Buttons -->
 
   <a href="#"
-    class="hidden relative flex justify-center items-center gap-2.5  self-stretch h-[42px] px-[1px] py-[1px] rounded-[8px] bg-primary-gradient ">
+    class=" relative flex justify-center items-center gap-2.5  self-stretch h-[42px] px-[1px] py-[1px] rounded-[8px] bg-primary-gradient ">
     <div
-      class="flex justify-center items-center text-secondary hover:bg-gray-100 font-semibold bg-white rounded-[4px] w-full h-full py-[10px] px-6">
+      class="flex justify-center items-center font-pjs text-secondary hover:bg-gray-100 font-semibold bg-white rounded-[6px] w-full h-full py-[10px] px-6">
       Login
     </div>
   </a>
   <a href="#"
-    class="relative flex justify-center  items-center gap-2.5  self-stretch h-[42px] px-[1px] py-[1px] rounded-[8px] bg-primary-gradient ">
+    class="hidden relative flex justify-center  items-center gap-2.5  self-stretch h-[42px] px-[1px] py-[1px] rounded-[8px] bg-primary-gradient ">
     <div
-      class="flex justify-center items-center gap-3 px-1 text-secondary hover:bg-gray-100 font-semibold bg-white rounded-[6px] w-full h-full py-[10px] px-4">
+      class="flex justify-center font-pjs items-center gap-3 px-1 text-secondary hover:bg-gray-100 font-semibold bg-white rounded-[6px] w-full h-full py-[10px] px-4">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="12" cy="12" r="12" fill="url(#paint0_linear_247_2705)" />
         <defs>
@@ -238,8 +238,8 @@
   </a>
 
   <a href="#"
-    class="flex items-center justify-center gap-2.5 px-6 py-2.5 h-[40px]  
-           rounded-[12px] border border-[#08F] 
+    class="flex items-center font-manrope justify-center gap-2.5 px-6 py-2.5 h-[40px]  
+           rounded-[12px] border border-[#08F] font-manrope
            bg-primary text-white font-bold shadow-[0_50.4px_128.4px_rgba(87,177,255,0.34),_0_12.321px_16.078px_rgba(87,177,255,0.22)]">
     Get Started
   </a>
@@ -355,24 +355,24 @@
       }" class="py-4 space-y-2">
         <a href="/index.html"
           :class="activeLink === '#index' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-          class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          class="block px-6 py-4 rounded-xl font-pjs hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
           Home
         </a>
-        <a href="#features"
+        <a href="/features.html"
           :class="activeLink === '#features' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-          class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          class="block px-6 py-4 rounded-xl font-pjs hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
           Features
         </a>
 
 
         <a href="#pricing"
           :class="activeLink === '#pricing' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-          class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          class="block px-6 py-4 rounded-xl font-pjs hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
           Pricing
         </a>
         <a href="#usage-guide"
           :class="isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
-          class="block px-6 py-4 rounded-xl hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          class="block px-6 py-4 rounded-xl font-pjs hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
           Usage Guide
         </a>
       </nav>
@@ -426,7 +426,7 @@
       <!-- Download Button -->
       <a href="#">
         <button
-          class="w-full bg-primary text-[18px] font-medium leading-[27px] text-white py-3 px-5 rounded-lg font-medium hover:bg-[#2178d4] transition mb-6 flex items-center gap-2 justify-center">
+          class="w-full bg-primary text-lg font-manrope font-medium leading-[27px] text-white py-3 px-5 rounded-lg font-medium hover:bg-[#2178d4] transition mb-6 flex items-center gap-2 justify-center">
           Get Started
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -439,7 +439,7 @@
 
       <a href="#"
         class="relative flex justify-center items-center gap-2.5 self-stretch px-[1.2px] py-[1.2px] rounded-[6px] bg-gradient-to-r from-[#2465EA] via-[#158DDF] to-[#18C8E7]">
-        <button class="flex justify-center items-center bg-white text-secondary rounded-[4px] w-full h-full py-[10px] px-6">
+        <button class="flex justify-center text-lg font-manrope items-center bg-white text-secondary rounded-[4px] w-full h-full py-[10px] px-6">
           Login
         </button>
       </a>

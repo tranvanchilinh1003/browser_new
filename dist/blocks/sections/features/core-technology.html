@@ -1,0 +1,271 @@
+<section class="relative bg-back2 py-12 sm:py-24">
+    <div class="container mx-auto">
+
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-12 space-y-3">
+            <span
+                class="inline-flex items-center font-manrope  justify-center gap-2 px-4 py-2 rounded-full bg-[rgba(0,193,232,0.10)] text-primary text-xs font-medium">
+                UNDER THE HOOD
+            </span>
+
+            <h2 class="text-text-primary font-ibm text-3xl md:text-5xl font-semibold leading-tight tracking-[-1px]">
+                Core Technology
+            </h2>
+
+            <p class="text-body text-md max-w-2xl font-manrope leading-relaxed">
+                Our software provides granular control over every aspect of your browser identity, engineered for
+                stability and stealth.
+            </p>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-stretch">
+            <!-- Left Column -->
+            <div class="lg:col-span-5 flex flex-col space-y-8    ">
+
+                <!-- ITEM 1 (Active) -->
+                <div div class="relative pl-6 group cursor-pointer space-y-4">
+                    <!-- Active marker -->
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-full py-0"></div>
+
+                    <h3 class="text-2xl sm:text-3xl font-bold text-text-primary font-ibm mt-0 !mt-0 pt-0 sm:pt-4">
+
+                        Kernel Injection
+                    </h3>
+
+                    <p class="text-body text-lg leading-relaxed font-manrope ">
+                        We modify the Chromium engine at C++ level, not JavaScript injection which can be detected.
+                    </p>
+
+                    <!-- Box -->
+                    <div class="text-body text-lg leading-relaxed font-manrope pb-0 lg:pb-8 ">
+                        <span class=" text-lg text-[#2465EA]">Deep Dive:</span> Standard anti-detects use JS injection
+                        which leaves traces in the DOM. PrintGuard recompiles the browser engine to return spoofed
+                        values natively.
+                    </div>
+                </div>
+                <!-- Mobile Image -->
+                <div class="block lg:hidden rounded-xl overflow-hidden mb-6">
+                    <img src="/assets/images/features_card.png" class="w-full h-auto object-cover"
+                        alt="Kernel Injection Visualization">
+                </div>
+                <!-- ITEM 2 -->
+                <div class="relative pl-6 group cursor-pointer space-y-4 pb-0 lg:pb-8">
+                    <!-- Active marker -->
+                    <div class="block lg:hidden absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-full py-0"></div>
+
+                    <h3 class="text-2xl sm:text-3xl font-bold text-text-primary font-ibm mt-0 !mt-0 pt-0 sm:pt-4">
+
+                        Native Noise
+                    </h3>
+
+                    <p class="text-body text-lg leading-relaxed font-manrope  ">
+                        Canvas and Audio fingerprints are altered mathematically to produce unique, consistent hashes.
+                    </p>
+                    <div class="block lg:hidden text-body text-lg leading-relaxed font-manrope pb-0 lg:pb-8 ">
+                        <span class=" text-lg text-[#2465EA]">Deep Dive:</span> We apply a unique noise algorithm that
+                        persists per session. Even if you refresh the page, your Canvas hash remains consistent but
+                        unique.
+                    </div>
+                </div>
+                <!-- Mobile Image -->
+                <div class="block lg:hidden rounded-xl overflow-hidden mb-6">
+                    <img src="/assets/images/features_card1.png" class="w-full h-auto object-cover"
+                        alt="Native Noise Visualization">
+                </div>
+                <!-- ITEM 3 -->
+                <div class="relative pl-6 group cursor-pointer space-y-4 pb-0 lg:pb-8">
+                    <!-- Active marker -->
+                    <div class="block lg:hidden absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-full py-0"></div>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-text-primary font-ibm mt-0 !mt-0 pt-0 sm:pt-4">
+                        Font Enumeration
+                    </h3>
+
+                    <p class="text-body text-lg leading-relaxed font-manrope ">
+                        Custom font packing ensures your font list matches the spoofed OS exactly.
+                    </p>
+                    <div class="block lg:hidden text-body text-lg leading-relaxed font-manrope pb-0 lg:pb-8 ">
+                        <span class=" text-lg text-[#2465EA]">Deep Dive:</span> If you spoof macOS on Windows, we hide
+                        system fonts like Calibri and inject San Francisco, passing advanced font enumeration tests.
+                    </div>
+                </div>
+                <!-- Mobile Image -->
+                <div class="block lg:hidden rounded-xl overflow-hidden mb-6">
+                    <img src="/assets/images/features_card2.png" class="w-full h-auto object-cover"
+                        alt="Font Enumeration Visualization">
+                </div>
+            </div>
+            <!-- Right Column (Desktop Only) -->
+            <div class="hidden lg:block lg:col-span-7 w-full h-full">
+                <div class="w-full h-full flex items-center justify-center">
+                    <img src="/assets/images/features_card.png"
+                        class="w-full sm:w-auto h-full object-contain rounded-xl" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-12 sm:py-24 bg-white">
+    <div class="container mx-auto">
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-12 space-y-3">
+            <h2 class="text-text-primary font-ibm text-3xl md:text-5xl font-semibold leading-tight tracking-[-1px]">
+                Complete Fingerprint Control
+            </h2>
+            <p class="text-body text-md max-w-2xl font-manrope leading-relaxed">
+                Customize every single parameter that websites use to track you.
+            </p>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+            <!-- Card 1: Hardware -->
+            <div class="bg-back2 rounded-2xl p-5 lg:p-6 hover:shadow-lg transition-all duration-300">
+                <div class="flex flex-col md:flex-row items-start sm:items-center gap-2 md:gap-4 mb-6">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-[#2465EA] shadow-[0_33px_9px_0_rgba(0,123,255,0),0_21px_8px_0_rgba(0,123,255,0.01),0_12px_7px_0_rgba(0,123,255,0.05),0_5px_5px_0_rgba(0,123,255,0.09),0_1px_3px_0_rgba(0,123,255,0.1)]">
+                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M5 20H20V5H5V20ZM15 22.5H10V25H7.5V22.5H3.75C3.41848 22.5 3.10054 22.3683 2.86612 22.1339C2.6317 21.8995 2.5 21.5815 2.5 21.25V17.5H0V15H2.5V10H0V7.5H2.5V3.75C2.5 3.41848 2.6317 3.10054 2.86612 2.86612C3.10054 2.6317 3.41848 2.5 3.75 2.5H7.5V0H10V2.5H15V0H17.5V2.5H21.25C21.5815 2.5 21.8995 2.6317 22.1339 2.86612C22.3683 3.10054 22.5 3.41848 22.5 3.75V7.5H25V10H22.5V15H25V17.5H22.5V21.25C22.5 21.5815 22.3683 21.8995 22.1339 22.1339C21.8995 22.3683 21.5815 22.5 21.25 22.5H17.5V25H15V22.5ZM7.5 7.5H17.5V17.5H7.5V7.5Z"
+                                fill="#2563EB" />
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-xl sm:text-2xl font-semibold text-text-primary font-manrope text-center md:text-left">
+                        Hardware</h3>
+                </div>
+                <ul class="flex flex-wrap md:flex-col gap-2 md:space-y-3">
+
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>CPU Concurrency
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Device Memory (RAM)
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Screen Resolution
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Battery Status
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card 2: Connection -->
+            <div class="bg-back2 rounded-2xl p-5 lg:p-6 hover:shadow-lg transition-all duration-300">
+                <div class="flex flex-col md:flex-row items-start sm:items-center gap-2 md:gap-4 mb-6">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-[#2465EA] shadow-[0_33px_9px_0_rgba(0,123,255,0),0_21px_8px_0_rgba(0,123,255,0.01),0_12px_7px_0_rgba(0,123,255,0.05),0_5px_5px_0_rgba(0,123,255,0.09),0_1px_3px_0_rgba(0,123,255,0.1)]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.862549 8.74627C4.86141 5.50667 9.85361 3.74241 15 3.75002C20.3563 3.75002 25.275 5.62127 29.1375 8.74627L27.5675 10.6913C24.0128 7.81137 19.575 6.24307 15 6.25002C10.2388 6.25002 5.86755 7.91253 2.43255 10.6913L0.862549 8.74627ZM4.7888 13.6088C7.67705 11.2688 11.2828 9.99445 15 10C18.8675 10 22.42 11.3513 25.2113 13.6075L23.64 15.5525C21.1961 13.5729 18.1452 12.495 15 12.5C11.7275 12.5 8.7213 13.6438 6.36005 15.5525L4.7888 13.6075V13.6088ZM8.7163 18.4713C10.4936 17.0311 12.7125 16.2468 15 16.25C17.38 16.25 19.5663 17.0813 21.2838 18.47L19.7125 20.415C18.3795 19.3353 16.7155 18.7474 15 18.75C13.215 18.75 11.575 19.3738 10.2875 20.415L8.7163 18.47V18.4713ZM12.6438 23.3338C13.3101 22.7934 14.1422 22.499 15 22.5C15.8925 22.5 16.7125 22.8125 17.3563 23.3325L15 26.25L12.6438 23.3325V23.3338Z"
+                                fill="#2563EB" />
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-xl sm:text-2xl font-semibold text-text-primary font-manrope text-center md:text-left">
+                        Connection</h3>
+                </div>
+                <ul class="flex flex-wrap md:flex-col gap-2 md:space-y-3">
+
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>WebRTC IP Handling
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>DNS Leak Protection
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Timezone Spoofing
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Geolocation
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card 3: Media Devices -->
+            <div class="bg-back2 rounded-2xl p-5 lg:p-6 hover:shadow-lg transition-all duration-300">
+                <div class="flex flex-col md:flex-row items-start sm:items-center gap-2 md:gap-4 mb-6">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-[#2465EA] shadow-[0_33px_9px_0_rgba(0,123,255,0),0_21px_8px_0_rgba(0,123,255,0.01),0_12px_7px_0_rgba(0,123,255,0.05),0_5px_5px_0_rgba(0,123,255,0.09),0_1px_3px_0_rgba(0,123,255,0.1)]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.75 26.25V24.9125C11.6673 24.6114 9.76289 23.57 8.3855 21.9791C7.0081 20.3882 6.24998 18.3543 6.25 16.25V10C6.25 8.85093 6.47633 7.71312 6.91605 6.65152C7.35578 5.58992 8.0003 4.62533 8.81282 3.81282C9.62533 3.0003 10.5899 2.35578 11.6515 1.91605C12.7131 1.47633 13.8509 1.25 15 1.25C16.1491 1.25 17.2869 1.47633 18.3485 1.91605C19.4101 2.35578 20.3747 3.0003 21.1872 3.81282C21.9997 4.62533 22.6442 5.58992 23.0839 6.65152C23.5237 7.71312 23.75 8.85093 23.75 10V16.25C23.75 18.3543 22.9919 20.3882 21.6145 21.9791C20.2371 23.57 18.3327 24.6114 16.25 24.9125V26.25H21.25V28.75H8.75V26.25H13.75ZM15 3.75C13.3424 3.75 11.7527 4.40848 10.5806 5.58058C9.40848 6.75269 8.75 8.3424 8.75 10V16.25C8.75 17.9076 9.40848 19.4973 10.5806 20.6694C11.7527 21.8415 13.3424 22.5 15 22.5C16.6576 22.5 18.2473 21.8415 19.4194 20.6694C20.5915 19.4973 21.25 17.9076 21.25 16.25V10C21.25 8.3424 20.5915 6.75269 19.4194 5.58058C18.2473 4.40848 16.6576 3.75 15 3.75ZM15 11.25C15.3315 11.25 15.6495 11.1183 15.8839 10.8839C16.1183 10.6495 16.25 10.3315 16.25 10C16.25 9.66848 16.1183 9.35054 15.8839 9.11612C15.6495 8.8817 15.3315 8.75 15 8.75C14.6685 8.75 14.3505 8.8817 14.1161 9.11612C13.8817 9.35054 13.75 9.66848 13.75 10C13.75 10.3315 13.8817 10.6495 14.1161 10.8839C14.3505 11.1183 14.6685 11.25 15 11.25ZM15 13.75C14.0054 13.75 13.0516 13.3549 12.3483 12.6517C11.6451 11.9484 11.25 10.9946 11.25 10C11.25 9.00544 11.6451 8.05161 12.3483 7.34835C13.0516 6.64509 14.0054 6.25 15 6.25C15.9946 6.25 16.9484 6.64509 17.6517 7.34835C18.3549 8.05161 18.75 9.00544 18.75 10C18.75 10.9946 18.3549 11.9484 17.6517 12.6517C16.9484 13.3549 15.9946 13.75 15 13.75Z"
+                                fill="#2563EB" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-semibold text-text-primary font-manrope md:text-left">
+                        Media Devices
+                    </h3>
+                </div>
+                <ul class="flex flex-wrap md:flex-col gap-2 md:space-y-3">
+
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Audio Inputs/Outputs
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Video Inputs
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Media Capability
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Speech Synthesis
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card 4: Browser -->
+            <div class="bg-back2 rounded-2xl p-5 lg:p-6 hover:shadow-lg transition-all duration-300">
+                <div class="flex flex-col md:flex-row items-start sm:items-center gap-2 md:gap-4 mb-6">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-[#2465EA] shadow-[0_33px_9px_0_rgba(0,123,255,0),0_21px_8px_0_rgba(0,123,255,0.01),0_12px_7px_0_rgba(0,123,255,0.05),0_5px_5px_0_rgba(0,123,255,0.09),0_1px_3px_0_rgba(0,123,255,0.1)]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15 27.5C8.09625 27.5 2.5 21.9037 2.5 15C2.5 8.09625 8.09625 2.5 15 2.5C21.9037 2.5 27.5 8.09625 27.5 15C27.5 21.9037 21.9037 27.5 15 27.5ZM12.1375 24.5837C10.9043 21.9679 10.1898 19.1378 10.0338 16.25H5.0775C5.32073 18.1736 6.1174 19.9852 7.37071 21.4646C8.62402 22.9441 10.28 24.0277 12.1375 24.5837ZM12.5375 16.25C12.7262 19.2987 13.5975 22.1625 15 24.69C16.4404 22.0957 17.2818 19.2118 17.4625 16.25H12.5375ZM24.9225 16.25H19.9662C19.8102 19.1378 19.0957 21.9679 17.8625 24.5837C19.72 24.0277 21.376 22.9441 22.6293 21.4646C23.8826 19.9852 24.6793 18.1736 24.9225 16.25ZM5.0775 13.75H10.0338C10.1898 10.8622 10.9043 8.03211 12.1375 5.41625C10.28 5.97235 8.62402 7.05594 7.37071 8.53537C6.1174 10.0148 5.32073 11.8264 5.0775 13.75ZM12.5387 13.75H17.4613C17.2809 10.7882 16.44 7.90442 15 5.31C13.5596 7.90431 12.7182 10.7882 12.5375 13.75H12.5387ZM17.8625 5.41625C19.0957 8.03211 19.8102 10.8622 19.9662 13.75H24.9225C24.6793 11.8264 23.8826 10.0148 22.6293 8.53537C21.376 7.05594 19.72 5.97235 17.8625 5.41625Z"
+                                fill="#2563EB" />
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-xl sm:text-2xl font-semibold text-text-primary font-manrope text-center md:text-left">
+                        Browser</h3>
+                </div>
+                <ul class="flex flex-wrap md:flex-col gap-2 md:space-y-3">
+
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>User Agent
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Do Not Track
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Navigator Object
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Client Rects
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>

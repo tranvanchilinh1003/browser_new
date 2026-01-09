@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>FEATURES - Browser Fingerprint</title>
+	<meta name="description"
+		content="Cửa hàng bán tài khoản premium, key license, VPN và các sản phẩm số chất lượng cao với giá tốt nhất.">
+	<script type="text/javascript">
+		const API_URL = "https://panel.dongnai.net/api/v2/";
+	</script>
+	<!-- Add Inline Hidden Class for Fix CLS -->
+	<style>
+		.hidden {
+			display: none;
+		}
+	</style>
+	<!-- all css -->
+	<link rel="stylesheet" href="assets/css/features_styles.css" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+		rel="stylesheet">
+
+
+	<!-- 1. CAC THU VIEN CAN SU DUNG -->
+	<!-- Notification Library -->
+	<script src="assets/js/libs/notification.js" defer></script>
+	<!-- Initialize FastNotice -->
+	<script>
+		// Khởi tạo FastNotice với cấu hình tùy chỉnh sau khi DOM sẵn sàng
+		document.addEventListener('DOMContentLoaded', function () {
+			window.fastNotice = new FastNotice({
+				position: 'top-center',    // Vị trí mặc định
+				duration: 3000,              // Thời gian hiển thị (ms)
+				maxNotifications: 3          // Số notification tối đa
+			});
+		});
+	</script>
+	<!-- Lucide Icons - Custom Build -->
+	<script src="assets/js/lucide-custom.min.js" defer></script>
+	<!-- jModal manager -->
+	<script src="assets/js/libs/jmodal.1.1.0.js" defer></script>
+	<!-- Load BlazeSlider Library -->
+	<script src="assets/js/libs/blaze-slider.js" defer></script>
+	<!-- Libs Tabs JS Thuần -->
+	<script src="assets/js/libs/tabs.js" defer></script>
+	<!-- Image Fallback Utility -->
+	<script src="assets/js/libs/image-fallback.js" defer></script>
+
+
+	<!-- 2. CAC CODE JS TU VIET. -->
+
+	<!-- Header Component JS. Vi no goi Cart nen nam sau Cart -->
+	<script src="assets/js/header.js" defer></script>
+	<!-- Homepage Component JS -->
+	<!-- <script src="assets/js/home.js" defer></script> -->
+	<!-- Run BlazeSlider -->
+	<script src="assets/js/sliders.js" defer></script>
+
+	<!-- Alpine.js CDN. Nam duoi cung vi chay Defer va vi no AutoRun nen can load sau cung truoc -->
+	<script src="assets/js/libs/alpinejs.3.15.0.js" defer></script>
+
+
+</head>
+
+<body class="min-h-screen bg-white p-0">
+	<!-- header -->
+	<header class="bg-[linear-gradient(115deg,rgba(176,197,229,0.25)_0%,rgba(255,255,255,0.25)_100%)] backdrop-blur-md border-b border-gray-200 shadow-sm sticky top-0 z-50" x-data="headerComponent()">
+  <!-- Top Bar -->
+  <!-- <div class="bg-gradient-to-r from-emerald-500 to-green-600 text-white py-2">
+    <div class="container">
+      <div class="flex-between text-sm">
+        <div class="flex items-center space-x-6">
+          <div class="flex items-center space-x-2">
+            <i data-lucide="shield-check" class="size-4"></i>
+            <span>Bảo hành 12 tháng</span>
+          </div>
+          <div class="hidden md:flex items-center space-x-2">
+            <i data-lucide="truck" class="size-4"></i>
+            <span>Giao hàng tức thì</span>
+          </div>
+          <div class="hidden lg:flex items-center space-x-2">
+            <i data-lucide="headphones" class="size-4"></i>
+            <span>Hỗ trợ 24/7</span>
+          </div>
+        </div>
+        <div class="flex items-center space-x-4">
+          <div class="hidden sm:flex items-center space-x-2">
+            <i data-lucide="flame" class="size-4"></i>
+            <span>Flash Sale - Giảm đến 70%</span>
+          </div>
+          <a href="/support" class="hover:text-emerald-200 transition-colors">Liên hệ</a>
+        </div>
+      </div>
+    </div>
+</div> -->
+  <script src="/assets/js/swiper-bundle.min.js"></script>
+  <!-- Main Header -->
+  <div class="container">
+    <div class="flex items-center justify-between h-20">
+      <!-- Mobile Hamburger Menu Button -->
+      <button 
+        @click="openMobileMenu()"
+        class="lg:hidden p-2 text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+        aria-label="Open menu"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M3 12H21M3 6H21M3 18H21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+      
+      <!-- Logo -->
+      <div class="flex-1 flex justify-center lg:justify-start lg:flex-none">
+        <a href="/index.html">
+ <img src="/assets/images/logo_header.png" alt="">
+        
+    </a>
+      </div>
+      
+      <!-- Mobile Language Selector -->
+      <div x-data="{ open: false, lang: 'EN' }" 
+           @click.outside="open = false"
+           class="lg:hidden relative">
+           <div
+           class="relative rounded-[6px] px-[1px] py-[1px] bg-gradient-to-r from-[#2465EA] via-[#158DDF] to-[#18C8E7] inline-block">
+           <button @click="open = !open"
+             class="flex items-center gap-2 p-2 h-9 bg-gray-100 rounded-[4px] hover:bg-gray-200 transition-colors">
+             <!-- Globe Icon -->
+             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+               class="flex-shrink-0">
+               <path
+                 d="M8.4538 7.43751H5.54641C5.57884 8.96143 5.77913 10.3179 6.07833 11.3076C6.24293 11.852 6.43017 12.2607 6.61808 12.5236C6.81215 12.7952 6.94672 12.8328 6.99885 12.8333L7.00004 12.8333C7.05124 12.8333 7.18648 12.7973 7.38212 12.5236C7.57004 12.2607 7.75728 11.852 7.92188 11.3075C8.22107 10.3179 8.42137 8.96143 8.4538 7.43751Z"
+                 fill="currentColor" class="text-gray-600" />
+               <path
+                 d="M5.54641 6.56251H8.4538C8.42137 5.03859 8.22107 3.68211 7.92188 2.69246C7.75728 2.14801 7.57004 1.73927 7.38212 1.47637C7.18648 1.20267 7.05131 1.16667 7.0001 1.16667C6.9489 1.16667 6.81372 1.20267 6.61808 1.47638C6.43017 1.73928 6.24293 2.14801 6.07833 2.69247C5.77913 3.68211 5.57884 5.03859 5.54641 6.56251Z"
+                 fill="currentColor" class="text-gray-600" />
+               <path
+                 d="M9.32899 7.43751C9.29652 9.02812 9.08815 10.4735 8.75944 11.5608C8.63133 11.9845 8.48118 12.3666 8.30836 12.686C10.7625 12.1237 12.6262 10.0134 12.8172 7.43751L9.32899 7.43751Z"
+                 fill="currentColor" class="text-gray-600" />
+               <path
+                 d="M12.8172 6.56251L9.32899 6.56251C9.29652 4.97189 9.08815 3.52654 8.75944 2.43925C8.63133 2.01552 8.48118 1.63338 8.30836 1.31396C10.7625 1.87633 12.6262 3.98664 12.8172 6.56251Z"
+                 fill="currentColor" class="text-gray-600" />
+               <path
+                 d="M4.67122 6.56251L1.18286 6.56251C1.37386 3.98658 3.23767 1.87624 5.69186 1.31393C5.51904 1.63335 5.36888 2.0155 5.24077 2.43925C4.91205 3.52654 4.70368 4.9719 4.67122 6.56251Z"
+                 fill="currentColor" class="text-gray-600" />
+               <path
+                 d="M4.67122 7.43751L1.18286 7.43751C1.37386 10.0134 3.23767 12.1238 5.69186 12.6861C5.51904 12.3667 5.36887 11.9845 5.24077 11.5608C4.91205 10.4735 4.70368 9.02812 4.67122 7.43751Z"
+                 fill="currentColor" class="text-gray-600" />
+             </svg>
+     
+             <!-- Selected Language -->
+             <span class="text-sm font-medium text-gray-700" x-text="lang"></span>
+     
+             <!-- Arrow Icon -->
+             <svg width="10" height="6" viewBox="0 0 10 6" class="flex-shrink-0">
+               <path d="M1 1L5 5L9 1" stroke="currentColor" class="text-gray-400" stroke-width="1.5" stroke-linecap="round"
+                 stroke-linejoin="round" />
+             </svg>
+           </button>
+         </div>
+        <div x-show="open" x-transition:enter="transition ease-out duration-100"
+        x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+        x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave-end="opacity-0 scale-95"
+        class="absolute right-0 mt-2 rounded-[6px]  z-50 px-[1px] py-[1px] bg-gradient-to-r from-[#2465EA] via-[#158DDF] to-[#18C8E7]">
+  
+        <div class="bg-white rounded-[4px] overflow-hidden shadow-md">
+          <button @click="lang = 'EN'; open = false"
+            class="w-full text-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+            EN
+          </button>
+          <button @click="lang = 'VN'; open = false"
+            class="w-full text-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+            VN
+          </button>
+        </div>
+  
+      </div>
+      </div>
+      
+      <!-- Desktop Menu -->
+      <div class="hidden lg:flex space-x-6 ml-6">
+  <!-- Navigation Links -->
+  <nav x-data="{
+    activeLink: '',
+    navItems: [
+      { href: '/', label: 'Home', key: 'index.html' },
+      { href: '/features.html', label: 'Features', key: 'features.html' },
+      { href: '/#pricing', label: 'Pricing', key: 'pricing.html' },
+      { href: '/#user-guide', label: 'User Guide', key: 'user-guide.html' }
+    ],
+    init() {
+      const currentPath = window.location.pathname;
+      const currentPage = currentPath.split('/').pop() || 'index.html';
+      this.activeLink = currentPage;
+    },
+    isActive(key) {
+      return this.activeLink === key;
+    }
+  }" class="flex items-center xl:space-x-8 lg:space-x-2">
+    <!-- Dynamic Navigation Items -->
+    <template x-for="item in navItems" :key="item.key">
+      <a :href="item.href" :class="[
+           'cursor-pointer transition-colors duration-200 rounded-lg py-2 px-3  text-base lg:text-sm font-medium font-manrope',
+           isActive(item.key) 
+             ? 'bg-[#E9F3FD] text-[#2B8CEE]' 
+             : 'text-[#334155] hover:text-[#2B8CEE] hover:bg-[#E9F3FD]'
+         ]" x-text="item.label">
+      </a>
+    </template>
+  </nav>
+  <!-- Language Dropdown -->
+  <div x-data="{ open: false, lang: 'EN' }" @click.outside="open = false" class="relative font-semibold text-secondary">
+    <!-- Trigger Button -->
+    <!-- Nút trigger với border gradient -->
+    <div class="relative rounded-[8px] px-[1px] py-[1px] bg-primary-gradient inline-block">
+      <button @click="open = !open"
+        class="flex items-center gap-2 px-4 py-5 h-9 bg-white rounded-[6px] hover:bg-gray-100 transition-colors">
+        <!-- Globe Icon -->
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"
+          class="flex-shrink-0">
+          <path
+            d="M8.4538 7.43751H5.54641C5.57884 8.96143 5.77913 10.3179 6.07833 11.3076C6.24293 11.852 6.43017 12.2607 6.61808 12.5236C6.81215 12.7952 6.94672 12.8328 6.99885 12.8333L7.00004 12.8333C7.05124 12.8333 7.18648 12.7973 7.38212 12.5236C7.57004 12.2607 7.75728 11.852 7.92188 11.3075C8.22107 10.3179 8.42137 8.96143 8.4538 7.43751Z"
+            fill="currentColor" class="text-gray-600" />
+          <path
+            d="M5.54641 6.56251H8.4538C8.42137 5.03859 8.22107 3.68211 7.92188 2.69246C7.75728 2.14801 7.57004 1.73927 7.38212 1.47637C7.18648 1.20267 7.05131 1.16667 7.0001 1.16667C6.9489 1.16667 6.81372 1.20267 6.61808 1.47638C6.43017 1.73928 6.24293 2.14801 6.07833 2.69247C5.77913 3.68211 5.57884 5.03859 5.54641 6.56251Z"
+            fill="currentColor" class="text-gray-600" />
+          <path
+            d="M9.32899 7.43751C9.29652 9.02812 9.08815 10.4735 8.75944 11.5608C8.63133 11.9845 8.48118 12.3666 8.30836 12.686C10.7625 12.1237 12.6262 10.0134 12.8172 7.43751L9.32899 7.43751Z"
+            fill="currentColor" class="text-gray-600" />
+          <path
+            d="M12.8172 6.56251L9.32899 6.56251C9.29652 4.97189 9.08815 3.52654 8.75944 2.43925C8.63133 2.01552 8.48118 1.63338 8.30836 1.31396C10.7625 1.87633 12.6262 3.98664 12.8172 6.56251Z"
+            fill="currentColor" class="text-gray-600" />
+          <path
+            d="M4.67122 6.56251L1.18286 6.56251C1.37386 3.98658 3.23767 1.87624 5.69186 1.31393C5.51904 1.63335 5.36888 2.0155 5.24077 2.43925C4.91205 3.52654 4.70368 4.9719 4.67122 6.56251Z"
+            fill="currentColor" class="text-gray-600" />
+          <path
+            d="M4.67122 7.43751L1.18286 7.43751C1.37386 10.0134 3.23767 12.1238 5.69186 12.6861C5.51904 12.3667 5.36887 11.9845 5.24077 11.5608C4.91205 10.4735 4.70368 9.02812 4.67122 7.43751Z"
+            fill="currentColor" class="text-gray-600" />
+        </svg>
+
+        <!-- Selected Language -->
+        <span class="text-sm font-semibold text-secondary font-pjs " x-text="lang"></span>
+
+        <!-- Arrow Icon -->
+        <svg width="10" height="6" viewBox="0 0 10 6" class="flex-shrink-0">
+          <path d="M1 1L5 5L9 1" stroke="currentColor" class="text-gray-400" stroke-width="1.5" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
+    </div>
+
+
+    <div x-show="open" x-transition:enter="transition ease-out duration-100"
+      x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-75" x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-95" class="absolute right-0 mt-2 z-50 px-[1px] py-[1px] rounded-[6px] 
+           bg-primary-gradient">
+      <div class="bg-white rounded-[4px] overflow-hidden shadow-md">
+        <button @click="lang = 'EN'; open = false"
+          class="w-full text-center font-pjs px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+          EN
+        </button>
+        <button @click="lang = 'VN'; open = false"
+          class="w-full text-center font-pjs px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition-colors">
+          VN
+        </button>
+      </div>
+    </div>
+
+
+  </div>
+
+  <!-- Action Buttons -->
+
+  <a href="#"
+    class=" relative flex justify-center items-center gap-2.5  self-stretch h-[42px] px-[1px] py-[1px] rounded-[8px] bg-primary-gradient ">
+    <div
+      class="flex justify-center items-center font-pjs text-secondary hover:bg-gray-100 font-semibold bg-white rounded-[6px] w-full h-full py-[10px] px-6">
+      Login
+    </div>
+  </a>
+  <a href="#"
+    class="hidden relative flex justify-center  items-center gap-2.5  self-stretch h-[42px] px-[1px] py-[1px] rounded-[8px] bg-primary-gradient ">
+    <div
+      class="flex justify-center font-pjs items-center gap-3 px-1 text-secondary hover:bg-gray-100 font-semibold bg-white rounded-[6px] w-full h-full py-[10px] px-4">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="12" fill="url(#paint0_linear_247_2705)" />
+        <defs>
+          <linearGradient id="paint0_linear_247_2705" x1="0" y1="12" x2="24" y2="12" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#2465EA" />
+            <stop offset="0.504808" stop-color="#158DDF" />
+            <stop offset="1" stop-color="#18C8E7" />
+          </linearGradient>
+        </defs>
+      </svg>
+      Name
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M4.14645 6.14645C4.34171 5.95118 4.65829 5.95118 4.85355 6.14645L8 9.29289L11.1464 6.14645C11.3417 5.95118 11.6583 5.95118 11.8536 6.14645C12.0488 6.34171 12.0488 6.65829 11.8536 6.85355L8.35355 10.3536C8.15829 10.5488 7.84171 10.5488 7.64645 10.3536L4.14645 6.85355C3.95118 6.65829 3.95118 6.34171 4.14645 6.14645Z"
+          fill="#64748B" />
+      </svg>
+
+    </div>
+  </a>
+
+  <a href="#"
+    class="flex items-center font-manrope justify-center gap-2.5 px-6 py-2.5 h-[40px]  
+           rounded-[12px] border border-[#08F] font-manrope
+           bg-primary text-white font-bold shadow-[0_50.4px_128.4px_rgba(87,177,255,0.34),_0_12.321px_16.078px_rgba(87,177,255,0.22)]">
+    Get Started
+  </a>
+
+
+</div>
+    </div>
+  </div>
+  <!-- Mobile Menu Overlay - Using jModal -->
+<div id="mobileMenuModal" class="jmodal hidden lg:hidden flex">
+  <div class="jmodal-slide-left flex flex-col h-full container w-full">
+    <!-- Mobile Menu Header -->
+    <div class="from-emerald-500 to-green-600 pt-6 pb-2 text-white flex-shrink-0">
+      <div class="flex items-center justify-between mb-4">
+        <button data-jmodal-close class="text-white hover:text-gray-200 transition-colors p-1">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24 8L8 24M8 8L24 24" stroke="black" stroke-width="2.66667" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+
+        </button>
+        <!-- Mobile Search -->
+        <form action="" method="GET" class="flex-1 mx-4">
+          <div class="relative">
+            <svg class="absolute right-3 top-1/2 transform -translate-y-1/2 text-emerald-700 w-[24px] h-[24px]"
+              viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g filter="url(#filter0_dddd_190_20412)">
+                <path
+                  d="M23 21L18.66 16.66M21 11C21 15.4183 17.4183 19 13 19C8.58172 19 5 15.4183 5 11C5 6.58172 8.58172 3 13 3C17.4183 3 21 6.58172 21 11Z"
+                  stroke="url(#paint0_linear_190_20412)" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </g>
+              <defs>
+                <filter id="filter0_dddd_190_20412" x="-2" y="0" width="32" height="39" filterUnits="userSpaceOnUse"
+                  color-interpolation-filters="sRGB">
+                  <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="1" />
+                  <feGaussianBlur stdDeviation="0.5" />
+                  <feColorMatrix type="matrix"
+                    values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.1 0" />
+                  <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_190_20412" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="3" />
+                  <feGaussianBlur stdDeviation="1.5" />
+                  <feColorMatrix type="matrix"
+                    values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.09 0" />
+                  <feBlend mode="normal" in2="effect1_dropShadow_190_20412" result="effect2_dropShadow_190_20412" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="6" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feColorMatrix type="matrix"
+                    values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.05 0" />
+                  <feBlend mode="normal" in2="effect2_dropShadow_190_20412" result="effect3_dropShadow_190_20412" />
+                  <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                    result="hardAlpha" />
+                  <feOffset dy="11" />
+                  <feGaussianBlur stdDeviation="2" />
+                  <feColorMatrix type="matrix"
+                    values="0 0 0 0 0.0901961 0 0 0 0 0.74902 0 0 0 0 0.627451 0 0 0 0.01 0" />
+                  <feBlend mode="normal" in2="effect3_dropShadow_190_20412" result="effect4_dropShadow_190_20412" />
+                  <feBlend mode="normal" in="SourceGraphic" in2="effect4_dropShadow_190_20412" result="shape" />
+                </filter>
+                <linearGradient id="paint0_linear_190_20412" x1="5.57692" y1="18" x2="23.0833" y2="17.7463"
+                  gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#05DF85" />
+                  <stop offset="0.576923" stop-color="#2B8CEE" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <input type="text" name="q" id="mobileSearchInput" placeholder="Search..."
+              class="input w-full py-4 px-6 h-full rounded-xl bg-white/90 focus:border-white text-gray-900">
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Items - Scrollable -->
+    <div class="flex-1 overflow-y-auto custom-scrollbar bg-white">
+      <nav x-data="{
+        activeLink: '',
+        init() {
+          const currentPath = window.location.pathname;
+          const currentHash = window.location.hash;
+          
+          // Check hash links first
+          if (currentHash) {
+            const hashLinks = ['#index', '#pricing', '#contact'];
+            if (hashLinks.includes(currentHash)) {
+              this.activeLink = currentHash;
+              return;
+            }
+          }
+          
+          // Check page links
+          const currentPage = currentPath.split('/').pop() || 'index.html';
+          
+          if (currentPath.includes('usage-guide')) {
+            this.activeLink = 'usage-guide.html';
+          } else if (currentPage === 'features.html') {
+            this.activeLink = 'features.html';
+          } else if (currentPage === 'blog.html') {
+            this.activeLink = 'blog.html';
+          }
+        },
+        isUsageGuideActive() {
+          return this.activeLink === 'usage-guide.html';
+        }
+      }" class="py-4 space-y-2">
+        <a href="/index.html"
+          :class="activeLink === '#index' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+          class="block px-6 py-4 rounded-xl font-pjs hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Home
+        </a>
+        <a href="/features.html"
+          :class="activeLink === '#features' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+          class="block px-6 py-4 rounded-xl font-pjs hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Features
+        </a>
+
+
+        <a href="#pricing"
+          :class="activeLink === '#pricing' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+          class="block px-6 py-4 rounded-xl font-pjs hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Pricing
+        </a>
+        <a href="#usage-guide"
+          :class="isUsageGuideActive() ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
+          class="block px-6 py-4 rounded-xl font-pjs hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
+          Usage Guide
+        </a>
+      </nav>
+      <div class="flex items-center justify-center space-x-4 mb-4 mt-4">
+        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.526316" y="0.526316" width="38.9474" height="38.9474" rx="19.4737" stroke="#F3F4F6"
+              stroke-width="1.05263" />
+            <circle cx="20" cy="20" r="19.4737" fill="white" stroke="#F3F4F6" stroke-width="1.05263" />
+            <path
+              d="M21.4898 15.1933V17.6606H24.3743L23.9175 20.9841H21.4898V28.6413C21.0031 28.7128 20.5051 28.7501 19.9996 28.7501C19.4161 28.7501 18.8432 28.7009 18.2852 28.6056V20.9841H15.625V17.6606H18.2852V14.6418C18.2852 12.769 19.7199 11.2501 21.4906 11.2501V11.2516C21.4958 11.2516 21.5003 11.2501 21.5056 11.2501H24.375V14.1244H22.5001C21.9428 14.1244 21.4906 14.6029 21.4906 15.1926L21.4898 15.1933Z"
+              fill="#595959" />
+          </svg>
+
+        </a>
+        <a href="#" class="text-gray-600 hover:text-pink-600 transition-colors">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.526316" y="0.526316" width="38.9474" height="38.9474" rx="19.4737" stroke="#F3F4F6"
+              stroke-width="1.05263" />
+            <circle cx="20" cy="20" r="19.4737" fill="white" stroke="#F3F4F6" stroke-width="1.05263" />
+            <path
+              d="M24.5636 11.2501H15.4369C12.9155 11.2501 10.8643 13.3019 10.8643 15.824V24.1761C10.8643 26.6982 12.9155 28.7501 15.4369 28.7501H24.5636C27.085 28.7501 29.1362 26.6982 29.1362 24.1761V15.824C29.1362 13.3019 27.085 11.2501 24.5636 11.2501ZM12.4773 15.824C12.4773 14.1919 13.8052 12.8636 15.4369 12.8636H24.5636C26.1953 12.8636 27.5231 14.1919 27.5231 15.824V24.1761C27.5231 25.8082 26.1953 27.1365 24.5636 27.1365H15.4369C13.8052 27.1365 12.4773 25.8082 12.4773 24.1761V15.824Z"
+              fill="#595959" />
+            <path
+              d="M20.0004 24.253C22.3451 24.253 24.2537 22.3449 24.2537 19.9985C24.2537 17.652 22.3461 15.7439 20.0004 15.7439C17.6547 15.7439 15.7471 17.652 15.7471 19.9985C15.7471 22.3449 17.6547 24.253 20.0004 24.253ZM20.0004 17.3585C21.4564 17.3585 22.6407 18.5431 22.6407 19.9995C22.6407 21.4559 21.4564 22.6405 20.0004 22.6405C18.5444 22.6405 17.3602 21.4559 17.3602 19.9995C17.3602 18.5431 18.5444 17.3585 20.0004 17.3585Z"
+              fill="#595959" />
+            <path
+              d="M24.647 16.4294C25.2784 16.4294 25.793 15.9157 25.793 15.2831C25.793 14.6505 25.2794 14.1367 24.647 14.1367C24.0146 14.1367 23.501 14.6505 23.501 15.2831C23.501 15.9157 24.0146 16.4294 24.647 16.4294Z"
+              fill="#595959" />
+          </svg>
+
+        </a>
+        <a href="#" class="text-gray-600 hover:text-gray-900 transition-colors">
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="0.526316" y="0.526316" width="38.9474" height="38.9474" rx="19.4737" stroke="#F3F4F6"
+              stroke-width="1.05263" />
+            <circle cx="20" cy="20" r="19.4737" fill="white" stroke="#F3F4F6" stroke-width="1.05263" />
+            <path
+              d="M10.6983 11.2501L17.9155 20.9022L10.6533 28.7501H12.2882L18.6469 21.8795L23.784 28.7501H29.3466L21.7237 18.555L28.4837 11.2501H26.8488L20.9934 17.5777L16.262 11.2501H10.6994H10.6983ZM13.1018 12.4544H15.6567L26.9409 27.5457H24.386L13.1018 12.4544Z"
+              fill="#595959" />
+          </svg>
+
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Footer - Fixed at bottom -->
+    <div class="px-6 py-6  border-gray-200 bg-white flex-shrink-0">
+
+
+      <!-- Download Button -->
+      <a href="#">
+        <button
+          class="w-full bg-primary text-lg font-manrope font-medium leading-[27px] text-white py-3 px-5 rounded-lg font-medium hover:bg-[#2178d4] transition mb-6 flex items-center gap-2 justify-center">
+          Get Started
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M9.21967 17.7803C8.92678 17.4874 8.92678 17.0126 9.21967 16.7197L13.9393 12L9.21967 7.28033C8.92678 6.98744 8.92678 6.51256 9.21967 6.21967C9.51256 5.92678 9.98744 5.92678 10.2803 6.21967L15.5303 11.4697C15.8232 11.7626 15.8232 12.2374 15.5303 12.5303L10.2803 17.7803C9.98744 18.0732 9.51256 18.0732 9.21967 17.7803Z"
+              fill="white" />
+          </svg>
+
+        </button>
+      </a>
+
+      <a href="#"
+        class="relative flex justify-center items-center gap-2.5 self-stretch px-[1.2px] py-[1.2px] rounded-[6px] bg-gradient-to-r from-[#2465EA] via-[#158DDF] to-[#18C8E7]">
+        <button class="flex justify-center text-lg font-manrope items-center bg-white text-secondary rounded-[4px] w-full h-full py-[10px] px-6">
+          Login
+        </button>
+      </a>
+      <!-- Copyright -->
+      <p class="text-xs text-[#595959] text-center mt-[48px]">
+        ©2025 Laragon. All rights reserved.
+      </p>
+    </div>
+  </div>
+</div>
+  
+  <!-- Auth Modal - Using jModal -->
+  <div id="authModal" class="jmodal hidden">
+    <div class="jmodal-content w-full max-w-md max-h-[90vh] overflow-y-auto rounded-xl">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between p-4 sm:p-6 !pb-0">
+        <h3 class="text-responsive-lg font-bold text-gray-900">
+          <span x-show="authTab === 'login'">Đăng Nhập</span>
+          <span x-show="authTab === 'register'">Tạo Tài Khoản</span>
+        </h3>
+        <button data-jmodal-close class="text-gray-400 hover:text-gray-600 transition-colors p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <div class="p-4 py-2 sm:p-6 sm:py-4 border-b border-gray-100">
+        <!-- Tab Buttons -->
+        <div class="tabs">
+          <div class="tabs-menus">
+            <button class="tab-menu active" data-tab="login">
+            Đăng Nhập 
+            </button>
+            <button class="tab-menu" data-tab="register">
+            Đăng Ký
+            </button>
+          </div>
+             <!-- Login Form -->
+            <div class="tab-content active p-4 sm:p-6 !pt-0" data-tab-content="login">
+                <form @submit.prevent="handleLogin()" class="space-y-4">
+                <div>
+                    <label for="login-email" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Tên đăng
+                    nhập</label>
+                    <div class="input-icon">
+                    <input type="text" id="login-email" x-model="loginForm.email"
+                        class="input input-lg rounded-lg"
+                        :class="errors.email ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập tên đăng nhập">
+                    <i data-lucide="user" class="icon"></i>
+                    </div>
+                    <p x-show="errors.email" x-text="errors.email"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="login-password" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Mật
+                    khẩu</label>
+                    <div class="input-icon">
+                    <input type="password" id="login-password" x-model="loginForm.password"
+                        class="input input-lg rounded-lg"
+                        :class="errors.password ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập mật khẩu">
+                    <i data-lucide="lock" class="icon"></i>
+                    </div>
+                    <p x-show="errors.password" x-text="errors.password"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div class="flex items-center justify-between">
+                    <label class="flex items-center">
+                    <input type="checkbox" x-model="loginForm.remember" class="checkbox">
+                    <span class="ml-2 text-sm text-gray-600">Ghi nhớ đăng nhập</span>
+                    </label>
+                    <a href="#" class="text-sm link-primary">Quên mật khẩu?</a>
+                </div>
+                <!-- General Error Message -->
+                <div x-show="errors.general"
+                    class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    <i data-lucide="alert-circle" class="w-4 h-4 inline mr-2"></i>
+                    <span x-text="errors.general"></span>
+                </div>
+                <button type="submit" :disabled="isLoading" class="w-full btn btn-primary btn-lg rounded-lg">
+                    <span x-show="!isLoading">Đăng Nhập</span>
+                    <span x-show="isLoading" class="flex items-center">
+                    <div class="loading loading-sm mr-2"></div>
+                    Đang xử lý...
+                    </span>
+                </button>
+                </form>
+                <!-- Social Login Buttons - Login -->
+                <div class="space-y-3 mt-4 pb-2">
+                <!-- Divider -->
+                <div class="relative">
+                    <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-200"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white text-gray-500">Hoặc đăng nhập với</span>
+                    </div>
+                </div>
+                <!-- Social Buttons Row -->
+                <div class="grid grid-cols-2 gap-3">
+                    <button type="button" @click="handleFacebookLogin()" :disabled="isLoading"
+                    class="btn btn-outline flex-center space-x-2 py-3 hover:bg-blue-50 hover:border-blue-500 hover:text-blue-600 transition-colors">
+                    <svg class="size-4" viewBox="0 0 24 24" fill="#1877F2">
+                        <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
+                    <span class="font-medium text-sm">Facebook</span>
+                    </button>
+                    <button type="button" @click="handleGoogleLogin()" :disabled="isLoading"
+                    class="btn btn-outline flex-center space-x-2 py-3 hover:bg-red-50 hover:border-red-500 hover:text-red-600 transition-colors">
+                    <svg class="size-4" viewBox="0 0 24 24">
+                        <path
+                        d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+                        fill="#4285F4" />
+                        <path
+                        d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+                        fill="#34A853" />
+                        <path
+                        d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+                        fill="#FBBC05" />
+                        <path
+                        d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+                        fill="#EA4335" />
+                    </svg>
+                    <span class="font-medium text-sm">Google</span>
+                    </button>
+                </div>
+                </div>
+            </div>
+            <!-- Register Form -->
+            <div class="tab-content p-4 sm:p-6 !pt-0" data-tab-content="register">
+                <form @submit.prevent="handleRegister()" class="space-y-4 pb-2">
+                <div>
+                    <label for="register-fullname" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Họ và
+                    tên</label>
+                    <div class="input-icon">
+                    <input type="text" id="register-fullname" x-model="registerForm.fullname"
+                        class="input input-lg rounded-lg"
+                        :class="errors.fullname ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập họ và tên">
+                    <i data-lucide="user" class="icon"></i>
+                    </div>
+                    <p x-show="errors.fullname" x-text="errors.fullname"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-username" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Tên
+                    đăng nhập</label>
+                    <div class="input-icon">
+                    <input type="text" id="register-username" x-model="registerForm.username"
+                        class="input input-lg rounded-lg"
+                        :class="errors.username ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập tên đăng nhập">
+                    <i data-lucide="user-check" class="icon"></i>
+                    </div>
+                    <p x-show="errors.username" x-text="errors.username"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-email"
+                    class="block text-responsive-sm font-semibold text-gray-700 mb-2">Email</label>
+                    <div class="input-icon">
+                    <input type="email" id="register-email" x-model="registerForm.email"
+                        class="input input-lg rounded-lg"
+                        :class="errors.email ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập email của bạn">
+                    <i data-lucide="mail" class="icon"></i>
+                    </div>
+                    <p x-show="errors.email" x-text="errors.email"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-phone" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Số điện
+                    thoại</label>
+                    <div class="input-icon">
+                    <input type="tel" id="register-phone" x-model="registerForm.phone"
+                        class="input input-lg rounded-lg"
+                        :class="errors.phone ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập số điện thoại">
+                    <i data-lucide="phone" class="icon"></i>
+                    </div>
+                    <p x-show="errors.phone" x-text="errors.phone"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-password" class="block text-responsive-sm font-semibold text-gray-700 mb-2">Mật
+                    khẩu</label>
+                    <div class="input-icon">
+                    <input type="password" id="register-password" x-model="registerForm.password"
+                        class="input input-lg rounded-lg"
+                        :class="errors.password ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập mật khẩu (ít nhất 6 ký tự)">
+                    <i data-lucide="lock" class="icon"></i>
+                    </div>
+                    <p x-show="errors.password" x-text="errors.password"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label for="register-confirm-password"
+                    class="block text-responsive-sm font-semibold text-gray-700 mb-2">Xác nhận mật khẩu</label>
+                    <div class="input-icon">
+                    <input type="password" id="register-confirm-password"
+                        x-model="registerForm.confirmPassword" class="input input-lg rounded-lg"
+                        :class="errors.confirmPassword ? 'border-red-300 focus:ring-red-500 focus:border-red-500' : ''"
+                        placeholder="Nhập lại mật khẩu">
+                    <i data-lucide="shield-check" class="icon"></i>
+                    </div>
+                    <p x-show="errors.confirmPassword" x-text="errors.confirmPassword"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <div>
+                    <label class="flex items-start">
+                    <input type="checkbox" x-model="registerForm.agree" class="checkbox mt-0.5">
+                    <span class="ml-2 text-sm text-gray-600">
+                    Tôi đồng ý với 
+                    <a href="#" class="link-primary">Điều khoản sử dụng</a>
+                    và 
+                    <a href="#" class="link-primary">Chính sách bảo mật</a>
+                    </span>
+                    </label>
+                    <p x-show="errors.agree" x-text="errors.agree"
+                    class="text-red-500 text-responsive-xs mt-1.5 font-medium"></p>
+                </div>
+                <!-- General Error Message -->
+                <div x-show="errors.general"
+                    class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                    <i data-lucide="alert-circle" class="w-4 h-4 inline mr-2"></i>
+                    <span x-text="errors.general"></span>
+                </div>
+                <button type="submit" :disabled="isLoading" class="w-full btn btn-primary btn-lg rounded-lg">
+                    <span x-show="!isLoading">Tạo Tài Khoản</span>
+                    <span x-show="isLoading" class="flex items-center">
+                    <div class="loading loading-sm mr-2"></div>
+                    Đang xử lý...
+                    </span>
+                </button>
+                </form>
+            </div>
+        </div>
+            
+      </div>
+    </div>
+  </div>
+</header>
+
+	<!-- Main Content Area -->
+	<main class="min-h-screen bg-white w-full ">
+		<section class="relative w-full bg-white overflow-hidden py-12 sm:py-24">
+
+    <!-- Background Image Full Section -->
+    <div class="absolute inset-0 w-full h-full
+                bg-[url('/assets/images/banner_features.jpg')]
+                bg-cover bg-center bg-no-repeat
+                bg-[#d3d3d3] bg-blend-overlay">
+    </div>
+
+    <!-- CONTENT -->
+    <div class="relative container mx-auto px-4 z-10 flex flex-col items-center text-center space-y-6 sm:space-y-10">
+
+        <!-- Heading -->
+        <h1
+            class="font-ibm font-semibold text-text-primary
+                   text-[32px] sm:text-[48px] lg:text-[72px]
+                   leading-tight
+                   tracking-[-0.5px] sm:tracking-[-1px] lg:tracking-[-3px]">
+
+            The Anatomy of a <br>
+
+            <span class="bg-gradient-to-r from-[#2465EA] via-[#158DDF] to-[#18C8E7]
+                         bg-clip-text text-transparent">
+                Perfect Spoof
+            </span>
+        </h1>
+
+        <!-- Description -->
+        <p class="font-manrope text-body text-md sm:text-lg leading-relaxed w-full sm:max-w-2xl">
+            Dive deep into the technology that makes Browser Fingerprint undetectable.
+            We don't just hide your identity; we create a new one.
+        </p>
+
+        <!-- Button -->
+         
+        <button
+            class="flex items-center font-manrope justify-center gap-2.5 px-7 py-3  w-full sm:w-auto
+            rounded-[12px] border border-[#08F] font-manrope
+            bg-primary text-white font-bold shadow-[0_50.4px_128.4px_rgba(87,177,255,0.34),_0_12.321px_16.078px_rgba(87,177,255,0.22)]">
+            Start Free Trial
+        </button>
+
+    </div>
+
+</section>
+
+		<section class="relative bg-back2 py-12 sm:py-24">
+    <div class="container mx-auto">
+
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-12 space-y-3">
+            <span
+                class="inline-flex items-center font-manrope  justify-center gap-2 px-4 py-2 rounded-full bg-[rgba(0,193,232,0.10)] text-primary text-xs font-medium">
+                UNDER THE HOOD
+            </span>
+
+            <h2 class="text-text-primary font-ibm text-3xl md:text-5xl font-semibold leading-tight tracking-[-1px]">
+                Core Technology
+            </h2>
+
+            <p class="text-body text-md max-w-2xl font-manrope leading-relaxed">
+                Our software provides granular control over every aspect of your browser identity, engineered for
+                stability and stealth.
+            </p>
+        </div>
+
+        <!-- Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20 items-stretch">
+            <!-- Left Column -->
+            <div class="lg:col-span-5 flex flex-col space-y-8    ">
+
+                <!-- ITEM 1 (Active) -->
+                <div div class="relative pl-6 group cursor-pointer space-y-4">
+                    <!-- Active marker -->
+                    <div class="absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-full py-0"></div>
+
+                    <h3 class="text-2xl sm:text-3xl font-bold text-text-primary font-ibm mt-0 !mt-0 pt-0 sm:pt-4">
+
+                        Kernel Injection
+                    </h3>
+
+                    <p class="text-body text-lg leading-relaxed font-manrope ">
+                        We modify the Chromium engine at C++ level, not JavaScript injection which can be detected.
+                    </p>
+
+                    <!-- Box -->
+                    <div class="text-body text-lg leading-relaxed font-manrope pb-0 lg:pb-8 ">
+                        <span class=" text-lg text-[#2465EA]">Deep Dive:</span> Standard anti-detects use JS injection
+                        which leaves traces in the DOM. PrintGuard recompiles the browser engine to return spoofed
+                        values natively.
+                    </div>
+                </div>
+                <!-- Mobile Image -->
+                <div class="block lg:hidden rounded-xl overflow-hidden mb-6">
+                    <img src="/assets/images/features_card.png" class="w-full h-auto object-cover"
+                        alt="Kernel Injection Visualization">
+                </div>
+                <!-- ITEM 2 -->
+                <div class="relative pl-6 group cursor-pointer space-y-4 pb-0 lg:pb-8">
+                    <!-- Active marker -->
+                    <div class="block lg:hidden absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-full py-0"></div>
+
+                    <h3 class="text-2xl sm:text-3xl font-bold text-text-primary font-ibm mt-0 !mt-0 pt-0 sm:pt-4">
+
+                        Native Noise
+                    </h3>
+
+                    <p class="text-body text-lg leading-relaxed font-manrope  ">
+                        Canvas and Audio fingerprints are altered mathematically to produce unique, consistent hashes.
+                    </p>
+                    <div class="block lg:hidden text-body text-lg leading-relaxed font-manrope pb-0 lg:pb-8 ">
+                        <span class=" text-lg text-[#2465EA]">Deep Dive:</span> We apply a unique noise algorithm that
+                        persists per session. Even if you refresh the page, your Canvas hash remains consistent but
+                        unique.
+                    </div>
+                </div>
+                <!-- Mobile Image -->
+                <div class="block lg:hidden rounded-xl overflow-hidden mb-6">
+                    <img src="/assets/images/features_card1.png" class="w-full h-auto object-cover"
+                        alt="Native Noise Visualization">
+                </div>
+                <!-- ITEM 3 -->
+                <div class="relative pl-6 group cursor-pointer space-y-4 pb-0 lg:pb-8">
+                    <!-- Active marker -->
+                    <div class="block lg:hidden absolute left-0 top-0 bottom-0 w-1 bg-primary rounded-full py-0"></div>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-text-primary font-ibm mt-0 !mt-0 pt-0 sm:pt-4">
+                        Font Enumeration
+                    </h3>
+
+                    <p class="text-body text-lg leading-relaxed font-manrope ">
+                        Custom font packing ensures your font list matches the spoofed OS exactly.
+                    </p>
+                    <div class="block lg:hidden text-body text-lg leading-relaxed font-manrope pb-0 lg:pb-8 ">
+                        <span class=" text-lg text-[#2465EA]">Deep Dive:</span> If you spoof macOS on Windows, we hide
+                        system fonts like Calibri and inject San Francisco, passing advanced font enumeration tests.
+                    </div>
+                </div>
+                <!-- Mobile Image -->
+                <div class="block lg:hidden rounded-xl overflow-hidden mb-6">
+                    <img src="/assets/images/features_card2.png" class="w-full h-auto object-cover"
+                        alt="Font Enumeration Visualization">
+                </div>
+            </div>
+            <!-- Right Column (Desktop Only) -->
+            <div class="hidden lg:block lg:col-span-7 w-full h-full">
+                <div class="w-full h-full flex items-center justify-center">
+                    <img src="/assets/images/features_card.png"
+                        class="w-full sm:w-auto h-full object-contain rounded-xl" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="py-12 sm:py-24 bg-white">
+    <div class="container mx-auto">
+        <!-- Header -->
+        <div class="flex flex-col items-center text-center mb-12 space-y-3">
+            <h2 class="text-text-primary font-ibm text-3xl md:text-5xl font-semibold leading-tight tracking-[-1px]">
+                Complete Fingerprint Control
+            </h2>
+            <p class="text-body text-md max-w-2xl font-manrope leading-relaxed">
+                Customize every single parameter that websites use to track you.
+            </p>
+        </div>
+
+        <!-- Cards Grid -->
+        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+
+            <!-- Card 1: Hardware -->
+            <div class="bg-back2 rounded-2xl p-5 lg:p-6 hover:shadow-lg transition-all duration-300">
+                <div class="flex flex-col md:flex-row items-start sm:items-center gap-2 md:gap-4 mb-6">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-[#2465EA] shadow-[0_33px_9px_0_rgba(0,123,255,0),0_21px_8px_0_rgba(0,123,255,0.01),0_12px_7px_0_rgba(0,123,255,0.05),0_5px_5px_0_rgba(0,123,255,0.09),0_1px_3px_0_rgba(0,123,255,0.1)]">
+                        <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M5 20H20V5H5V20ZM15 22.5H10V25H7.5V22.5H3.75C3.41848 22.5 3.10054 22.3683 2.86612 22.1339C2.6317 21.8995 2.5 21.5815 2.5 21.25V17.5H0V15H2.5V10H0V7.5H2.5V3.75C2.5 3.41848 2.6317 3.10054 2.86612 2.86612C3.10054 2.6317 3.41848 2.5 3.75 2.5H7.5V0H10V2.5H15V0H17.5V2.5H21.25C21.5815 2.5 21.8995 2.6317 22.1339 2.86612C22.3683 3.10054 22.5 3.41848 22.5 3.75V7.5H25V10H22.5V15H25V17.5H22.5V21.25C22.5 21.5815 22.3683 21.8995 22.1339 22.1339C21.8995 22.3683 21.5815 22.5 21.25 22.5H17.5V25H15V22.5ZM7.5 7.5H17.5V17.5H7.5V7.5Z"
+                                fill="#2563EB" />
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-xl sm:text-2xl font-semibold text-text-primary font-manrope text-center md:text-left">
+                        Hardware</h3>
+                </div>
+                <ul class="flex flex-wrap md:flex-col gap-2 md:space-y-3">
+
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>CPU Concurrency
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Device Memory (RAM)
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Screen Resolution
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Battery Status
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card 2: Connection -->
+            <div class="bg-back2 rounded-2xl p-5 lg:p-6 hover:shadow-lg transition-all duration-300">
+                <div class="flex flex-col md:flex-row items-start sm:items-center gap-2 md:gap-4 mb-6">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-[#2465EA] shadow-[0_33px_9px_0_rgba(0,123,255,0),0_21px_8px_0_rgba(0,123,255,0.01),0_12px_7px_0_rgba(0,123,255,0.05),0_5px_5px_0_rgba(0,123,255,0.09),0_1px_3px_0_rgba(0,123,255,0.1)]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M0.862549 8.74627C4.86141 5.50667 9.85361 3.74241 15 3.75002C20.3563 3.75002 25.275 5.62127 29.1375 8.74627L27.5675 10.6913C24.0128 7.81137 19.575 6.24307 15 6.25002C10.2388 6.25002 5.86755 7.91253 2.43255 10.6913L0.862549 8.74627ZM4.7888 13.6088C7.67705 11.2688 11.2828 9.99445 15 10C18.8675 10 22.42 11.3513 25.2113 13.6075L23.64 15.5525C21.1961 13.5729 18.1452 12.495 15 12.5C11.7275 12.5 8.7213 13.6438 6.36005 15.5525L4.7888 13.6075V13.6088ZM8.7163 18.4713C10.4936 17.0311 12.7125 16.2468 15 16.25C17.38 16.25 19.5663 17.0813 21.2838 18.47L19.7125 20.415C18.3795 19.3353 16.7155 18.7474 15 18.75C13.215 18.75 11.575 19.3738 10.2875 20.415L8.7163 18.47V18.4713ZM12.6438 23.3338C13.3101 22.7934 14.1422 22.499 15 22.5C15.8925 22.5 16.7125 22.8125 17.3563 23.3325L15 26.25L12.6438 23.3325V23.3338Z"
+                                fill="#2563EB" />
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-xl sm:text-2xl font-semibold text-text-primary font-manrope text-center md:text-left">
+                        Connection</h3>
+                </div>
+                <ul class="flex flex-wrap md:flex-col gap-2 md:space-y-3">
+
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>WebRTC IP Handling
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>DNS Leak Protection
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Timezone Spoofing
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Geolocation
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card 3: Media Devices -->
+            <div class="bg-back2 rounded-2xl p-5 lg:p-6 hover:shadow-lg transition-all duration-300">
+                <div class="flex flex-col md:flex-row items-start sm:items-center gap-2 md:gap-4 mb-6">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-[#2465EA] shadow-[0_33px_9px_0_rgba(0,123,255,0),0_21px_8px_0_rgba(0,123,255,0.01),0_12px_7px_0_rgba(0,123,255,0.05),0_5px_5px_0_rgba(0,123,255,0.09),0_1px_3px_0_rgba(0,123,255,0.1)]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M13.75 26.25V24.9125C11.6673 24.6114 9.76289 23.57 8.3855 21.9791C7.0081 20.3882 6.24998 18.3543 6.25 16.25V10C6.25 8.85093 6.47633 7.71312 6.91605 6.65152C7.35578 5.58992 8.0003 4.62533 8.81282 3.81282C9.62533 3.0003 10.5899 2.35578 11.6515 1.91605C12.7131 1.47633 13.8509 1.25 15 1.25C16.1491 1.25 17.2869 1.47633 18.3485 1.91605C19.4101 2.35578 20.3747 3.0003 21.1872 3.81282C21.9997 4.62533 22.6442 5.58992 23.0839 6.65152C23.5237 7.71312 23.75 8.85093 23.75 10V16.25C23.75 18.3543 22.9919 20.3882 21.6145 21.9791C20.2371 23.57 18.3327 24.6114 16.25 24.9125V26.25H21.25V28.75H8.75V26.25H13.75ZM15 3.75C13.3424 3.75 11.7527 4.40848 10.5806 5.58058C9.40848 6.75269 8.75 8.3424 8.75 10V16.25C8.75 17.9076 9.40848 19.4973 10.5806 20.6694C11.7527 21.8415 13.3424 22.5 15 22.5C16.6576 22.5 18.2473 21.8415 19.4194 20.6694C20.5915 19.4973 21.25 17.9076 21.25 16.25V10C21.25 8.3424 20.5915 6.75269 19.4194 5.58058C18.2473 4.40848 16.6576 3.75 15 3.75ZM15 11.25C15.3315 11.25 15.6495 11.1183 15.8839 10.8839C16.1183 10.6495 16.25 10.3315 16.25 10C16.25 9.66848 16.1183 9.35054 15.8839 9.11612C15.6495 8.8817 15.3315 8.75 15 8.75C14.6685 8.75 14.3505 8.8817 14.1161 9.11612C13.8817 9.35054 13.75 9.66848 13.75 10C13.75 10.3315 13.8817 10.6495 14.1161 10.8839C14.3505 11.1183 14.6685 11.25 15 11.25ZM15 13.75C14.0054 13.75 13.0516 13.3549 12.3483 12.6517C11.6451 11.9484 11.25 10.9946 11.25 10C11.25 9.00544 11.6451 8.05161 12.3483 7.34835C13.0516 6.64509 14.0054 6.25 15 6.25C15.9946 6.25 16.9484 6.64509 17.6517 7.34835C18.3549 8.05161 18.75 9.00544 18.75 10C18.75 10.9946 18.3549 11.9484 17.6517 12.6517C16.9484 13.3549 15.9946 13.75 15 13.75Z"
+                                fill="#2563EB" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl sm:text-2xl font-semibold text-text-primary font-manrope md:text-left">
+                        Media Devices
+                    </h3>
+                </div>
+                <ul class="flex flex-wrap md:flex-col gap-2 md:space-y-3">
+
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Audio Inputs/Outputs
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Video Inputs
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Media Capability
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Speech Synthesis
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Card 4: Browser -->
+            <div class="bg-back2 rounded-2xl p-5 lg:p-6 hover:shadow-lg transition-all duration-300">
+                <div class="flex flex-col md:flex-row items-start sm:items-center gap-2 md:gap-4 mb-6">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-white flex items-center justify-center text-[#2465EA] shadow-[0_33px_9px_0_rgba(0,123,255,0),0_21px_8px_0_rgba(0,123,255,0.01),0_12px_7px_0_rgba(0,123,255,0.05),0_5px_5px_0_rgba(0,123,255,0.09),0_1px_3px_0_rgba(0,123,255,0.1)]">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M15 27.5C8.09625 27.5 2.5 21.9037 2.5 15C2.5 8.09625 8.09625 2.5 15 2.5C21.9037 2.5 27.5 8.09625 27.5 15C27.5 21.9037 21.9037 27.5 15 27.5ZM12.1375 24.5837C10.9043 21.9679 10.1898 19.1378 10.0338 16.25H5.0775C5.32073 18.1736 6.1174 19.9852 7.37071 21.4646C8.62402 22.9441 10.28 24.0277 12.1375 24.5837ZM12.5375 16.25C12.7262 19.2987 13.5975 22.1625 15 24.69C16.4404 22.0957 17.2818 19.2118 17.4625 16.25H12.5375ZM24.9225 16.25H19.9662C19.8102 19.1378 19.0957 21.9679 17.8625 24.5837C19.72 24.0277 21.376 22.9441 22.6293 21.4646C23.8826 19.9852 24.6793 18.1736 24.9225 16.25ZM5.0775 13.75H10.0338C10.1898 10.8622 10.9043 8.03211 12.1375 5.41625C10.28 5.97235 8.62402 7.05594 7.37071 8.53537C6.1174 10.0148 5.32073 11.8264 5.0775 13.75ZM12.5387 13.75H17.4613C17.2809 10.7882 16.44 7.90442 15 5.31C13.5596 7.90431 12.7182 10.7882 12.5375 13.75H12.5387ZM17.8625 5.41625C19.0957 8.03211 19.8102 10.8622 19.9662 13.75H24.9225C24.6793 11.8264 23.8826 10.0148 22.6293 8.53537C21.376 7.05594 19.72 5.97235 17.8625 5.41625Z"
+                                fill="#2563EB" />
+                        </svg>
+                    </div>
+                    <h3
+                        class="text-xl sm:text-2xl font-semibold text-text-primary font-manrope text-center md:text-left">
+                        Browser</h3>
+                </div>
+                <ul class="flex flex-wrap md:flex-col gap-2 md:space-y-3">
+
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>User Agent
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Do Not Track
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Navigator Object
+                    </li>
+                    <li
+                        class="flex items-center gap-2 text-[14px] md:text-[16px] text-secondary font-manrope font-normal">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#2465EA]"></span>Client Rects
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+	</main>
+
+	<!-- Footer -->
+	<footer class="bg-primary bg-[url('/assets/images/footer.png')] bg-cover bg-center bg-no-repeat border-t border-gray-200 relative">
+  <div class="container mx-auto px-4 pt-[96px] pb-[48px]">
+    <!-- Main Footer Content -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12 mb-8 font-manrope">
+      <!-- Left Section: Branding and Description -->
+      <div class="lg:col-span-2 space-y-4">
+        <!-- Logo -->
+        <div class="flex items-center space-x-2 mb-7">
+          <!-- Cloud Icon -->
+          <div class="flex items-center gap-2">
+            <a href="index.html">
+              <img src="/assets/images/logo_footer.png" alt="">
+            </a>
+
+          </div>
+        </div>
+        <!-- Description -->
+        <p class="text-white font-manrope text-[14px] font-normal leading-5 ">
+          Browser Fingerprint is an anti-detect browser designed to securely manage multiple accounts by creating
+          isolated browser profiles with protected fingerprints, optimized for digital marketing, advertising,
+          e-commerce, and automation.
+        </p>
+        <div class="flex items-center space-x-3 mt-4">
+          <a href="#" class="text-white hover:text-[#2B8CEE] transition-colors hover:text-[#2B8CEE]"
+            aria-label="Facebook">
+            <svg width="32" height="32" viewBox="0 0 32 32 " class="hover:text-[#2B8CEE]" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789" stroke="#F3F4F6"
+                stroke-width="0.842105" />
+              <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6" stroke-width="0.842105" />
+              <path
+                d="M17.1919 12.1546V14.1284H19.4994L19.134 16.7872H17.1919V22.913C16.8025 22.9702 16.4041 23 15.9997 23C15.5329 23 15.0745 22.9606 14.6281 22.8845V16.7872H12.5V14.1284H14.6281V11.7134C14.6281 10.2151 15.7759 9 17.1925 9V9.00127C17.1967 9.00127 17.2003 9 17.2045 9H19.5V11.2995H18C17.5543 11.2995 17.1925 11.6823 17.1925 12.154L17.1919 12.1546Z"
+                fill="#595959" />
+            </svg>
+          </a>
+          <a href="#" class="text-white hover:text-[#2B8CEE] transition-colors ]" aria-label="Instagram">
+            <svg width="32" height="32" viewBox="0 0 32 32" class="hover:text-[#2B8CEE]" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789" stroke="#F3F4F6"
+                stroke-width="0.842105" />
+              <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6" stroke-width="0.842105" />
+              <path
+                d="M19.6506 9H12.3493C10.3321 9 8.69116 10.6415 8.69116 12.6592V19.3408C8.69116 21.3585 10.3321 23 12.3493 23H19.6506C21.6677 23 23.3087 21.3585 23.3087 19.3408V12.6592C23.3087 10.6415 21.6677 9 19.6506 9ZM9.98163 12.6592C9.98163 11.3535 11.0439 10.2908 12.3493 10.2908H19.6506C20.956 10.2908 22.0183 11.3535 22.0183 12.6592V19.3408C22.0183 20.6465 20.956 21.7092 19.6506 21.7092H12.3493C11.0439 21.7092 9.98163 20.6465 9.98163 19.3408V12.6592Z"
+                fill="#595959" />
+              <path
+                d="M16.0003 19.402C17.8761 19.402 19.403 17.8755 19.403 15.9984C19.403 14.1212 17.8769 12.5947 16.0003 12.5947C14.1237 12.5947 12.5977 14.1212 12.5977 15.9984C12.5977 17.8755 14.1237 19.402 16.0003 19.402ZM16.0003 13.8864C17.1651 13.8864 18.1125 14.8341 18.1125 15.9992C18.1125 17.1644 17.1651 18.112 16.0003 18.112C14.8355 18.112 13.8881 17.1644 13.8881 15.9992C13.8881 14.8341 14.8355 13.8864 16.0003 13.8864Z"
+                fill="#595959" />
+              <path
+                d="M19.7171 13.1437C20.2222 13.1437 20.6339 12.7327 20.6339 12.2266C20.6339 11.7206 20.223 11.3096 19.7171 11.3096C19.2112 11.3096 18.8003 11.7206 18.8003 12.2266C18.8003 12.7327 19.2112 13.1437 19.7171 13.1437Z"
+                fill="#595959" />
+            </svg>
+
+          </a>
+          <a href="#" class="text-white hover:text-[#2B8CEE] transition-colors hover:text-[#2B8CEE]"
+            aria-label="Twitter/X">
+            <svg width="32" height="32" viewBox="0 0 32 32" class="hover:text-[#2B8CEE]" fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.421053" y="0.421053" width="31.1579" height="31.1579" rx="15.5789" stroke="#F3F4F6"
+                stroke-width="0.842105" />
+              <circle cx="16" cy="16" r="15.5789" fill="white" stroke="#F3F4F6" stroke-width="0.842105" />
+              <path
+                d="M8.55867 9L14.3325 16.7217L8.52271 23H9.83063L14.9176 17.5036L19.0273 23H23.4774L17.379 14.8439L22.787 9H21.4791L16.7948 14.0621L13.0096 9H8.55954H8.55867ZM10.4815 9.96348H12.5254L21.5528 22.0365H19.5089L10.4815 9.96348Z"
+                fill="#595959" />
+            </svg>
+
+          </a>
+        </div>
+      </div>
+      <div>
+
+      </div>
+      <!-- Product Column -->
+      <div>
+        <h3 class="text-md font-semibold text-white mb-8 ">PRODUCT</h3>
+        <ul class="space-y-5">
+          <li><a href="#download" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Download</a></li>
+          <li><a href="#pricing" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Pricing</a></li>
+          <li><a href="#releasenotes" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Release
+              Notes</a></li>
+          <li><a href="#apt" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">APT</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources Column -->
+      <div>
+        <h3 class="text-sm font-semibold text-white mb-8">RESOURCES</h3>
+        <ul class="space-y-5">
+          <li><a href="#documentation"
+              class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Documentation</a></li>
+          <li><a href="#guides" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Blog</a></li>
+          <li><a href="#proxychecker" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Proxy Checker</a>
+          </li>
+          <li><a href="#faq" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Community</a></li>
+        </ul>
+      </div>
+
+      <!-- Community & Contact Column -->
+      <div>
+        <h3 class="text-md font-semibold text-white mb-8">LEGAL</h3>
+        <ul class="space-y-5">
+          <li><a href="#forum" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Privacy Policy</a></li>
+          <li><a href="#contribute" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Terms of
+              Service</a>
+          </li>
+          <li><a href="#events" class="text-sm text-white hover:text-[#2B8CEE] transition-colors">Acceptable Use</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+    <!-- Bottom Section -->
+    <div class="border-b border-gray-200 pt-6">
+      <!-- Performance Note -->
+
+    </div>
+    <div class="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0 mt-4">
+      <p class="text-sm text-white sm:text-sm">© 2025 Browser Fingerprint. All rights reserved.</p>
+      <div class="flex items-center space-x-6">
+        <a href="#terms"
+          class="text-sm font-medium text-white hover:text-[#2B8CEE] transition-colors uppercase">Terms</a>
+        <a href="#privacy"
+          class="text-sm font-medium text-white hover:text-[#2B8CEE] transition-colors uppercase">Privacy</a>
+        <a href="#cookies"
+          class="text-sm font-medium text-white hover:text-[#2B8CEE] transition-colors uppercase">Cookies</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button id="scrollToTop" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    class="fixed bottom-8 right-8 w-12 h-12 bg-blue-500 hover:bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center transition-all duration-300 opacity-0 pointer-events-none z-50"
+    aria-label="Scroll to top">
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M10 5L5 10L6.25 11.25L10 7.5L13.75 11.25L15 10L10 5Z" fill="currentColor" />
+    </svg>
+  </button>
+
+  <script>
+    // Show/hide scroll to top button
+    window.addEventListener('scroll', function () {
+      const scrollButton = document.getElementById('scrollToTop');
+      if (window.pageYOffset > 300) {
+        scrollButton.classList.remove('opacity-0', 'pointer-events-none');
+        scrollButton.classList.add('opacity-100');
+      } else {
+        scrollButton.classList.add('opacity-0', 'pointer-events-none');
+        scrollButton.classList.remove('opacity-100');
+      }
+    });
+  </script>
+</footer>
+</body>
+
+</html>

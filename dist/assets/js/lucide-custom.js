@@ -1,7 +1,7 @@
 /**
  * @license lucide v0.544.0 - ISC
  * Custom Build - Chỉ chứa 11 icons đã sử dụng
- * Generated: 2026-01-10T04:56:30.000Z
+ * Generated: 2026-01-10T11:15:17.427Z
  */
 
 (function (global, factory) {

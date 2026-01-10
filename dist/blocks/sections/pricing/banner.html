@@ -1,0 +1,410 @@
+<section class="relative w-full bg-white overflow-hidden py-12 sm:py-24">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0 w-full h-full
+        bg-[url('/assets/images/banner_features.jpg')]
+        bg-cover bg-center bg-no-repeat
+        bg-[#d3d3d3]">
+    </div>
+
+    <!-- CONTENT -->
+    <div class="relative container mx-auto  z-10 flex flex-col items-center text-center space-y-6 sm:space-y-12">
+
+        <!-- Heading -->
+        <h1 class="font-ibm font-semibold text-text-primary
+            text-[32px] sm:text-[48px] lg:text-[72px]
+            leading-tight tracking-[-1px] lg:tracking-[-3px]">
+
+            Flexible Pricing for <br>
+            <span class="bg-gradient-to-r from-[#2465EA] via-[#158DDF] to-[#18C8E7]
+                bg-clip-text text-transparent">
+                Every Scale
+            </span>
+        </h1>
+
+        <!-- Description -->
+        <p class="font-manrope text-body text-md sm:text-lg leading-relaxed w-full sm:max-w-2xl">
+            Choose a plan that fits your automation needs. Whether you're a solo developer or an enterprise team, we
+            have the right tools to protect your digital identity.
+        </p>
+
+        <!-- Toggle Billing -->
+        <div class="relative bg-[#F2F3FA] p-0.5 rounded-full inline-flex items-center gap-1 shadow-sm">
+            <button id="billing-monthly" onclick="switchBilling('monthly')"
+                class="px-6 py-3 rounded-full text-lg font-manrope font-semibold bg-white text-text-primary shadow transition-all">
+                Monthly
+            </button>
+
+            <button id="billing-yearly" onclick="switchBilling('yearly')"
+                class="px-6 py-3 rounded-full text-lg font-manrope font-semibold text-text-primary transition-all flex items-center gap-2">
+                Yearly
+                <span class="bg-[#31C969]/5 text-[#31C969] text-xs uppercase font-bold px-1.5 rounded-full">
+                    Save 20%
+                </span>
+            </button>
+        </div>
+
+        <!-- Pricing Cards -->
+        <div id="pricing-scroll-container" class="flex md:grid md:grid-cols-3 overflow-x-auto md:overflow-visible 
+           snap-x snap-mandatory gap-6 sm:gap-10 w-full pt-6 sm:pt-12 scrollbar-hide">
+
+            <!-- CARD TEMPLATE (dùng cho cả 3 card) -->
+            <div class="min-w-[85vw] sm:min-w-[380px] md:min-w-0 snap-center 
+                bg-white rounded-2xl p-6 sm:p-8 lg:p-10 border border-[#B1B9C4]
+                shadow hover:shadow-lg transition-all duration-300
+                text-left flex flex-col">
+
+                <h3 class="font-manrope text-2xl font-bold text-black">Starter</h3>
+
+                <p class="font-manrope text-sm text-gray-500 mt-1 min-h-[40px]">
+                    Perfect for individuals just starting out.
+                </p>
+
+                <!-- Price -->
+                <div class="my-7">
+                    <!-- Hàng 1: Giá + /month -->
+                    <div class="flex items-baseline gap-2">
+                        <span
+                            class="font-ibm text-[50px] font-semibold leading-none tracking-[-1px] text-text-primary price-team">
+                            $0
+                        </span>
+
+                        <span class="text-secondary text-base font-normal leading-6">/month</span>
+                    </div>
+                </div>
+
+                <button class="w-full py-3 px-7 rounded-xl border-[1.2px] border-primary 
+                   text-primary font-manrope font-medium hover:bg-blue-50 transition">
+                    Get Started Free
+                </button>
+
+
+                <!-- UL -->
+                <ul class="space-y-3 sm:space-y-4 pt-6 sm:pt-7">
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 flex-shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="8" fill="#31C969" />
+                                <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">10 Browser
+                            Profiles</span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 flex-shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="8" fill="#31C969" />
+                                <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">Standard
+                            Fingerprints</span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 flex-shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="8" fill="#31C969" />
+                                <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">Community
+                            Support</span>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 flex-shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="8" fill="#31C969" />
+                                <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">Manual Proxy
+                            Setup</span>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Professional Plan -->
+
+            <div id="pricing-card-pro"
+                class="min-w-[85vw] sm:min-w-[420px] md:min-w-0 snap-center p-[2px] rounded-2xl bg-gradient-to-r from-[#2465EA] to-[#18C8E7] shadow-xl hover:shadow-2xl transition-all duration-300 transform  z-10 w-full">
+
+                <!-- CARD bên trong -->
+                <div class="bg-white rounded-2xl p-6 sm:p-8 lg:p-10 flex flex-col text-left relative h-full w-full">
+
+                    <!-- Most Popular badge -->
+                    <div
+                        class="absolute -top-5 left-1/2 -translate-x-1/2  bg-gradient-to-r from-[#2465EA] to-[#18C8E7] text-white  px-6 py-2 rounded-full text-md font-bold uppercase tracking-wider  shadow-lg whitespace-nowrap">
+                        Most Popular
+                    </div>
+
+                    <h3 class="font-manrope text-2xl font-bold text-black mt-2">Professional</h3>
+
+                    <p class="font-manrope text-sm text-gray-500 mt-1 min-h-[40px]">
+                        For solopreneurs and affiliate marketers.
+                    </p>
+
+                    <!-- Price -->
+                    <div class="my-7">
+
+                        <div class="flex items-baseline gap-2">
+                            <span
+                                class="font-ibm text-[50px] font-semibold leading-none tracking-[-1px] text-text-primary price-pro">
+                                $29
+                            </span>
+
+                            <span class="text-secondary text-base font-normal leading-6">/month</span>
+                        </div>
+                        <span class="discount block text-[#31C969] font-manrope text-sm font-semibold mt-1 hidden">
+                            Save 20%
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        class="w-full py-3 px-7 rounded-xl bg-[#2465EA] text-white font-manrope font-semibold hover:bg-blue-700 transition flex items-center justify-center gap-2 shadow-lg shadow-blue-500/30">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                        Start 14-Day Trial
+                    </button>
+
+                    <!-- UL -->
+                    <ul class="space-y-3 sm:space-y-4 pt-6 sm:pt-7">
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 flex-shrink-0">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="8" fill="#2563EB" />
+                                    <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">100 Browser
+                                Profiles</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 flex-shrink-0">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="8" fill="#2563EB" />
+                                    <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">Advanced
+                                Fingerprints</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 flex-shrink-0">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="8" fill="#2563EB" />
+                                    <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">API Access
+                                (Limited)</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 flex-shrink-0">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="8" fill="#2563EB" />
+                                    <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">Proxy
+                                Manager</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <div class="mt-1 flex-shrink-0">
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="8" cy="8" r="8" fill="#2563EB" />
+                                    <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">Priority
+                                Email Support</span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+
+
+            <!-- Team Plan -->
+            <div class="min-w-[85vw] sm:min-w-[380px] md:min-w-0 snap-center 
+                bg-white rounded-2xl p-6 sm:p-8 lg:p-10 border border-[#B1B9C4]
+                shadow hover:shadow-lg transition-all duration-300
+                text-left flex flex-col">
+
+                <h3 class="font-manrope text-2xl font-bold text-black">Team</h3>
+
+                <p class="font-manrope text-sm text-gray-500 mt-1 min-h-[40px]">
+                    For agencies and large scale operations.
+                </p>
+
+                <!-- Price -->
+                <div class="my-7">
+                    <!-- Hàng 1: Giá + /month -->
+                    <div class="flex items-baseline gap-2">
+                        <span
+                            class="font-ibm text-[50px] font-semibold leading-none tracking-[-1px] text-text-primary price-team">
+                            $99
+                        </span>
+                        <span class="text-secondary text-base font-normal leading-6">/month</span>
+                    </div>
+                </div>
+
+                <button
+                    class="w-full py-3 px-7 rounded-xl border-[1.2px] border-primary text-primary font-manrope font-medium hover:bg-blue-50 transition">
+                    Contact Sales
+                </button>
+
+
+                <ul class="space-y-3 sm:space-y-4 pt-6 sm:pt-7">
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 flex-shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="8" fill="#31C969" />
+                                <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">1,000 Browser
+                            Profiles</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 flex-shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="8" fill="#31C969" />
+                                <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">Full API
+                            Access</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 flex-shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="8" fill="#31C969" />
+                                <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">Team
+                            Collaboration (5 Seats)</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 flex-shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="8" fill="#31C969" />
+                                <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">Cookie
+                            Robot</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <div class="mt-1 flex-shrink-0">
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="8" cy="8" r="8" fill="#31C969" />
+                                <path d="M11 6L7 10L5 8" stroke="white" stroke-width="1.5" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <span class="text-gray-600 text-sm sm:text-base leading-tight sm:leading-normal">Dedicated
+                            Account Manager</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <script>
+            // Animate price
+            function animatePrice(element, start, end, duration = 600) {
+                const range = end - start;
+                const startTime = performance.now();
+
+                function updatePrice(now) {
+                    const progress = Math.min((now - startTime) / duration, 1);
+                    const current = Math.floor(start + range * progress);
+                    element.textContent = `$${current}`;
+                    if (progress < 1) requestAnimationFrame(updatePrice);
+                }
+
+                requestAnimationFrame(updatePrice);
+            }
+
+            // Switch Billing (Monthly / Yearly)
+            function switchBilling(period) {
+                const btnMonthly = document.getElementById('billing-monthly');
+                const btnYearly = document.getElementById('billing-yearly');
+                const pricePro = document.querySelector('.price-pro');
+                const discounts = document.querySelectorAll('.discount');
+
+                let currentPro = parseInt(pricePro.textContent.replace('$', ''));
+                if (period === 'monthly') {
+                    btnMonthly.classList.add('bg-white', 'text-gray-900', 'shadow');
+                    btnYearly.classList.remove('bg-white', 'text-gray-900', 'shadow');
+                    animatePrice(pricePro, currentPro, 29);
+                    discounts.forEach(d => d.classList.add("hidden"));
+
+                } else { // yearly
+                    btnMonthly.classList.remove('bg-white', 'text-gray-900', 'shadow');
+                    btnYearly.classList.add('bg-white', 'text-gray-900', 'shadow');
+                    animatePrice(pricePro, currentPro, 24);
+                    discounts.forEach(d => d.classList.remove("hidden"));
+                }
+            }
+
+            // Auto-center card on mobile
+            document.addEventListener("DOMContentLoaded", () => {
+                const container = document.getElementById('pricing-scroll-container');
+                const middleCard = document.getElementById('pricing-card-pro');
+
+                // Set mặc định billing = monthly (ẩn discount)
+                switchBilling("monthly");
+
+                if (window.innerWidth < 768) {
+                    const scrollLeft =
+                        middleCard.offsetLeft -
+                        container.clientWidth / 2 +
+                        middleCard.clientWidth / 2;
+
+                    container.scrollLeft = scrollLeft;
+                }
+            });
+        </script>
+
+
+
+    </div>
+</section>

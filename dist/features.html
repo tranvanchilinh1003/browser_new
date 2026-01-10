@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>FEATURES - Browser Fingerprint</title>
+	<title>Features - Browser Fingerprint</title>
 	<meta name="description"
 		content="Cửa hàng bán tài khoản premium, key license, VPN và các sản phẩm số chất lượng cao với giá tốt nhất.">
 	<script type="text/javascript">
@@ -188,7 +188,7 @@
     navItems: [
       { href: '/', label: 'Home', key: 'index.html' },
       { href: '/features.html', label: 'Features', key: 'features.html' },
-      { href: '/#pricing', label: 'Pricing', key: 'pricing.html' },
+      { href: '/pricing.html', label: 'Pricing', key: 'pricing.html' },
       { href: '/#user-guide', label: 'User Guide', key: 'user-guide.html' }
     ],
     init() {
@@ -434,7 +434,7 @@
         </a>
 
 
-        <a href="#pricing"
+        <a href="/pricing.html"
           :class="activeLink === '#pricing' ? 'bg-[#E9F3FD] text-[#2B8CEE]' : 'text-gray-700 hover:text-blue-600'"
           class="block px-6 py-4 rounded-xl font-pjs hover:bg-gray-50 transition-colors border-b border-[#97A4B2]">
           Pricing
@@ -1400,8 +1400,10 @@
 </section>
 		<section class="py-12 md:py-24 bg-white">
     <div class="container mx-auto">
-        <h2 class="text-center font-manrope text-[32px] sm:text-[40px] lg:text-[48px]
-        font-bold leading-tight text-[#111827]">
+        <h2 class="text-center font-ibm text-[30px] sm:text-[40px] lg:text-[50px]
+         font-semibold leading-tight sm:leading-snug lg:leading-none
+         tracking-[-0.5px] sm:tracking-[-0.5px] lg:tracking-[-1px]
+         text-text-primary">
             Why Browser Fingerprint?
         </h2>
 
@@ -1537,6 +1539,7 @@
     <div class="container mx-auto">
         <div class="relative overflow-hidden bg-[url('/assets/images/home_start.png')] 
         rounded-2xl lg:rounded-3xl py-12 lg:py-24 bg-cover bg-center px-4">
+
             <svg class="absolute bottom-10 right-10 w-48 sm:w-48 lg:w-48 h-auto opacity-20 pointer-events-none"
                 viewBox="0 0 192 192" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <g style="mix-blend-mode:overlay">
@@ -1625,6 +1628,8 @@
                     </g>
                 </g>
             </svg>
+
+
             <!-- CONTENT -->
             <div class="relative z-10 flex flex-col items-center justify-center 
                 text-center space-y-6  mx-auto">

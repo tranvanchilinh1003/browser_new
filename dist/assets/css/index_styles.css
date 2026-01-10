@@ -2252,9 +2252,8 @@ body:has(.jmodal:not(.hidden)) header.header {
   border-color: rgb(151 164 178 / var(--tw-border-opacity, 1));
 }
 
-.border-\[\#F8FAFC\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(248 250 252 / var(--tw-border-opacity, 1));
+.border-back2 {
+  border-color: var(--back2);
 }
 
 .border-gray-100 {
@@ -2761,16 +2760,16 @@ body:has(.jmodal:not(.hidden)) header.header {
   line-height: 18px;
 }
 
-.leading-\[20px\] {
-  line-height: 20px;
-}
-
 .leading-\[24px\] {
   line-height: 24px;
 }
 
 .leading-\[27px\] {
   line-height: 27px;
+}
+
+.leading-\[30px\] {
+  line-height: 30px;
 }
 
 .leading-none {
@@ -4117,6 +4116,11 @@ button.swiper-pagination-bullet{
     padding-top: 2rem;
   }
 
+  .sm\:text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
   .sm\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -4157,12 +4161,12 @@ button.swiper-pagination-bullet{
     line-height: 1.5rem;
   }
 
-  .sm\:leading-\[20px\] {
-    line-height: 20px;
+  .sm\:leading-9 {
+    line-height: 2.25rem;
   }
 
-  .sm\:leading-\[24px\] {
-    line-height: 24px;
+  .sm\:leading-\[20px\] {
+    line-height: 20px;
   }
 
   .sm\:leading-snug {
@@ -4367,10 +4371,6 @@ button.swiper-pagination-bullet{
     font-size: 16px;
   }
 
-  .lg\:text-\[20px\] {
-    font-size: 20px;
-  }
-
   .lg\:text-\[50px\] {
     font-size: 50px;
   }
@@ -4391,10 +4391,6 @@ button.swiper-pagination-bullet{
 
   .lg\:leading-\[24px\] {
     line-height: 24px;
-  }
-
-  .lg\:leading-\[28px\] {
-    line-height: 28px;
   }
 
   .lg\:leading-none {
